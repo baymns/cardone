@@ -1,0 +1,32 @@
+{
+  "name": "cardone",
+  "version": "1.0.0",
+  "description": "Service for searching for car services",
+  "main": "index.js",
+  "proxy": "http://localhost:3001",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baymns/cardone.git"
+  },
+  "keywords": [
+    "cars",
+    "services"
+  ],
+  "author": "baymns",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baymns/cardone/issues"
+  },
+  "homepage": "https://github.com/baymns/cardone#readme",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8"
+  }
+}

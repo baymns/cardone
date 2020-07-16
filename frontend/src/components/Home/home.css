@@ -1,0 +1,11 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+}
+.navbar {
+  height: 3em;
+  border-bottom: 1px solid #aaa;
+}
+.content {
+  height: 100vh;
+}
