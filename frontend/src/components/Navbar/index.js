@@ -1,26 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './navbar.scss';
+import styles from './navbar.module.scss';
 
 function Navbar() {
   return (
-    <div className="navbar">
-      <div className="logo">CARDONE</div>
-      <div className="burger-menu">
+    <div className={styles.navbar}>
+      <div className={styles.logo}>CARDONE</div>
+      <div className={styles.burger_menu}>
         <input id="burger" type="checkbox" />
 
-        <label for="burger">
+        <label htmlFor="burger">
           <span></span>
           <span></span>
           <span></span>
         </label>
 
         <nav>
-          <ul>
+          <div className={styles.links_container}>
             <div><Link to='/'>Войти</Link></div>
             <div><Link to='/'>Зарегистрироваться</Link></div>
             <div><Link to='/'>Вы автосервис?</Link></div>
-          </ul>
+          </div >
         </nav>
 
       </div >
