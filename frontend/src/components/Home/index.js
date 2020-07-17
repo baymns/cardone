@@ -1,15 +1,14 @@
 import React from 'react';
-import './home.css';
+import { Link } from 'react-router-dom';
+import Navbar from '../Navbar/index';
+import './home.scss';
 
 function Home() {
   return (
     <div className="home-container">
-      <nav className="navbar">
-        <div className="logo">CARDONE</div>
-        <div className="nav-links">=</div>
-      </nav>
-      <div className="content"></div>
-    </div>
+      <Navbar />
+      
+    </div >
   );
 }
 
