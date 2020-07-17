@@ -5,41 +5,41 @@ import styles from './home.module.scss';
 function Home() {
   return (
     <div className={styles.home_container}>
-      <Link to="/services">
-        <div className={styles.container}>
+      <div className={styles.container}>
+        <Link to="/services">
           <div className="services">
             <p>Автосервис</p>
           </div>
-        </div>
-      </Link>
-      <Link to="/tireservices">
-        <div className={styles.container}>
+        </Link>
+      </div>
+      <div className={styles.container}>
+        <Link to="/tireservices">
           <div className="tire-services">
             <p>Шиномонтаж</p>
           </div>
-        </div>
-      </Link>
-      <Link to="/autoparts">
-        <div className={styles.container}>
+        </Link>
+      </div>
+      <div className={styles.container}>
+        <Link to="/autoparts">
           <div className="autoparts">
             <p>Автозапчасти</p>
           </div>
-        </div>
-      </Link>
-      <Link to="/carwash">
-        <div className={styles.container}>
+        </Link>
+      </div>
+      <div className={styles.container}>
+        <Link to="/carwash">
           <div className="car-wash">
             <p>Автомойка</p>
           </div>
-        </div>
-      </Link>
-      <Link to="/evacuator">
-        <div className={styles.container}>
+        </Link>
+      </div>
+      <div className={styles.container}>
+        <Link to="/evacuator">
           <div className="evacuator">
             <p>Эвакуатор</p>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div >
   );
 }
