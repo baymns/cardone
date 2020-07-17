@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { LOADING_FAILED, LOADING_STARTED, LOADING_FAILED } from './actionTypes';
+import { LOADING_FAILED, LOADING_STARTED, LOADING_SUCCESSFUL } from './actionTypes';
 
 dotenv.config();
 
@@ -36,6 +36,7 @@ export function load() {
       );
       const json = await response.json();
       const result = json.features.map((item) => item.properties);
+      console.log(result);
       dispatch(loadingSuccessful(result));
     } catch (err) {
       dispatch(loadingFailed(err));
