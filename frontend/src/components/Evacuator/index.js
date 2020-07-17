@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { addEvacuatorReq } from '../../redux/actions/actionCreators';
 
 function Evacuator() {
   const [reqData, setReqData] = useState({
@@ -7,6 +10,8 @@ function Evacuator() {
     brand: '',
     model: '',
   });
+
+  const dispatch = useDispatch();
 
   function recordUsername(username) {
     setReqData({ username });
@@ -42,7 +47,7 @@ function Evacuator() {
   }
   return (
     <>
-      <form className="evaForm" onSubmit={chtoto}>
+      <form className="evaForm" onSubmit={sendReq}>
         <input
           className="evaInput"
           name="username"
@@ -67,7 +72,7 @@ function Evacuator() {
           placeholder="Модель автомобиля"
           onChange={recordModelOfAuto}
         ></input>
-        <button className="evaButton" type="submit" onSubmit={sendReq}>
+        <button className="evaButton" type="submit">
           Отправить
         </button>
       </form>
