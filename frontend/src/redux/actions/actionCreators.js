@@ -47,6 +47,7 @@ export function load() {
       );
       const json = await response.json();
       const result = json.features.map((item) => item.properties);
+      console.log(result);
       dispatch(loadingSuccessful(result));
     } catch (err) {
       dispatch(loadingFailed(err));
