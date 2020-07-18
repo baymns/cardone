@@ -13,22 +13,6 @@ function Evacuator() {
 
   const dispatch = useDispatch();
 
-  function recordUsername(event) {
-    setReqData({ ...reqData, username: event.target.value });
-  }
-
-  function recordPhone(event) {
-    setReqData({ ...reqData, phone: event.target.value });
-  }
-
-  function recordBrandOfAuto(event) {
-    setReqData({ ...reqData, brand: event.target.value });
-  }
-
-  function recordModelOfAuto(event) {
-    setReqData({ ...reqData, model: event.target.value });
-  }
-
   async function sendReq(event) {
     event.preventDefault();
     console.log(reqData);
@@ -47,32 +31,40 @@ function Evacuator() {
       model: '',
     });
   }
+  function changed({ target: { value, name } }) {
+    setReqData({ ...reqData, [name]: value });
+    console.log(reqData);
+  }
   return (
     <>
       <form className="evaForm" onSubmit={sendReq}>
         <input
-          className="evaInput"
           name="username"
+          className="evaInput"
           placeholder="Как к вам обращаться?"
-          onChange={recordUsername}
+          onChange={changed}
+          value={reqData.username}
         ></input>
         <input
-          className="evaInput"
           name="phone"
+          className="evaInput"
           placeholder="Телефон для связи"
-          onChange={recordPhone}
+          onChange={changed}
+          value={reqData.phone}
         ></input>
         <input
+          name="brand"
           className="evaInput"
-          name="brandOfAuto"
           placeholder="Марка автомобиля"
-          onChange={recordBrandOfAuto}
+          onChange={changed}
+          value={reqData.brand}
         ></input>
         <input
+          name="model"
           className="evaInput"
-          name="modelOfAuto"
           placeholder="Модель автомобиля"
-          onChange={recordModelOfAuto}
+          onChange={changed}
+          value={reqData.model}
         ></input>
         <button className="evaButton" type="submit">
           Отправить
