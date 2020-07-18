@@ -21,11 +21,11 @@ function Evacuator() {
     setReqData({ phone });
   }
 
-  function recordBrandOfAuto(brand) {
+  function recordBrand(brand) {
     setReqData({ brand });
   }
 
-  function recordModelOfAuto(model) {
+  function recordModel(model) {
     setReqData({ model });
   }
 
@@ -49,28 +49,28 @@ function Evacuator() {
     <>
       <form className="evaForm" onSubmit={sendReq}>
         <input
-          className="evaInput"
           name="username"
+          className="evaInput"
           placeholder="Как к вам обращаться?"
           onChange={recordUsername}
         ></input>
         <input
-          className="evaInput"
           name="phone"
+          className="evaInput"
           placeholder="Телефон для связи"
           onChange={recordPhone}
         ></input>
         <input
+          name="brand"
           className="evaInput"
-          name="brandOfAuto"
           placeholder="Марка автомобиля"
-          onChange={recordBrandOfAuto}
+          onChange={recordBrand}
         ></input>
         <input
+          name="model"
           className="evaInput"
-          name="modelOfAuto"
           placeholder="Модель автомобиля"
-          onChange={recordModelOfAuto}
+          onChange={recordModel}
         ></input>
         <button className="evaButton" type="submit">
           Отправить
