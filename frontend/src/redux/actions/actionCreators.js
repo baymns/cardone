@@ -3,9 +3,17 @@ import {
   LOADING_FAILED,
   LOADING_STARTED,
   LOADING_SUCCESSFUL,
+  EVACUATOR_REQ,
 } from './actionTypes';
 
 dotenv.config();
+
+export function addEvacuatorReq(reqData) {
+  return {
+    type: EVACUATOR_REQ,
+    payload: reqData,
+  };
+}
 
 export function loadingStarted() {
   return {
