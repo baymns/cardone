@@ -13,28 +13,30 @@ function Evacuator() {
 
   const dispatch = useDispatch();
 
-  function recordUsername(username) {
-    setReqData({ username });
+  function recordUsername(event) {
+    setReqData({ ...reqData, username: event.target.value });
   }
 
-  function recordPhone(phone) {
-    setReqData({ phone });
+  function recordPhone(event) {
+    setReqData({ ...reqData, phone: event.target.value });
   }
 
-  function recordBrandOfAuto(brand) {
-    setReqData({ brand });
+  function recordBrandOfAuto(event) {
+    setReqData({ ...reqData, brand: event.target.value });
   }
 
-  function recordModelOfAuto(model) {
-    setReqData({ model });
+  function recordModelOfAuto(event) {
+    setReqData({ ...reqData, model: event.target.value });
   }
 
   async function sendReq(event) {
     event.preventDefault();
-    const response = await fetch('http://localhost:3001/api/requests', {
+    console.log(reqData);
+
+    const response = await fetch('/api/requests', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(),
+      body: JSON.stringify(reqData),
     });
     const result = await response.json();
     dispatch(addEvacuatorReq(reqData));

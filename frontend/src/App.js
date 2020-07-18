@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/evaquator">
+          <Route path="/evacuator">
             <Evaquator />
           </Route>
           <Route path="/services">

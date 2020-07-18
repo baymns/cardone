@@ -9,6 +9,7 @@ import sessionStorage from 'session-file-store';
 import signinRouter from './routes/signin.js';
 import signupRouter from './routes/signup.js';
 import logoutRouter from './routes/logout.js';
+import evacuatorOrder from './routes/evacuatorOrder.js';
 
 const FileStore = sessionStorage(session);
 const app = express();
@@ -43,6 +44,7 @@ app.use(
 app.use('/api/signin', signinRouter);
 app.use('/api/signup', signupRouter);
 app.use('/api/logout', logoutRouter);
+app.use('/api/requests', evacuatorOrder);
 
 const PORT = process.env.PORT ?? 3001;
 
