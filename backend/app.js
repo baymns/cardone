@@ -27,7 +27,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.resolve('public')));
-app.use(cookieParser());
 app.use(
   session({
     store: new FileStore(),
@@ -43,9 +42,17 @@ app.use(
 
 app.use('/api/signin', signinRouter);
 app.use('/api/signup', signupRouter);
+
+app.use((req, res, next) => {
+  if (req.session.user) {
+    return next();
+  }
+  res.status(401).end();
+});
+
 app.use('/api/logout', logoutRouter);
 app.use('/api/requests', evacuatorOrder);
 
 const PORT = process.env.PORT ?? 3001;
 
-app.listen(PORT);
+app.listen(PORT, () => console.log('Server is running'));
