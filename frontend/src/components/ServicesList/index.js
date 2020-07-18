@@ -15,7 +15,7 @@ function ServicesList(props) {
   }, [dispatch]);
 
   return (
-    <div>
+    <div >
       {loading && <Loading />}
       {error && error.message}
       {data &&

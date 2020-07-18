@@ -1,8 +1,9 @@
 import React from 'react';
+//import Map from '../Map'
 import styles from './service.module.scss';
 
 function Service({ service }) {
-  const { name, description, CompanyMetaData } = service;
+  const { name, description, CompanyMetaData, boundedBy } = service;
   const { url, Phones, Hours, Categories } = CompanyMetaData;
   return (
     <div className={styles.service_block}>
@@ -13,7 +14,13 @@ function Service({ service }) {
         <p key={formatted}>{formatted}</p>
       ))}
       <a href={url}>{url}</a>
-      <p>Вид услуг: {Categories.map(({ name }) => <small key={name}>{name.toUpperCase()} </small>)}</p>
+      <p>
+        Вид услуг:{' '}
+        {Categories.map(({ name }) => (
+          <small key={name}>{name.toUpperCase()} </small>
+        ))}
+      </p>
+      {/* <Map boundedBy={boundedBy[0].reverse()} /> */}
     </div>
   );
 }
