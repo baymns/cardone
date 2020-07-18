@@ -19,7 +19,7 @@ function ServicesList(props) {
       {loading && <Loading />}
       {error && error.message}
       {data &&
-        data.map((service) => <Service key={service.name} service={service} />)}
+        data.map((service) => <Service key={service.CompanyMetaData.id} service={service} />)}
     </div>
   );
 }

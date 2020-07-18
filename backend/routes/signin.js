@@ -5,7 +5,6 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   const { email, password } = req.body;
-
   let user;
   try {
     user = await User.findOne({ email, password });
@@ -15,8 +14,11 @@ router.post('/', async (req, res) => {
   if (!user) {
     return res.status(401).end();
   }
-  req.session.user = user;
-  return res.json(user);
+  const filteredUser = { name: user.name, id: user._id }
+  req.session.user = filteredUser;
+  console.log(req.session.user);
+
+  return res.json(filteredUser);
 });
 
 export default router;

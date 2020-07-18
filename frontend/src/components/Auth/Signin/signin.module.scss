@@ -1,0 +1,13 @@
+.signin_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  .signin_block {
+    width: 15em;
+    height: 15em;
+    > h2 {
+      text-align: center;
+    }
+  }
+}
