@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reduxThunk from 'redux-thunk';
 import servicesReducers from './reducers/servicesReducers';
+import userReducer from './reducers/userReducer';
 
 const storageState = window.localStorage.getItem('state');
 
@@ -9,6 +10,7 @@ const initialState = storageState ? JSON.parse(storageState) : undefined;
 
 const store = createStore(
   combineReducers({
+    user: userReducer,
     services: servicesReducers,
   }),
   initialState,
