@@ -40,15 +40,29 @@ export function load() {
   return async (dispatch) => {
     dispatch(loadingStarted());
     try {
-      const response = await fetch(
-        encodeURI(
-          `https://search-maps.yandex.ru/v1/?apikey=${process.env.REACT_APP_API_KEY_SEARCH_COMPANY}&text=аптека&type=biz&lang=ru_RU&ll=37.618920,55.756994&spn=0.552069,0.400552`,
-        ),
-      );
-      const json = await response.json();
-      const result = json.features.map((item) => item.properties);
-      console.log(result);
-      dispatch(loadingSuccessful(result));
+      async function success(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        const response = await fetch(
+          encodeURI(
+            `https://search-maps.yandex.ru/v1/?apikey=${process.env.REACT_APP_API_KEY_SEARCH_COMPANY}&text=автосервис&type=biz&lang=ru_RU&ll=${longitude},${latitude}&spn=0.552069,0.400552`,
+          ),
+        );
+        const json = await response.json();
+        const result = json.features.map((item) => item.properties);
+        dispatch(loadingSuccessful(result));
+      }
+
+      function error() {
+        console.log('err');
+      }
+
+      if (!navigator.geolocation) {
+        console.log('Geolocation is not supported by your browser');
+      } else {
+        navigator.geolocation.getCurrentPosition(success, error);
+      }
     } catch (err) {
       dispatch(loadingFailed(err));
     }
