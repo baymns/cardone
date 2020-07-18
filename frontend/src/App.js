@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Evaquator from './components/Evacuator';
 import Home from './components/Home/index';
 import ServicesList from './components/ServicesList'
 import Signin from './components/Auth/Signin/index';
@@ -14,6 +15,9 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
+          <Route path="/evacuator">
+            <Evaquator />
+          </Route>
           <Route path="/services">
             <ServicesList />
           </Route>
