@@ -15,11 +15,11 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/evacuator">
+          <Route path="/evacuator" >
             <Evaquator />
           </Route>
           <Route path="/services">
-            <ServicesList />
+            <ServicesList category={'автосервис'}/>
           </Route>
           <Route path="/signin">
             <Signin />
