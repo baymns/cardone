@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import styles from './evacuator.module.scss';
 
 import { addEvacuatorReq } from '../../redux/actions/actionCreators';
 
@@ -36,41 +37,60 @@ function Evacuator() {
     console.log(reqData);
   }
   return (
-    <>
-      <form className="evaForm" onSubmit={sendReq}>
+    <form className={styles.evaForm} onSubmit={sendReq}>
+      <div class="form-group">
         <input
           name="username"
           className="evaInput"
           placeholder="Как к вам обращаться?"
           onChange={changed}
           value={reqData.username}
+          type="text"
+          class="form-control"
+          id="username"
+          aria-describedby="emailHelp"
         ></input>
+      </div>
+      <div class="form-group">
         <input
           name="phone"
           className="evaInput"
           placeholder="Телефон для связи"
           onChange={changed}
           value={reqData.phone}
+          type="phone"
+          class="form-control"
+          id="phone"
         ></input>
+      </div>
+      <div class="form-group">
         <input
           name="brand"
           className="evaInput"
           placeholder="Марка автомобиля"
           onChange={changed}
           value={reqData.brand}
+          type="text"
+          class="form-control"
+          id="brand"
         ></input>
+      </div>
+      <div class="form-group">
         <input
           name="model"
           className="evaInput"
           placeholder="Модель автомобиля"
           onChange={changed}
           value={reqData.model}
+          type="text"
+          class="form-control"
+          id="model"
         ></input>
-        <button className="evaButton" type="submit">
-          Отправить
-        </button>
-      </form>
-    </>
+      </div>
+      <button type="submit" className="evaButton" class="btn btn-primary">
+        Отправить
+      </button>
+    </form>
   );
 }
 
