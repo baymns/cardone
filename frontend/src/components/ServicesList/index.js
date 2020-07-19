@@ -4,6 +4,8 @@ import { load } from '../../redux/actions/actionCreators';
 import Service from '../Service';
 import Loading from '../Loading';
 
+import styles from './serviceslist.module.scss';
+
 function ServicesList(props) {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.services.loading);
@@ -15,7 +17,7 @@ function ServicesList(props) {
   }, [dispatch]);
 
   return (
-    <div >
+    <div className={styles.list_container}>
       {loading && <Loading />}
       {error && error.message}
       {data &&
