@@ -28,11 +28,20 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/evacuator" >
+          <Route path="/evacuator">
             <Evaquator />
           </Route>
           <Route path="/services">
-            <ServicesList category={'автосервис'}/>
+            <ServicesList category={'автосервис'} />
+          </Route>
+          <Route path="/tireservices">
+            <ServicesList category={'шиномонтаж'} />
+          </Route>
+          <Route path="/autoparts">
+            <ServicesList category={'автозапчасти'} />
+          </Route>
+          <Route path="/carwash">
+            <ServicesList category={'автомойка'} />
           </Route>
           <Route path="/signin">
             <Signin />
@@ -48,7 +57,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    <div id="map"></div>
+      <div id="map"></div>
     </div>
   );
 }
