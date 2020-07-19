@@ -12,9 +12,9 @@ function Service({ service }) {
       <p><strong>{name}</strong></p>
       <p><span>Адрес: {description}</span></p>
       {Hours && <p>Время работы: {Hours.text}</p>}
-      <p>Тел: {Phones.map(({ formatted }) => (
+      {Phones && <p>Тел: {Phones.map(({ formatted }) => (
         <span key={formatted}>{formatted}, </span>
-      ))}</p>
+      ))}</p>}
       Сайт организации: <a href={url}>{url}</a>
       <p>
         Вид услуг:{' '}
