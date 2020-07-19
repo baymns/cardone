@@ -4,9 +4,17 @@ import {
   LOADING_STARTED,
   LOADING_SUCCESSFUL,
   EVACUATOR_REQ,
+  SHOW_MODAL,
 } from './actionTypes';
 
 dotenv.config();
+
+export function showModal(show) {
+  return {
+    type: SHOW_MODAL,
+    show,
+  };
+}
 
 export function addEvacuatorReq(reqData) {
   return {
