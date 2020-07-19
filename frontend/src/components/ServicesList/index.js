@@ -4,22 +4,24 @@ import { load } from '../../redux/actions/actionCreators';
 import Service from '../Service';
 import Loading from '../Loading';
 
-function ServicesList(props) {
+function ServicesList({ category }) {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.services.loading);
   const data = useSelector((state) => state.services.data);
   const error = useSelector((state) => state.services.error);
 
   useEffect(() => {
-    dispatch(load());
+    dispatch(load(category));
   }, [dispatch]);
 
   return (
-    <div >
+    <div>
       {loading && <Loading />}
       {error && error.message}
       {data &&
-        data.map((service) => <Service key={service.CompanyMetaData.id} service={service} />)}
+        data.map((service) => (
+          <Service key={service.CompanyMetaData.id} service={service} />
+        ))}
     </div>
   );
 }
