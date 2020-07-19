@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
-import LocalCarWashRoundedIcon from '@material-ui/icons/LocalCarWashRounded';
 import styles from './home.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { Modal } from '../Modal';
@@ -45,13 +44,13 @@ function Home() {
             </div>
           </Link>
         </div>
-        <div className={styles.container}>
-          <Link to="/evacuator">
-            <div className="evacuator">
+        <div className={styles.container} onClick={() => dispatch(showModal('evacuator'))}>
+          <div className={styles.evacuator}>
+            <div>
               <i className="fas fa-truck-pickup"></i>
               <div>Эвакуатор</div>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
     </>

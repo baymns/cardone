@@ -2,58 +2,71 @@
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
-    .container {
-      border: 0.5px solid #fff;
-      box-sizing: border-box;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      flex: 1 2 50%;
-      transition: all 0.2s;
-      background-color: #86cbec;
-      &:hover {
-        background-color: #fff;
+  .container {
+    border: 0.5px solid #fff;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 1 2 50%;
+    transition: all 0.2s;
+    background-color: #86cbec;
+    &:hover {
+      background-color: #fff;
 
-      }
+    }
+    > a {
+      height: 9em;  
+      width: 100%;
+      height: 30vh;
+      color: #fff;
+
       &:hover {
+        color: #86cbec;
         text-decoration: none;
-        color: #45a6d5;
+      }
+      .evacuator {
 
       }
       div {
         line-height: 9.4em;
-        color: #fff;
-      }
-      
-      > a {
-        width: 100%;
-        height: 30vh;
-        color: #fff;
-        
-        &:hover {
-          text-decoration: none;
-          color: #45a6d5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        line-height: 50%;
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+        > div {
+          height: 2em;
+        }
 
-        }
-        div {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          height: 100%;
-          line-height: 50%;
-          svg {
-            width: 30px;
-            height: 30px;
-          }
-          > div {
-            height: 2em;
-          }
-             
-        }
       }
+    }
+    .evacuator {
+      width: 100vw;
+      height: 29.4vh;
+      line-height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
       
+      &:hover {
+        background-color: #fff;
+        color: #86cbec;
+        cursor: pointer;
+      }
+      svg {
+        width: 30px;
+          height: 30px;
+        margin-bottom: 1em;
+      }
     }
   }
+}
