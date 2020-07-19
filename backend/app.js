@@ -42,6 +42,8 @@ app.use(
 
 app.use('/api/signin', signinRouter);
 app.use('/api/signup', signupRouter);
+app.use('/api/requests', evacuatorOrder);
+
 
 app.use((req, res, next) => {
   if (req.session.user) {
@@ -51,7 +53,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/logout', logoutRouter);
-app.use('/api/requests', evacuatorOrder);
 
 const PORT = process.env.PORT ?? 3001;
 

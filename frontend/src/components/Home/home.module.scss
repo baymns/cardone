@@ -17,6 +17,16 @@
         background-color: #fff;
 
       }
+      &:hover {
+        text-decoration: none;
+        color: #45a6d5;
+
+      }
+      div {
+        line-height: 9.4em;
+        color: #fff;
+      }
+      
       > a {
         width: 100%;
         height: 30vh;

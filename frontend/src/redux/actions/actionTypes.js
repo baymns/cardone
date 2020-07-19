@@ -6,4 +6,5 @@ export const AUTH_USER = 'AUTH_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 
 export const EVACUATOR_REQ = 'EVACUATOR_REQ';
+export const SHOW_MODAL = 'SHOW_MODAL'
 

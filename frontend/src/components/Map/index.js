@@ -1,12 +1,38 @@
 import React from 'react';
 
-function MyMap({ description }) {
+function MyMap({ description, boundedBy }) {
   (function handleLoad() {
     function success(position) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
+      const foto = boundedBy.reverse()
       window.ymaps.ready(() => {
         function init() {
+
+          window.ymaps.panorama.locate(foto).done(
+            function (panoramas) {
+              console.log(panoramas);
+              // Убеждаемся, что найдена хотя бы одна панорама.
+              if (panoramas.length > 0) {
+                // Создаем плеер с одной из полученных панорам.
+                var player = new window.ymaps.panorama.Player(
+                  'player1',
+                  // Панорамы в ответе отсортированы по расстоянию
+                  // от переданной в panorama.locate точки. Выбираем первую,
+                  // она будет ближайшей.
+                  panoramas[0],
+                  // Зададим направление взгляда, отличное от значения
+                  // по умолчанию.
+                  { direction: [256, 16] },
+                );
+              }
+            },
+            function (error) {
+              // Если что-то пошло не так, сообщим об этом пользователю.
+              alert(error.message);
+            },
+          );
+         
           /**
            * Создаем мультимаршрут.
            * Первым аргументом передаем модель либо объект описания модели.
@@ -82,7 +108,7 @@ function MyMap({ description }) {
 
           // Добавляем мультимаршрут на карту.
           myMap.geoObjects.add(multiRoute);
-          console.log(myMap.geoObjects);
+          
         }
 
         window.ymaps.ready(init);
@@ -99,7 +125,16 @@ function MyMap({ description }) {
       navigator.geolocation.getCurrentPosition(success, error);
     }
   })();
-  return <div id="map" style={{ width: '300px', height: '150px' }}></div>;
+  return (
+    <>
+      <div id="map" style={{ width: '320px', height: '160px' }}></div>
+      <div
+        id="player1"
+        class="player"
+        style={{ width: '320px', height: '160px' }}
+      ></div>
+    </>
+  );
 }
 
 export default MyMap;

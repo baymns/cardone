@@ -3,6 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import reduxThunk from 'redux-thunk';
 import servicesReducers from './reducers/servicesReducers';
 import userReducer from './reducers/userReducer';
+import modalReducers from './reducers/modalReducers';
 
 const storageState = window.localStorage.getItem('state');
 
@@ -12,6 +13,7 @@ const store = createStore(
   combineReducers({
     user: userReducer,
     services: servicesReducers,
+    modal: modalReducers,
   }),
   initialState,
   composeWithDevTools(applyMiddleware(reduxThunk)),
