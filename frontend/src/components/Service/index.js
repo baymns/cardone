@@ -24,7 +24,7 @@ function Service({ service }) {
       </p>
       
       <button type="button" className={styles.show_map_btn} onClick={() => setVisibility(!visibility)}>Показать на карте</button>
-      {visibility && <Map boundedBy={boundedBy[0].reverse()} description={description} />}
+      {visibility && <Map  description={description} />}
     </div>
   );
 }

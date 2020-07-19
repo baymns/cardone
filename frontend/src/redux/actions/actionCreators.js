@@ -46,7 +46,7 @@ export function load(service) {
 
         const response = await fetch(
           encodeURI(
-            `https://search-maps.yandex.ru/v1/?apikey=${process.env.REACT_APP_API_KEY_SEARCH_COMPANY}&text=${service}&type=biz&lang=ru_RU&ll=${longitude},${latitude}&spn=0.152069,0.100552`,
+            `https://search-maps.yandex.ru/v1/?apikey=${process.env.REACT_APP_API_KEY_SEARCH_COMPANY}&text=${service}&type=biz&lang=ru_RU&ll=${longitude},${latitude}&spn=0.052069,0.050552`,
           ),
         );
         const json = await response.json();
