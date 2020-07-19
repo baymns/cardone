@@ -9,12 +9,19 @@ function Service({ service }) {
   const [visibility, setVisibility] = useState(false);
   return (
     <div className={styles.service_block}>
-      <p><strong>{name}</strong></p>
-      <p><span>Адрес: {description}</span></p>
+      <p>
+        <strong>{name}</strong>
+      </p>
+      <p>
+        <span>Адрес: {description}</span>
+      </p>
       {Hours && <p>Время работы: {Hours.text}</p>}
-      <p>Тел: {Phones.map(({ formatted }) => (
-        <span key={formatted}>{formatted}, </span>
-      ))}</p>
+      <p>
+        Тел:{' '}
+        {Phones.map(({ formatted }) => (
+          <span key={formatted}>{formatted}, </span>
+        ))}
+      </p>
       Сайт организации: <a href={url}>{url}</a>
       <p>
         Вид услуг:{' '}
@@ -22,9 +29,14 @@ function Service({ service }) {
           <span key={name}>{name.toUpperCase()} </span>
         ))}
       </p>
-      
-      <button type="button" className={styles.show_map_btn} onClick={() => setVisibility(!visibility)}>Показать на карте</button>
-      {visibility && <Map  description={description} />}
+      <button
+        type="button"
+        className={styles.show_map_btn}
+        onClick={() => setVisibility(!visibility)}
+      >
+        Показать на карте
+      </button>
+      {visibility && <Map description={description} boundedBy={boundedBy[0]} />}
     </div>
   );
 }
