@@ -2,4 +2,17 @@
   // margin: 0 auto;
   padding: 20px;
   box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.15);
+  .show_map_btn {
+    border: 1px solid #3895c2;
+    border-radius: 0.5em;
+    background-color: transparent;
+    color: #3895c2;
+    padding: 3px 10px;
+    transition: 0.2s;
+    outline: none;
+    &:hover {
+      background-color: #3895c2;
+      color: #fff;
+    }
+  }
 }

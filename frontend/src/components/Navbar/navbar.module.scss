@@ -73,7 +73,7 @@
       background: #45a6d5;
       position: fixed;
       top: 0;
-      left: 0;
+      right: 0;
       width: 100%;
       height: 70px;
       z-index: 3;
@@ -81,11 +81,12 @@
       transition-delay: .3s;
       overflow: hidden;
       > .links_container {
+        display: none;
         position: absolute;
         color: #000;
         top: 35%;
-        transition: .1s;
-        transition-delay: .1s;
+        transition: .2s;
+        transition-delay: .2s;
         > div {
           text-align: center;
           opacity: 0;
@@ -112,6 +113,7 @@
       height: 100%;
       transition-delay: 0s;
       > .links_container {
+        display: block;
         > div {
           opacity: 1;
           transition-delay: .1s;

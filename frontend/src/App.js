@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Evaquator from './components/Evacuator';
@@ -10,6 +10,19 @@ import Logout from './components/Auth/Logout/index';
 
 
 function App() {
+
+  function handleLoad() {
+    window.ymaps.ready(() => {
+      new window.ymaps.Map('map', { center: [55.751574, 37.573856], zoom: 9 }, {
+        searchControlProvider: 'yandex#search'
+      });
+    });
+  }
+
+  useEffect(() => {
+    window.addEventListener('load', handleLoad());
+  }, [])
+
   return (
     <div className="App">
       <Router>
@@ -35,7 +48,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      
+    <div id="map"></div>
     </div>
   );
 }
