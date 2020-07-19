@@ -44,7 +44,7 @@ export function loadingFailed(err) {
   };
 }
 
-export function load() {
+export function load(service) {
   return async (dispatch) => {
     dispatch(loadingStarted());
     try {
@@ -54,7 +54,7 @@ export function load() {
 
         const response = await fetch(
           encodeURI(
-            `https://search-maps.yandex.ru/v1/?apikey=${process.env.REACT_APP_API_KEY_SEARCH_COMPANY}&text=аптека&type=biz&lang=ru_RU&ll=${longitude},${latitude}&spn=0.552069,0.400552`,
+            `https://search-maps.yandex.ru/v1/?apikey=${process.env.REACT_APP_API_KEY_SEARCH_COMPANY}&text=${service}&type=biz&lang=ru_RU&ll=${longitude},${latitude}&spn=0.052069,0.050552`,
           ),
         );
         const json = await response.json();

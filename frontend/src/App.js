@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Modal } from './components/Modal';
@@ -23,7 +23,17 @@ function App() {
 
   const CurrentModal = componentsForModal[modalState];
   console.log(CurrentModal);
+  function handleLoad() {
+    window.ymaps.ready(() => {
+      new window.ymaps.Map('map', { center: [55.751574, 37.573856], zoom: 9 }, {
+        searchControlProvider: 'yandex#search'
+      });
+    });
+  }
 
+  useEffect(() => {
+    window.addEventListener('load', handleLoad());
+  }, [])
   return (
     <div className="App">
       {<Modal>{modalState && <CurrentModal />}</Modal>}
@@ -34,7 +44,16 @@ function App() {
             <Evaquator />
           </Route>
           <Route path="/services">
-            <ServicesList />
+            <ServicesList category={'автосервис'} />
+          </Route>
+          <Route path="/tireservices">
+            <ServicesList category={'шиномонтаж'} />
+          </Route>
+          <Route path="/autoparts">
+            <ServicesList category={'автозапчасти'} />
+          </Route>
+          <Route path="/carwash">
+            <ServicesList category={'автомойка'} />
           </Route>
           <Route path="/signin">
             <Signin />
@@ -50,6 +69,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <div id="map"></div>
     </div>
   );
 }
