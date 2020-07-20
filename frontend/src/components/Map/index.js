@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MyMap({ description, boundedBy }) {
+function MyMap({ description, boundedBy ,id}) {
   (function handleLoad() {
     function success(position) {
       const latitude = position.coords.latitude;
@@ -108,6 +108,18 @@ function MyMap({ description, boundedBy }) {
 
           // Добавляем мультимаршрут на карту.
           myMap.geoObjects.add(multiRoute);
+            // на всякий если своего не получиться 110-122
+          window.ymaps.findOrganization(id).then(
+            function (orgGeoObject) {
+              console.log(orgGeoObject);
+              myMap.geoObjects.add(orgGeoObject);
+              orgGeoObject.balloon.open();
+            },
+            function (err) {
+              console.log(err);
+              // обработка ошибок
+            },
+          );
           
         }
 
@@ -127,10 +139,10 @@ function MyMap({ description, boundedBy }) {
   })();
   return (
     <>
-      <div id="map" style={{ width: '320px', height: '160px' }}></div>
+      <div id="map" style={{ width: '600px', height: '400px' }}></div>
       <div
         id="player1"
-        class="player"
+        className="player"
         style={{ width: '320px', height: '160px' }}
       ></div>
     </>
