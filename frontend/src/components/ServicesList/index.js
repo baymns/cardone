@@ -15,7 +15,7 @@ function ServicesList({ category }) {
   useEffect(() => {
     dispatch(load(category));
   }, [dispatch]);
-
+console.log(data);
   return (
     <div className={styles.list_container}>
       {loading && <Loading />}
