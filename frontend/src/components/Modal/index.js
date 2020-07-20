@@ -9,9 +9,9 @@ export const Modal = (props) => {
   const show = useSelector((state) => state.modal.modal);
   const dispatch = useDispatch();
   const transition = useTransition(show, null, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
+    from: { opacity: 0, top: '-1000px' },
+    enter: { opacity: 1, top: '0px' },
+    leave: { opacity: 0, top: '1000px' },
   });
 
   return (
@@ -22,7 +22,7 @@ export const Modal = (props) => {
             <animated.div
               key={key}
               className={styleSheet.container}
-              style={props.springProps}
+              style={springProps}
             >
               <div
                 className={styleSheet.modalBackground}
