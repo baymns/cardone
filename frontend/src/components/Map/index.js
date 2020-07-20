@@ -130,7 +130,7 @@ function MyMap({ description, boundedBy }) {
       <div id="map" style={{ width: '320px', height: '160px' }}></div>
       <div
         id="player1"
-        class="player"
+        className="player"
         style={{ width: '320px', height: '160px' }}
       ></div>
     </>

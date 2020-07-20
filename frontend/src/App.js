@@ -10,6 +10,7 @@ import Signin from './components/Auth/Signin/index';
 import Signup from './components/Auth/Signup';
 import Logout from './components/Auth/Logout/index';
 import Evacuator from './components/Evacuator';
+import Profile from './components/Profile/index';
 
 const componentsForModal = {
   signin: Signin,
@@ -40,6 +41,9 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
+          <Route path="/profile">
+            <Profile />
+          </Route>
           <Route path="/evacuator">
             <Evaquator />
           </Route>
