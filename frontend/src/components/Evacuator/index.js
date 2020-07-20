@@ -95,7 +95,7 @@ function Evacuator() {
           className="evaInput"
           placeholder="Адрес"
           onChange={changed}
-          value={reqData.model}
+          value={reqData.address}
           type="text"
           class="form-control"
           id="address"
