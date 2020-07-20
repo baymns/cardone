@@ -10,6 +10,7 @@ function Evacuator() {
     phone: '',
     brand: '',
     model: '',
+    address: '',
   });
 
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ function Evacuator() {
       phone: '',
       brand: '',
       model: '',
+      address: '',
     });
   }
   function changed({ target: { value, name } }) {
@@ -85,6 +87,18 @@ function Evacuator() {
           type="text"
           class="form-control"
           id="model"
+        ></input>
+      </div>
+      <div class="form-group">
+        <input
+          name="address"
+          className="evaInput"
+          placeholder="Адрес"
+          onChange={changed}
+          value={reqData.model}
+          type="text"
+          class="form-control"
+          id="address"
         ></input>
       </div>
       <button type="submit" className="evaButton" class="btn btn-primary">

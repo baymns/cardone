@@ -11,7 +11,7 @@ function Home() {
   const dispatch = useDispatch();
   return (
     <>
-      <div className={styles.home_container}>
+      <div id="services" className={styles.home_container}>
         <div className={styles.container}>
           <Link to="/services">
             <div className="services">
@@ -20,7 +20,7 @@ function Home() {
             </div>
           </Link>
         </div>
-        <div className={styles.container}>
+        <div id="tireservices" className={styles.container}>
           <Link to="/tireservices">
             <div className="tire-services">
               <i className="fas fa-truck-monster"></i>
@@ -28,7 +28,7 @@ function Home() {
             </div>
           </Link>
         </div>
-        <div className={styles.container}>
+        <div id="autoparts" className={styles.container}>
           <Link to="/autoparts">
             <div className="autoparts">
               <i className="fas fa-car-side"></i>
@@ -36,7 +36,7 @@ function Home() {
             </div>
           </Link>
         </div>
-        <div className={styles.container}>
+        <div id="carwash" className={styles.container}>
           <Link to="/carwash">
             <div className="car-wash">
               <i className="fas fa-tint"></i>
@@ -44,7 +44,7 @@ function Home() {
             </div>
           </Link>
         </div>
-        <div className={styles.container} onClick={() => dispatch(showModal('evacuator'))}>
+        <div id="evacuator" className={styles.container} onClick={() => dispatch(showModal('evacuator'))}>
           <div className={styles.evacuator}>
             <div>
               <i className="fas fa-truck-pickup"></i>
