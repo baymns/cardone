@@ -33,6 +33,7 @@ bower_components
 
 # Backend ignore
 backend/sessions
+backend/.env
 
 # node-waf configuration
 .lock-wscript
