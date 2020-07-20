@@ -25,20 +25,24 @@ function App() {
   console.log(CurrentModal);
   function handleLoad() {
     window.ymaps.ready(() => {
-      new window.ymaps.Map('map', { center: [55.751574, 37.573856], zoom: 9 }, {
-        searchControlProvider: 'yandex#search'
-      });
+      new window.ymaps.Map(
+        'map',
+        { center: [55.751574, 37.573856], zoom: 9 },
+        {
+          searchControlProvider: 'yandex#search',
+        },
+      );
     });
   }
 
   useEffect(() => {
     window.addEventListener('load', handleLoad());
-  }, [])
+  }, []);
   return (
     <div className="App">
-      {<Modal>{modalState && <CurrentModal />}</Modal>}
       <Router>
         <Navbar />
+        {<Modal>{modalState && <CurrentModal />}</Modal>}
         <Switch>
           <Route path="/evacuator">
             <Evaquator />
