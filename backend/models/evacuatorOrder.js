@@ -24,6 +24,7 @@ const orderSchema = new Schema({
   },
   brand: String,
   model: String,
+  address: String,
 });
 
 export default model('EvacuatorOrder', orderSchema);
