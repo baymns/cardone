@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 function Service({ service }) {
   const { name, description, CompanyMetaData, boundedBy } = service;
-  const { url, Phones, Hours, Categories } = CompanyMetaData;
+  const { url, Phones, Hours, Categories, id } = CompanyMetaData;
   const [visibility, setVisibility] = useState(false);
   return (
     <div className={styles.service_block}>
@@ -33,7 +33,7 @@ function Service({ service }) {
       >
         Показать на карте
       </button>
-      {visibility && <Map description={description} boundedBy={boundedBy[0]} />}
+      {visibility && <Map description={description} boundedBy={boundedBy[0]} id={id} />}
     </div>
   );
 }

@@ -59,6 +59,7 @@ export function load(service) {
         );
         const json = await response.json();
         const result = json.features.map((item) => item.properties);
+        console.log(result);
         dispatch(loadingSuccessful(result));
       }
 

@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 import session from 'express-session';
 import sessionStorage from 'session-file-store';
@@ -11,13 +12,19 @@ import signupRouter from './routes/signup.js';
 import logoutRouter from './routes/logout.js';
 import evacuatorOrder from './routes/evacuatorOrder.js';
 
+dotenv.config()
+
 const FileStore = sessionStorage(session);
 const app = express();
-mongoose.connect('mongodb://localhost:27017/cardone', {
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-});
+mongoose.connect(
+  `mongodb+srv://Sergey:${process.env.MONGO_DB_KEY}@cluster0-aqh9k.mongodb.net/service?retryWrites=true&w=majority`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  },
+);
 
 // view engine setup
 app.set('views', path.resolve('views'));
