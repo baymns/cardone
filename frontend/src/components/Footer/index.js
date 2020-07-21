@@ -18,23 +18,7 @@ function Footer() {
           </a>
         </div>
 
-        <div className={styles.containerForm}>
-          <h6>Напишите нам</h6>
-          <form>
-            <label htmlFor="email">
-              <input name="email" type="email" placeholder="Email" required />
-            </label>
-            <label htmlFor="message">
-              <input
-                name="message"
-                type="text"
-                placeholder="Message"
-                required
-              />
-            </label>
-            <button>Отправить</button>
-          </form>
-        </div>
+      
 
         <div className={styles.social}>
           <h6>Мы в социальных сетях</h6>
