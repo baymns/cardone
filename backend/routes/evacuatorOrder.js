@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
   } catch (error) {
     return res.status(401).end();
   }
-  res.json(order);
+  return res.json(order);
 });
 
 export default router;

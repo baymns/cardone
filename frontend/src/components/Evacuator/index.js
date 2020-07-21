@@ -24,7 +24,14 @@ function Evacuator() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(reqData),
     });
+    const tgResponse = await fetch('http://localhost:3005/api/tginfobot', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(reqData),
+    });
     const result = await response.json();
+    const tgResult = await tgResponse.json();
+    console.log(tgResult);
     dispatch(addEvacuatorReq(reqData));
     setReqData({
       username: '',
