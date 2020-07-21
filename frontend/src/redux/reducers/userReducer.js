@@ -4,8 +4,9 @@ export default function userReducer(state = {}, action) {
   switch (action.type) {
     case AUTH_USER:
       return {
-        name: action.payload.name,
         id: action.payload.id,
+        name: action.payload.name,
+        email: action.payload.email
       }
     case LOGOUT_USER: 
     return {}

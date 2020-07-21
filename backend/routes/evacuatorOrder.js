@@ -7,12 +7,18 @@ router.post('/', async (req, res) => {
   console.log(req.body);
   const { username, phone, brand, model, address } = req.body;
   const order = new EvacuatorOrder({ username, phone, brand, model, address });
+  const response = await fetch('http://localhost:3005/api/tginfobot', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(order),
+  });
+  const result = await response.json();
   try {
     await order.save();
   } catch (error) {
     return res.status(401).end();
   }
-  res.json(order);
+  return res.json(order);
 });
 
 export default router;

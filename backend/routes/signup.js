@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
   } catch (error) {
     return res.status(401).end();
   }
-  const filteredUser = { name: user.name, id: user._id };
+  const filteredUser = { id: user._id, name: user.name, email: user.email };
   req.session.user = filteredUser;
   return res.json(filteredUser);
 });
