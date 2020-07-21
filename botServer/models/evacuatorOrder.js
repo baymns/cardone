@@ -27,6 +27,7 @@ const orderSchema = new Schema({
   address: String,
   createAt: { type: Date, default: Date.now() },
   inProgress: { type: Boolean, default: false },
+  driver: { type: Schema.Types.ObjectId, ref: 'EvacuatorBotUser' },
   numberOfOrder: {
     type: String,
     default: Math.floor(Math.random() * 999999),
