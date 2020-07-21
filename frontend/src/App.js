@@ -10,7 +10,9 @@ import Signin from './components/Auth/Signin/index';
 import Signup from './components/Auth/Signup';
 import Logout from './components/Auth/Logout/index';
 import Evacuator from './components/Evacuator';
+import Footer from './components/Footer'
 import Profile from './components/Profile/index';
+
 
 const componentsForModal = {
   signin: Signin,
@@ -78,6 +80,7 @@ function App() {
         </Switch>
       </Router>
       <div id="map"></div>
+      <Footer/>
     </div>
   );
 }

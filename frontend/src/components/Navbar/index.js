@@ -45,11 +45,11 @@ function Navbar() {
                 <div>
                   <Link to="/logout">Выйти</Link>
                 </div>
+          
               </>
             )}
             <span className={styles.footer_line}></span>
           </div>
-          <footer></footer>
         </nav>
       </div>
     </div>
