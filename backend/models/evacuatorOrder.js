@@ -29,7 +29,7 @@ const orderSchema = new Schema({
   inProgress: { type: Boolean, default: false },
   numberOfOrder: {
     type: String,
-    default: Math.floor(Math.random() * 999999),
+    default: Math.floor(Math.random() * 672349),
   },
 });
 
