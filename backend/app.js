@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import session from 'express-session';
 import sessionStorage from 'session-file-store';
@@ -11,8 +11,9 @@ import signinRouter from './routes/signin.js';
 import signupRouter from './routes/signup.js';
 import logoutRouter from './routes/logout.js';
 import evacuatorOrder from './routes/evacuatorOrder.js';
+import servicesRouter from './routes/services.js';
 
-dotenv.config()
+dotenv.config();
 
 const FileStore = sessionStorage(session);
 const app = express();
@@ -50,8 +51,7 @@ app.use(
 app.use('/api/signin', signinRouter);
 app.use('/api/signup', signupRouter);
 app.use('/api/requests', evacuatorOrder);
-
-
+app.use('/api/services', servicesRouter);
 app.use((req, res, next) => {
   if (req.session.user) {
     return next();

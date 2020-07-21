@@ -15,15 +15,20 @@ function ServicesList({ category }) {
   useEffect(() => {
     dispatch(load(category));
   }, [dispatch]);
-console.log(data);
+  console.log(data);
   return (
-    <div className={styles.list_container}>
-      {loading && <Loading />}
-      {error && error.message}
-      {data &&
-        data.map((service) => (
-          <Service key={service.CompanyMetaData.id} service={service} />
-        ))}
+    <div className="page_container">
+      <div className="sort">
+        
+      </div>
+      <div className={styles.list_container}>
+        {loading && <Loading />}
+        {error && error.message}
+        {data &&
+          data.map((service) => (
+            <Service key={service.id} service={service} />
+          ))}
+      </div>
     </div>
   );
 }

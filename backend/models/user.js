@@ -13,6 +13,7 @@ const userSchema = new Schema({
     required: true,
   },
   password: String,
+  favourites: Array,
 });
 
 export default model('User', userSchema);

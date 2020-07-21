@@ -44,23 +44,26 @@ export function loadingFailed(err) {
   };
 }
 
-export function load(service) {
+export function load(category) {
   return async (dispatch) => {
     dispatch(loadingStarted());
     try {
       async function success(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-
-        const response = await fetch(
-          encodeURI(
-            `https://search-maps.yandex.ru/v1/?apikey=${process.env.REACT_APP_API_KEY_SEARCH_COMPANY}&text=${service}&type=biz&lang=ru_RU&ll=${longitude},${latitude}&spn=0.052069,0.050552`,
-          ),
-        );
+        debugger
+        const response = await fetch('/api/services', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify({ latitude, longitude, category })
+        });
         const json = await response.json();
-        const result = json.features.map((item) => item.properties);
-        console.log(result);
-        dispatch(loadingSuccessful(result));
+        debugger
+        // const result = json.features.map((item) => item.properties);
+        console.log(json);
+        dispatch(loadingSuccessful(json));
       }
 
       function error() {

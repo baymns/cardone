@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 const { Schema, model } = mongoose;
-
 const autoserviceSchema = new Schema({
   id: {
     type: String,
@@ -24,9 +23,17 @@ const autoserviceSchema = new Schema({
     type: String,
     required: true,
   },
+  rating: {
+    type: Schema.Types.ObjectId,
+    ref: 'Rating',
+  },
+  reviews: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Review',
+  }],
   category: Array,
   url: String,
-  phone: Array,
+  phone: String,
 });
 
 export default model('Autoservice', autoserviceSchema);
