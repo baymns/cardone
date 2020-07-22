@@ -13,6 +13,7 @@ import logoutRouter from './routes/logout.js';
 import evacuatorOrder from './routes/evacuatorOrder.js';
 import servicesRouter from './routes/services.js';
 import favouritesRouter from './routes/favourites.js';
+import feedback from './routes/feedback.js';
 
 dotenv.config();
 
@@ -60,6 +61,7 @@ app.use((req, res, next) => {
   res.status(401).end();
 });
 
+app.use('/api/feedback', feedback);
 app.use('/api/favourites', favouritesRouter);
 app.use('/api/logout', logoutRouter);
 
