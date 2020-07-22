@@ -1,6 +1,10 @@
-.comments {
-  width: 400px;
-  height: 100px;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin: 10px;
-  align-self: center;
+  margin-top: 80px;
+}
+.comments {
 }

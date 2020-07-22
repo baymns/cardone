@@ -8,5 +8,6 @@ export const DELETE_FAVOURITES = 'DELETE_FAVOURITES';
 export const LOGOUT_USER = 'LOGOUT_USER';
 
 export const EVACUATOR_REQ = 'EVACUATOR_REQ';
-export const SHOW_MODAL = 'SHOW_MODAL'
+export const SHOW_MODAL = 'SHOW_MODAL';
 
+export const ADD_FEEDBACK = 'ADD_FEEDBACK';

@@ -5,9 +5,18 @@ import {
   LOADING_SUCCESSFUL,
   EVACUATOR_REQ,
   SHOW_MODAL,
+  ADD_FEEDBACK,
 } from './actionTypes';
 
 dotenv.config();
+
+export function addFeedback(feedback) {
+  return {
+    type: ADD_FEEDBACK,
+    rating: feedback.rating,
+    comment: feedback.comment,
+  };
+}
 
 export function showModal(show, props) {
   return {
@@ -55,9 +64,9 @@ export function load(category) {
         const response = await fetch('/api/services', {
           method: 'POST',
           headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
           },
-          body: JSON.stringify({ latitude, longitude, category })
+          body: JSON.stringify({ latitude, longitude, category }),
         });
         const json = await response.json();
         // const result = json.features.map((item) => item.properties);
