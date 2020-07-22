@@ -50,7 +50,7 @@ function Signin() {
           </div>
           <button type="submit" className="btn btn-primary">Войти</button>
         </form>
-      <div className={styles.error}>{error}</div>
+        <div className={styles.error}>{error}</div>
       </div>
     </div>
   );

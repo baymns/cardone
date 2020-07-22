@@ -21,7 +21,6 @@ function Signup() {
       body: JSON.stringify(inputs),
     });
     const user = await req.json();
-    console.log(user);
     if (user.id) {
       dispatch(regUser(user))
       setInputs(initialState);

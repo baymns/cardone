@@ -31,10 +31,10 @@ function Service({ categ, service }) {
 
   //Hooks
   const [visibility, setVisibility] = useState(false);
-
+  const [stars, setStars] = useState(3);
   return (
     <div className={styles.service_block}>
-      <p>
+      <p className={styles.name}>
         <strong>{name}</strong>
       </p>
       <p>
@@ -43,24 +43,24 @@ function Service({ categ, service }) {
       <p>Расстояние: {distance}км</p>
       <p>
         Рейтинг:
-        <span>
           <Rating
-            name="customized-empty"
-            defaultValue={4}
-            precision={1}
-            emptyIcon={<StarBorderIcon fontSize="inherit" />}
-          />
-        </span>
+          name="customized-empty"
+          value={Number(stars)}
+          onChange={(e) => setStars(e.target.value)}
+          disabled
+          precision={1}
+          emptyIcon={<StarBorderIcon fontSize="inherit" />}
+        />
       </p>
       <p>
         {reviews.length > 0 ? (
           <span>Отзывы: {reviews.length}</span>
         ) : (
-          <span>Отзывов пока нет.</span>
-        )}
+            <span>Отзывов пока нет.</span>
+          )}
         {user.id ? (
           <button
-            className="review_button"
+            className={styles.review_button}
             type="button"
             onClick={() =>
               dispatch(
@@ -74,50 +74,61 @@ function Service({ categ, service }) {
             Написать отзыв
           </button>
         ) : (
-          <Link to="/signin">
-            <button className="review_button" type="button">
-              Написать отзыв
+            <Link to="/signin">
+              <button className={styles.review_button} type="button">
+                Написать отзыв
             </button>
-          </Link>
-        )}
+            </Link>
+          )}
       </p>
       <p>
-        <i class="far fa-clock"></i> {workingTime}
+        <i className="far fa-clock"></i> {workingTime}
       </p>
       <p>
-        <i class="fas fa-phone-square"></i> {phone}
+        <i className="fas fa-phone-square"></i> {phone}
       </p>
       <p>
         {url && (
           <>
-            <i class="fas fa-globe"></i> <a href={url}>{url}</a>
+            <i className="fas fa-globe"></i> <a href={url}>{url}</a>
           </>
         )}
       </p>
-      <button
-        type="button"
-        className={styles.show_map_btn}
-        onClick={() => setVisibility(!visibility)}
-      >
-        <i class="fas fa-location-arrow"></i> Маршрут
+      {visibility ?
+
+        <button
+          type="button"
+          className={styles.show_map_btn}
+          onClick={() => setVisibility(!visibility)}
+        >
+          <i className="fas fa-location-arrow"></i> Скрыть
+      </button> :
+        <button
+          type="button"
+          className={styles.show_map_btn}
+          onClick={() => setVisibility(!visibility)}
+        >
+          <i className="fas fa-location-arrow"></i> Маршрут
       </button>
-      {user.favourites && user.favourites.find((serv) => serv.id === id) ? (
-        <button
-          type="button"
-          className={styles.show_map_btn}
-          onClick={() => dispatch(deleteFromFavourites(id))}
-        >
-          <i class="fas fa-heart-broken"></i> Убрать из Избранного
-        </button>
-      ) : (
-        <button
-          type="button"
-          className={styles.show_map_btn}
-          onClick={() => dispatch(addToFavourites(id, categ, service))}
-        >
-          <i class="fas fa-heart"></i> Добавить в Избранное
-        </button>
-      )}
+
+      }
+      {
+
+        user.favourites && user.favourites.find((serv) => serv.id === id)
+          ? (<button
+            key="removeFavorites"
+            type="button"
+            className={styles.favor_btn}
+            onClick={() => dispatch(deleteFromFavourites(id))}
+          ><i className="fas fa-heart-broken"></i> Убрать из Избранного</button>)
+          : (<button
+            key="addFavorites"
+            type="button"
+            className={styles.favor_btn}
+            onClick={() => dispatch(addToFavourites(id, categ, service))}
+          ><i className="fas fa-heart"></i> Добавить в Избранное</button>)
+      }
+
 
       {visibility && (
         <Map description={address} boundedBy={coordinates} id={id} />

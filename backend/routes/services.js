@@ -4,7 +4,6 @@ import Service from '../models/service.js';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  console.log(req.body);
   const { latitude, longitude, category } = req.body;
   // const [lat, long] = [55.712471799999996, 37.591137599999996];
 
@@ -25,7 +24,7 @@ router.post('/', async (req, res) => {
 
   let services;
   try {
-    services = await Service.find({ category });
+    services = await Service.find({ category }).populate('prefer');
   } catch (error) {
     return error;
   }
@@ -35,19 +34,17 @@ router.post('/', async (req, res) => {
   });
   const sorted = updated.sort((a, b) => a.distance - b.distance);
   const result = sorted.length > 10 ? sorted.slice(0, 10) : sorted(0, sorted.length - 1);
-  console.log(result);
 
   return res.json(result);
 });
 
 router.post('/details/:id', async (req, res) => {
   const { id } = req.params;
-  const { category } = req.body;
   let service;
   try {
-    service = await categoryList[category].findOne({ id });
+    service = await Service.findOne({ id });
   } catch (error) {
-    console.log('Details error:', error);
+    return error;
   }
   if (!service) {
     return res.status(406).end();

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styles from './map.module.scss'
 function MyMap({ description, boundedBy ,id}) {
   (function handleLoad() {
     function success(position) {
@@ -108,18 +108,18 @@ function MyMap({ description, boundedBy ,id}) {
 
           // Добавляем мультимаршрут на карту.
           myMap.geoObjects.add(multiRoute);
-            // на всякий если своего не получиться 110-122
-          window.ymaps.findOrganization(id).then(
-            function (orgGeoObject) {
-              console.log(orgGeoObject);
-              myMap.geoObjects.add(orgGeoObject);
-              orgGeoObject.balloon.open();
-            },
-            function (err) {
-              console.log(err);
-              // обработка ошибок
-            },
-          );
+          //   // на всякий если своего не получиться 110-122
+          // window.ymaps.findOrganization(id).then(
+          //   function (orgGeoObject) {
+          //     console.log(orgGeoObject);
+          //     myMap.geoObjects.add(orgGeoObject);
+          //     orgGeoObject.balloon.open();
+          //   },
+          //   function (err) {
+          //     console.log(err);
+          //     // обработка ошибок
+          //   },
+          // );
           
         }
 
@@ -139,7 +139,7 @@ function MyMap({ description, boundedBy ,id}) {
   })();
   return (
     <>
-      <div id="map" style={{ width: '600px', height: '400px' }}></div>
+      <div id="map" style={{ width: '320px', height: '400px' }} className={styles.map_block}></div>
       {/* <div
         id="player1"
         className="player"

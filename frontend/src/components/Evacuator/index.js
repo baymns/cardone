@@ -50,12 +50,12 @@ function Evacuator() {
           onChange={changed}
           value={reqData.username}
           type="text"
-          class="form-control"
+          className="form-control"
           id="username"
           aria-describedby="emailHelp"
         ></input>
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <input
           name="phone"
           className="evaInput"
@@ -63,11 +63,11 @@ function Evacuator() {
           onChange={changed}
           value={reqData.phone}
           type="phone"
-          class="form-control"
+          className="form-control"
           id="phone"
         ></input>
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <input
           name="brand"
           className="evaInput"
@@ -75,11 +75,11 @@ function Evacuator() {
           onChange={changed}
           value={reqData.brand}
           type="text"
-          class="form-control"
+          className="form-control"
           id="brand"
         ></input>
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <input
           name="model"
           className="evaInput"
@@ -87,11 +87,11 @@ function Evacuator() {
           onChange={changed}
           value={reqData.model}
           type="text"
-          class="form-control"
+          className="form-control"
           id="model"
         ></input>
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <input
           name="address"
           className="evaInput"
@@ -99,11 +99,11 @@ function Evacuator() {
           onChange={changed}
           value={reqData.address}
           type="text"
-          class="form-control"
+          className="form-control"
           id="address"
         ></input>
       </div>
-      <button type="submit" className="evaButton" class="btn btn-primary">
+      <button type="submit" className="evaButton" className="btn btn-primary">
         Отправить
       </button>
     </form>
