@@ -11,12 +11,13 @@ import Signup from './components/Auth/Signup';
 import Logout from './components/Auth/Logout/index';
 import Evacuator from './components/Evacuator';
 import Profile from './components/Profile/index';
-
+import Feedback from './components/Feedback';
 
 const componentsForModal = {
   signin: Signin,
   signup: Signup,
   evacuator: Evacuator,
+  feedback: Feedback,
 };
 
 function App() {
@@ -79,7 +80,6 @@ function App() {
         </Switch>
       </Router>
       <div id="map"></div>
-      
     </div>
   );
 }
