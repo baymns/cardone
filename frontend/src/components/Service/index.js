@@ -14,6 +14,7 @@ import {
 
 function Service({ categ, service }) {
   const user = useSelector((state) => state.user);
+  const feedback = useSelector((state) => state.feedback)
   const dispatch = useDispatch();
   const {
     id,

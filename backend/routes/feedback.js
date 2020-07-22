@@ -5,17 +5,13 @@ import Service from '../models/service.js';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  const { rating, comment, id } = req.body;
-  console.log(id);
-
-  const feedback = new Review({ rating, comment });
+  const { rating, comment, id, userId } = req.body;
+  const feedback = new Review({ rating, comment, userId });
   const service = await Service.findOneAndUpdate(
     { id },
     { $push: { reviews: feedback._id } },
     { new: true },
   );
-  console.log(service);
-
   try {
     await feedback.save();
   } catch (error) {

@@ -10,7 +10,6 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   const { email, password } = req.body;
   try {
-
     const candidate = await User.findOne({ email }).populate('favourites');
     if (candidate) {
       const checkPassword = await bcrypt.compare(password, candidate.password);

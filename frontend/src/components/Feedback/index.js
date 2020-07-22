@@ -1,16 +1,21 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './feedback.module.scss';
-import Uploader from '../Uploader';
 import { useState } from 'react';
 import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import { addFeedback } from '../../redux/actions/actionCreators';
 
 function Feedback({ name, id }) {
+  const user = useSelector((state) => state.user);
   const [feedback, setFeedback] = useState({
     rating: 0,
     comment: '',
     id: id,
+    userId: user.id,
   });
+
+  const dispatch = useDispatch();
 
   async function sendFeedback(event, id) {
     event.preventDefault();
@@ -20,7 +25,7 @@ function Feedback({ name, id }) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(feedback),
     });
-    debugger;
+    dispatch(addFeedback(feedback));
     setFeedback({
       rating: 0,
       comment: '',
@@ -44,19 +49,33 @@ function Feedback({ name, id }) {
           />
         </span>
         <div>Комментарии</div>
-        <input
-          onChange={(e) =>
-            setFeedback({ ...feedback, comment: e.target.value })
-          }
-          value={feedback.comment}
-          className={styles.comments}
-          placeholder="Поделитесь мнением про плюсы и минусы этого места"
-        ></input>
-        <Uploader />
-        <button className={styles.submitButton} type="submit">
+        <div class="form-group">
+          <label for="commentArea"></label>
+          <textarea
+            onChange={(e) =>
+              setFeedback({ ...feedback, comment: e.target.value })
+            }
+            value={feedback.comment}
+            className={styles.comments}
+            placeholder="Поделитесь мнением про плюсы и минусы этого места"
+            id="commentArea"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <input
+            type="file"
+            class="form-control-file"
+            aria-describedby="fileHelp"
+          />
+          <small id="fileHelp" class="form-text text-muted">
+            Ты можешь загрузить сюда чо по кайфу
+          </small>
+        </div>
+        <button class="btn btn-primary" type="submit">
           Отправить
         </button>
-        <button className={styles.closeButton}>Отменить</button>
+        <button class="btn btn-outline-primary">Отменить</button>
       </form>
     </>
   );
