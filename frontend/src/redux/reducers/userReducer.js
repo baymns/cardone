@@ -1,4 +1,4 @@
-import { AUTH_USER, ADD_FAVOURITES, LOGOUT_USER } from "../actions/actionTypes";
+import { AUTH_USER, ADD_FAVOURITES, DELETE_FAVOURITES, LOGOUT_USER } from "../actions/actionTypes";
 
 export default function userReducer(state = {}, action) {
   switch (action.type) {
@@ -16,6 +16,11 @@ export default function userReducer(state = {}, action) {
           ...state.favourites,
           action.payload
         ]
+      }
+    case DELETE_FAVOURITES:
+      return {
+        ...state,
+        favourites: state.favourites.filter(service => service.id !== action.payload)
       }
     case LOGOUT_USER:
       return {}

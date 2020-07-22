@@ -25,4 +25,15 @@ router.post('/', async (req, res) => {
   return res.end();
 });
 
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  console.log(req.body);
+  try {
+    await Service.findOneAndDelete(id);
+  } catch (error) {
+    return res.status(406).end();
+  }
+  return res.end();
+});
+
 export default router;
