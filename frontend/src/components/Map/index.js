@@ -9,29 +9,29 @@ function MyMap({ description, boundedBy ,id}) {
       window.ymaps.ready(() => {
         function init() {
 
-          window.ymaps.panorama.locate(foto).done(
-            function (panoramas) {
-              console.log(panoramas);
-              // Убеждаемся, что найдена хотя бы одна панорама.
-              if (panoramas.length > 0) {
-                // Создаем плеер с одной из полученных панорам.
-                var player = new window.ymaps.panorama.Player(
-                  'player1',
-                  // Панорамы в ответе отсортированы по расстоянию
-                  // от переданной в panorama.locate точки. Выбираем первую,
-                  // она будет ближайшей.
-                  panoramas[0],
-                  // Зададим направление взгляда, отличное от значения
-                  // по умолчанию.
-                  { direction: [256, 16] },
-                );
-              }
-            },
-            function (error) {
-              // Если что-то пошло не так, сообщим об этом пользователю.
-              alert(error.message);
-            },
-          );
+          // window.ymaps.panorama.locate(foto).done(
+          //   function (panoramas) {
+          //     console.log(panoramas);
+          //     // Убеждаемся, что найдена хотя бы одна панорама.
+          //     if (panoramas.length > 0) {
+          //       // Создаем плеер с одной из полученных панорам.
+          //       var player = new window.ymaps.panorama.Player(
+          //         'player1',
+          //         // Панорамы в ответе отсортированы по расстоянию
+          //         // от переданной в panorama.locate точки. Выбираем первую,
+          //         // она будет ближайшей.
+          //         panoramas[0],
+          //         // Зададим направление взгляда, отличное от значения
+          //         // по умолчанию.
+          //         { direction: [256, 16] },
+          //       );
+          //     }
+          //   },
+          //   function (error) {
+          //     // Если что-то пошло не так, сообщим об этом пользователю.
+          //     alert(error.message);
+          //   },
+          // );
          
           /**
            * Создаем мультимаршрут.
@@ -140,11 +140,11 @@ function MyMap({ description, boundedBy ,id}) {
   return (
     <>
       <div id="map" style={{ width: '600px', height: '400px' }}></div>
-      <div
+      {/* <div
         id="player1"
         className="player"
         style={{ width: '320px', height: '160px' }}
-      ></div>
+      ></div> */}
     </>
   );
 }

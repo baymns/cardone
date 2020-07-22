@@ -60,7 +60,6 @@ export function load(category) {
         });
         const json = await response.json();
         // const result = json.features.map((item) => item.properties);
-        console.log(json);
         dispatch(loadingSuccessful(json));
       }
 

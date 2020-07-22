@@ -1,15 +1,16 @@
-  .navbar {
-    background-color: #45a6d5;
-    display: flex;
-    height: 4em;
-    .logo {
-      position: fixed;
-      top: 5px;
-      left: 10px;
-      z-index: 100;
-      color: #fff;
-      line-height: 3.5em;
-    }
+.navbar {
+  background-color: #45a6d5;
+  display: flex;
+  height: 4em;
+  position: relative;
+  .logo {
+    position: fixed;
+    top: 5px;
+    left: 10px;
+    z-index: 100;
+    color: #fff;
+    line-height: 3.5em;
+  }
 
   .burger_menu {
     position: fixed;
@@ -25,102 +26,107 @@
     }
     > span {
       text-transform: none;
-      opacity: .5;
+      opacity: 0.5;
       font-weight: 300;
       font-size: 12px;
     }
   }
-    input + label {
-      position: fixed;
-      top: 30px;
-      right: 30px;
-      height: 20px;
-      width: 20px; 
-      z-index: 5;
-      span {
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        top: 50%;
-        margin-top: -7px;
-        left: 0;
-        display: block;
-        background: #fff;
-        transition: .5s;
-      }
-      span:first-child {
-        top: 4px; 
-      }
-      span:last-child {
-        top: 16px; 
-      }      
-    }
-    label:hover {
-      cursor: pointer;
-    }
-    input:checked + label { 
-      span {
-        opacity: 0;
-        top: 50%;
-      }
-      span:first-child {
-        opacity: 1;
-        transform: rotate(405deg);
-      }
-      span:last-child {
-        opacity: 1;
-        transform: rotate(-405deg);
-      }
-    }
-    input ~ nav {
-      background: #45a6d5;
-      position: fixed;
-      top: 0;
-      right: 0;
+  input + label {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    height: 20px;
+    width: 20px;
+    z-index: 5;
+    span {
+      position: absolute;
       width: 100%;
-      height: 60px;
-      z-index: 3;
-      transition: .3s;
-      transition-delay: .3s;
-      overflow: hidden;
-      > .links_container {
-        display: none;
-        position: absolute;
-        color: #000;
-        top: 35%;
-        transition: .2s;
-        transition-delay: .2s;
-        > div {
-          text-align: center;
-          opacity: 0;
-          transition: .5s;
-          transition-delay: 0s;
-          width: 100vw;
-          &:hover {
-            background: rgba($color: #000000, $alpha: .1);
-          }
-          > a {
-            text-decoration: none;
-            text-transform: none;
-            color: #fff;
-            font-weight: 200;
-            font-size: 18px;
-            font-family: sans-serif;
-            display: block;
-            padding: 10px;
-          }
+      height: 2px;
+      top: 50%;
+      margin-top: -7px;
+      left: 0;
+      display: block;
+      background: #fff;
+      transition: 0.5s;
+    }
+    span:first-child {
+      top: 4px;
+    }
+    span:last-child {
+      top: 16px;
+    }
+  }
+  label:hover {
+    cursor: pointer;
+  }
+  input:checked + label {
+    span {
+      opacity: 0;
+      top: 50%;
+    }
+    span:first-child {
+      opacity: 1;
+      transform: rotate(405deg);
+    }
+    span:last-child {
+      opacity: 1;
+      transform: rotate(-405deg);
+    }
+  }
+  input ~ nav {
+    background: #2b2b2b;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 3;
+    transition: 0.3s;
+    transition-delay: 0.3s;
+    overflow: hidden;
+    > .links_container {
+      display: none;
+      position: absolute;
+      color: #000;
+      top: 35%;
+      transition: 0.2s;
+      transition-delay: 0.2s;
+      > div {
+        text-align: center;
+        opacity: 0;
+        transition: 0.5s;
+        transition-delay: 0s;
+        width: 100vw;
+        &:hover {
+          background: rgba($color: #000000, $alpha: 0.1);
+        }
+        > a {
+          text-decoration: none;
+          text-transform: none;
+          color: #fff;
+          font-weight: 200;
+          font-size: 18px;
+          font-family: sans-serif;
+          display: block;
+          padding: 10px;
         }
       }
-    }
-    input:checked ~ nav { 
-      height: 100%;
-      transition-delay: 0s;
-      > .links_container {
-        display: block;
-        > div {
-          opacity: 1;
-          transition-delay: .1s;
-        }
+      Footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
       }
     }
   }
+  input:checked ~ nav {
+    height: 100%;
+    transition-delay: 0s;
+    > .links_container {
+      display: block;
+      > div {
+        opacity: 1;
+        transition-delay: 0.1s;
+      }
+    }
+  }
+}
