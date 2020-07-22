@@ -7,33 +7,33 @@ function Footer() {
       <div className={styles.info}>
         <div className={styles.contact}>
           <h6>
-            <i class="fas fa-tag"></i>
+            <i className="fas fa-tag"></i>
              CARDONE
           </h6>
           <a>
-            <i class="fas fa-phone-square"></i> +7(800)555-00-00
+            <i className="fas fa-phone-square"></i> +7(800)555-00-00
           </a>
           <a>
-            <i class="fas fa-at"></i> cardone@mail.ru
+            <i className="fas fa-at"></i> cardone@mail.ru
           </a>
         </div>
 
-      
+
 
         <div className={styles.social}>
           <h6>Мы в социальных сетях</h6>
           <ul>
             <li>
-              <i class="fab fa-facebook-square fa-2x"></i>
+              <i className="fab fa-facebook-square fa-2x"></i>
             </li>
             <li>
-              <i class="fab fa-telegram-plane fa-2x"></i>
+              <i className="fab fa-telegram-plane fa-2x"></i>
             </li>
             <li>
-              <i class="fab fa-vk fa-2x"></i>
+              <i className="fab fa-vk fa-2x"></i>
             </li>
             <li>
-              <i class="fab fa-whatsapp-square fa-2x"></i>
+              <i className="fab fa-whatsapp-square fa-2x"></i>
             </li>
           </ul>
         </div>

@@ -15,7 +15,6 @@ function ServicesList({ category }) {
   useEffect(() => {
     dispatch(load(category));
   }, [dispatch]);
-  console.log(data);
   return (
     <div className="page_container">
       <div className="sort">

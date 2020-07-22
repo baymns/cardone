@@ -1,7 +1,8 @@
 .navbar {
-  background-color: #45a6d5;
+  // background-color: #45a6d5;
   display: flex;
   height: 4em;
+  width: 100%;
   position: relative;
   .logo {
     position: fixed;
@@ -79,23 +80,24 @@
     top: 0;
     right: 0;
     width: 100%;
-    height: 60px;
+    height: 3.2em;
     z-index: 3;
     transition: 0.3s;
-    transition-delay: 0.3s;
+    // transition-delay: 0.3s;
     overflow: hidden;
     > .links_container {
       display: none;
       position: absolute;
       color: #000;
       top: 35%;
-      transition: 0.2s;
-      transition-delay: 0.2s;
+      // transition: 0.2s;
+      // transition-delay: 0.2s;
+      
       > div {
         text-align: center;
         opacity: 0;
-        transition: 0.5s;
-        transition-delay: 0s;
+        // transition: 0.5s;
+        // transition-delay: 0s;
         width: 100vw;
         &:hover {
           background: rgba($color: #000000, $alpha: 0.1);
@@ -113,21 +115,22 @@
 
         
       }
+
     }
   }
   input:checked ~ nav {
+    width: 100%;
     height: 100%;
-    transition-delay: 0s;
-    > .links_container {
+    .links_container {
       display: block;
-      > div {
+      div {
         opacity: 1;
-        transition-delay: 0.1s;
       }
-      Footer {
-          position: fixed;
-          bottom: 0;
-          width: 100%;
+      
+      footer {
+        width: 100vw;
+        
+        border-top: 1px solid #fff;
         }
     }
   }

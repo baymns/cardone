@@ -7,16 +7,15 @@ import { Modal } from '../Modal';
 
 function Navbar() {
   const user = useSelector((state) => state.user);
-  const [completed,setCompleted] = useState(false)
+  const [completed, setCompleted] = useState(false)
   return (
     <div className={styles.navbar}>
       <Link to="/">
         <div className={styles.logo}>CARDONE</div>
       </Link>
       <div className={styles.burger_menu}>
-        <input id="burger" type="checkbox" checked={completed} />
-
-        <label htmlFor="burger" onClick={() => setCompleted(!completed)}>
+        <input id="burger" type="checkbox" onChange={() => setCompleted(!completed)} checked={completed} />
+        <label htmlFor="burger" >
           <span></span>
           <span></span>
           <span></span>
@@ -38,22 +37,23 @@ function Navbar() {
                 <div>
                   <Link to="/cooperation">Вы автосервис?</Link>
                 </div>
+                <Footer />
               </>
             ) : (
-              <>
-                <div>
-                  <Link to="/profile">Профиль</Link>
-                </div>
-                <div>
-                  <Link to="/recommendations">Рекомендации</Link>
-                </div>
-                <div>
-                  <Link to="/logout">Выйти</Link>
-                </div>
-              </>
-            )}
+                <>
+                  <div>
+                    <Link to="/profile">Профиль</Link>
+                  </div>
+                  <div>
+                    <Link to="/recommendations">Рекомендации</Link>
+                  </div>
+                  <div>
+                    <Link to="/logout">Выйти</Link>
+                  </div>
+                  <Footer />
+                </>
+              )}
             <span className={styles.footer_line}></span>
-            <Footer />
           </div>
         </nav>
       </div>

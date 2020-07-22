@@ -14,7 +14,7 @@ export function addFavourites(favourites) {
 }
 export function deleteFavourites(id) {
   return {
-    type: ADD_FAVOURITES,
+    type: DELETE_FAVOURITES,
     payload: id,
   }
 }
