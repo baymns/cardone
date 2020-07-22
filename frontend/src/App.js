@@ -11,19 +11,20 @@ import Signup from './components/Auth/Signup';
 import Logout from './components/Auth/Logout/index';
 import Evacuator from './components/Evacuator';
 import Profile from './components/Profile/index';
-
+import Feedback from './components/Feedback';
 
 const componentsForModal = {
   signin: Signin,
   signup: Signup,
   evacuator: Evacuator,
+  feedback: Feedback,
 };
 
 function App() {
-  const modalState = useSelector((state) => state.modal.show);
+  const modalState = useSelector((state) => state.modal);
   console.log(modalState);
 
-  const CurrentModal = componentsForModal[modalState];
+  const CurrentModal = componentsForModal[modalState.show];
   console.log(CurrentModal);
   function handleLoad() {
     window.ymaps.ready(() => {
@@ -44,7 +45,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        {<Modal>{modalState && <CurrentModal />}</Modal>}
+        {<Modal>{modalState.show && <CurrentModal {...modalState.props} />}</Modal>}
         <Switch>
           <Route path="/profile">
             <Profile />

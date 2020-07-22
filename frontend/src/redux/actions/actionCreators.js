@@ -9,10 +9,11 @@ import {
 
 dotenv.config();
 
-export function showModal(show) {
+export function showModal(show, props) {
   return {
     type: SHOW_MODAL,
     show,
+    props,
   };
 }
 

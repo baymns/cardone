@@ -7,6 +7,7 @@ export default (state = { modal: false }, action) => {
         ...state,
         modal: !state.modal,
         show: action.show,
+        props: action.props
       };
     default:
       return state;
