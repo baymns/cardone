@@ -21,12 +21,12 @@ function Signin() {
       body: JSON.stringify(inputs),
     });
     const user = await res.json()
-    if (res.status === 200) {
+    if (user.id) {
       dispatch(regUser(user))
       setInputs(initialState);
       return history.push('/');
     } else {
-      setError('Неверный логин или пароль!')
+      setError(user)
     }
   };
 
