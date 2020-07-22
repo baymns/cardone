@@ -12,6 +12,7 @@ import signupRouter from './routes/signup.js';
 import logoutRouter from './routes/logout.js';
 import evacuatorOrder from './routes/evacuatorOrder.js';
 import servicesRouter from './routes/services.js';
+import favouritesRouter from './routes/favourites.js';
 
 dotenv.config();
 
@@ -59,6 +60,7 @@ app.use((req, res, next) => {
   res.status(401).end();
 });
 
+app.use('/api/favourites', favouritesRouter);
 app.use('/api/logout', logoutRouter);
 
 const PORT = process.env.PORT ?? 3001;

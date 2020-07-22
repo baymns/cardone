@@ -24,7 +24,6 @@ function Evacuator() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(reqData),
     });
-    const result = await response.json();
     dispatch(addEvacuatorReq(reqData));
     setReqData({
       username: '',

@@ -27,12 +27,15 @@ router.post('/', async (req, res) => {
       password: await bcrypt.hash(password, 10),
     });
     await user.save();
-    const filteredUser = { id: user._id, name: user.name, email: user.email };
-    req.session.user = filteredUser;
-    return res.json(filteredUser);
+     const filteredUser = {
+    id: user._id, name: user.name, email: user.email, favourites: user.favourites,
+  };
+  req.session.user = filteredUser;
+  return res.json(filteredUser);
   } catch (error) {
     return res.status(401).end();
   }
+
 });
 
 export default router;
