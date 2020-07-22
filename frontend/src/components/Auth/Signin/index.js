@@ -24,7 +24,7 @@ function Signin() {
     if (res.status === 200) {
       dispatch(regUser(user))
       setInputs(initialState);
-      return history.push('/services');
+      return history.push('/');
     } else {
       setError('Неверный логин или пароль!')
     }

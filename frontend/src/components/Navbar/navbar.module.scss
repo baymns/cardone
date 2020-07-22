@@ -110,11 +110,8 @@
           display: block;
           padding: 10px;
         }
-      }
-      Footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
+
+        
       }
     }
   }
@@ -127,6 +124,11 @@
         opacity: 1;
         transition-delay: 0.1s;
       }
+      Footer {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+        }
     }
   }
 }
