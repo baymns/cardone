@@ -1,5 +1,5 @@
 import React from 'react';
-import styleSheet from './modal.module.scss';
+import styles from './modal.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTransition, animated, config } from 'react-spring';
 import { showModal } from '../../redux/actions/actionCreators';
@@ -21,15 +21,26 @@ export const Modal = (props) => {
           item && (
             <animated.div
               key={key}
-              className={styleSheet.container}
+              className={styles.container}
               style={springProps}
             >
               <div
-                className={styleSheet.modalBackground}
+                className={styles.modalBackground}
                 onClick={() => dispatch(showModal())}
               ></div>
-              <button onClick={() => dispatch(showModal())}>Закрыть</button>
-              <div className={styleSheet.modal}>{props.children}</div>
+              {/* <button onClick={() => dispatch(showModal())}>Закрыть</button> */}
+              <div className={styles.modal}>
+                <button
+                  className={styles.closeButton}
+                  onClick={() => dispatch(showModal())}
+                  type="button"
+                  // class="close"
+                  aria-label="Close"
+                >
+                  <span className={styles.buttonX} aria-hidden="true">&times;</span>
+                </button>
+                {props.children}
+              </div>
             </animated.div>
           )
         );

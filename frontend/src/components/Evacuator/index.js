@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './evacuator.module.scss';
 import geoFindMe from './addressFinder.js';
+import Tick from '../Tick';
 
 import { addEvacuatorReq } from '../../redux/actions/actionCreators';
 
@@ -40,7 +41,8 @@ function Evacuator() {
   }
   return (
     <form className={styles.evaForm} onSubmit={sendReq}>
-      <div className="form-group">
+      <Tick />
+      <div class="form-group">
         <input
           name="username"
           className="evaInput"
