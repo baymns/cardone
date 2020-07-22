@@ -22,10 +22,8 @@ const componentsForModal = {
 
 function App() {
   const modalState = useSelector((state) => state.modal);
-  console.log(modalState);
 
   const CurrentModal = componentsForModal[modalState.show];
-  console.log(CurrentModal);
   function handleLoad() {
     window.ymaps.ready(() => {
       new window.ymaps.Map(

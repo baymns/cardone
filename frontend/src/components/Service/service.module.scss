@@ -1,19 +1,45 @@
 .service_block {
-  // margin: 0 auto;
-  padding: 20px;
-  box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.15);
-  .show_map_btn {
+  margin: 10px;
+  padding: 10px;
+  // box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.15);
+  box-shadow: 0 0 8px rgba(0,0,0,0.25);
+  .name {
+    font-size: 1.4em;
+  }
+  p {
+    font-size: 1.2em;
+    svg {
+      // font-size : 24px;
+      font-size: 1.2em !important;
+      // height: 24px;
+    }
+    :nth-child(2) {
+      color: 'green'
+    }
+    span {
+      vertical-align: middle;
+    }
+  }
+  .review_button {
+    border: none;
+    color: #3895c2;
+    background-color: transparent;
+  }
+  .show_map_btn, .favor_btn {
     border: 1px solid #3895c2;
     border-radius: 0.5em;
     background-color: transparent;
     color: #3895c2;
-    padding: 3px 10px;
+    padding: 4px 8px;
     transition: 0.2s;
     outline: none;
-    margin-right: 10px;
+    // margin-right: 5px;
     &:hover {
       background-color: #3895c2;
       color: #fff;
     }
+  }
+  .favor_btn {
+    margin-left: 1.2em;
   }
 }
