@@ -54,16 +54,16 @@ function App() {
             <Evaquator />
           </Route>
           <Route path="/services">
-            <ServicesList category={'Autoservice'} />
+            <ServicesList category={'автосервис'} />
           </Route>
           <Route path="/tireservices">
-            <ServicesList category={'Tireservice'} />
+            <ServicesList category={'шиномонтаж'} />
           </Route>
           <Route path="/autoparts">
-            <ServicesList category={'Autoparts'} />
+            <ServicesList category={'автозапчасти'} />
           </Route>
           <Route path="/carwash">
-            <ServicesList category={'Carwash'} />
+            <ServicesList category={'автомойка'} />
           </Route>
           <Route path="/signin">
             <Signin />

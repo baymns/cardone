@@ -1,8 +1,5 @@
 import express from 'express';
-import Autoservice from '../models/autoservice.js';
-import Autoparts from '../models/autoparts.js';
-import Tireservice from '../models/tireservice.js';
-import Carwash from '../models/carwash.js';
+import Service from '../models/service.js';
 
 const router = express.Router();
 
@@ -25,17 +22,12 @@ router.post('/', async (req, res) => {
   function deg2rad(deg) {
     return deg * (Math.PI / 180);
   }
-  const categoryList = {
-    Autoservice,
-    Autoparts,
-    Tireservice,
-    Carwash,
-  };
+
   let services;
   try {
-    services = await categoryList[category].find();
+    services = await Service.find({ category });
   } catch (error) {
-    console.log(error);
+    return error;
   }
   const updated = services.map((service) => {
     service.distance = getDistanceInKm(latitude, longitude, service.coordinates[1], service.coordinates[0]);
@@ -51,12 +43,6 @@ router.post('/', async (req, res) => {
 router.post('/details/:id', async (req, res) => {
   const { id } = req.params;
   const { category } = req.body;
-  const categoryList = {
-    Autoservice,
-    Autoparts,
-    Tireservice,
-    Carwash,
-  };
   let service;
   try {
     service = await categoryList[category].findOne({ id });
