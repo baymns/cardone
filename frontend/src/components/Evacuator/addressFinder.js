@@ -29,3 +29,5 @@ function geoFindMe() {
     navigator.geolocation.getCurrentPosition(success, error);
   }
 }
+
+export default geoFindMe;

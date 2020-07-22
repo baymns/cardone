@@ -3,7 +3,12 @@ import mongoose from 'mongoose';
 const { Schema, model } = mongoose;
 
 const reviewSchema = new Schema({
-  content: {
+  rating: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  comment: {
     type: String,
     required: true,
   },
