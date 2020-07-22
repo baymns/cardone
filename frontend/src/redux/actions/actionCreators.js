@@ -51,7 +51,6 @@ export function load(category) {
       async function success(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        debugger
         const response = await fetch('/api/services', {
           method: 'POST',
           headers: {
@@ -60,7 +59,6 @@ export function load(category) {
           body: JSON.stringify({ latitude, longitude, category })
         });
         const json = await response.json();
-        debugger
         // const result = json.features.map((item) => item.properties);
         console.log(json);
         dispatch(loadingSuccessful(json));
