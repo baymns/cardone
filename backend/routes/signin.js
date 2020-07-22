@@ -10,6 +10,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   const { email, password } = req.body;
   try {
+
     const candidate = await User.findOne({ email }).populate('favourites');
     if (candidate) {
       const checkPassword = await bcrypt.compare(password, candidate.password);
@@ -29,17 +30,6 @@ router.post('/', async (req, res) => {
   } catch (error) {
     return res.status(500).end();
   }
-  // if (!user) {
-  //   return res.status(401).end();
-  // }
-  // const filteredUser = {
-  //   id: user._id,
-  //   name: user.name,
-  //   email: user.email,
-  //   favourites: user.favourites,
-  // };
-  // req.session.user = filteredUser;
-  // return res.json(filteredUser);
 });
 
 export default router;

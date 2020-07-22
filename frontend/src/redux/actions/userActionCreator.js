@@ -1,4 +1,4 @@
-import { AUTH_USER, ADD_FAVOURITES, LOGOUT_USER } from "./actionTypes";
+import { AUTH_USER, ADD_FAVOURITES, DELETE_FAVOURITES, LOGOUT_USER } from "./actionTypes";
 
 export function regUser(user) {
   return {
@@ -12,13 +12,20 @@ export function addFavourites(favourites) {
     payload: favourites,
   }
 }
+export function deleteFavourites(id) {
+  return {
+    type: ADD_FAVOURITES,
+    payload: id,
+  }
+}
+
 export function logoutUser() {
   return {
     type: LOGOUT_USER
   }
 }
 
-function addToFavourites(serviceId, categ, service) {
+export const addToFavourites = (serviceId, categ, service) => {
   return async (dispatch) => {
     let response;
     try {
@@ -39,4 +46,21 @@ function addToFavourites(serviceId, categ, service) {
   }
 }
 
-export default addToFavourites;
+export const deleteFromFavourites = (serviceId) => {
+  return async (dispatch) => {
+    let response;
+    try {
+      response = await fetch(`/api/favourites/${serviceId}`, {
+        method: 'DELETE'
+      })
+    } catch (error) {
+      return error;
+    }
+    if (response.status === 200) {
+      dispatch(deleteFavourites(serviceId));
+    } else {
+      alert('Something is wrong!');
+    }
+  }
+}
+
