@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
   const { email, password } = req.body;
   let user;
   try {
-    user = await (await User.findOne({ email, password })).populate('favourites');
+    user = await User.findOne({ email, password }).populate('favourites');
   } catch (error) {
     return res.status(500).end();
   }

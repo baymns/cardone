@@ -6,7 +6,7 @@ import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import addToFavourites from '../../redux/actions/userActionCreator';
+import { addToFavourites, deleteFromFavourites } from '../../redux/actions/userActionCreator';
 
 function Service({ categ, service }) {
   const user = useSelector(state => state.user)
@@ -30,7 +30,7 @@ function Service({ categ, service }) {
           <Rating
             name="customized-empty"
             defaultValue={4}
-            precision={0.5}
+            precision={1}
             emptyIcon={<StarBorderIcon fontSize="inherit" />}
           />
         </span>
@@ -61,7 +61,7 @@ function Service({ categ, service }) {
           ? (<button
             type="button"
             className={styles.show_map_btn}
-            // onClick={() => addToFavourites(id, categ)}
+            onClick={() => dispatch(deleteFromFavourites(id))}
           ><i class="fas fa-heart-broken"></i> Убрать из Избранного</button>)
           : (<button
             type="button"
