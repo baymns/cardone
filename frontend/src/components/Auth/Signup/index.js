@@ -21,15 +21,15 @@ function Signup() {
       body: JSON.stringify(inputs),
     });
     const user = await req.json();
-    debugger
-    if (req.status === 200) {
+    console.log(user);
+    if (user.id) {
       dispatch(regUser(user))
       setInputs(initialState);
-      return history.push('/services');
+      return history.push('/');
+    } else {
+      setError(user)
     }
-    return (
-      <div>{error}</div>
-    );
+    
   };
 
   const changed = ({ target: { value, name } }) => {
@@ -58,6 +58,7 @@ function Signup() {
         </form>
 
         {/* <button className={styles.link_btn} onClick={onClick}>Создать аккаунт</button> */}
+        <div>{error}</div>
       </div>
     </div>
   );

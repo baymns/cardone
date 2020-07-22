@@ -1,21 +1,41 @@
 import express from 'express';
+import bcrypt from 'bcrypt';
 import User from '../models/user.js';
+import checkedEmail from '../middleware/checkedEmail.js';
 
 const router = express.Router();
 
 router.post('/', async (req, res) => {
   const { name, email, password } = req.body;
-  const user = new User({ name, email, password });
-  try {
-    await user.save();
-  } catch (error) {
-    return res.status(401).end();
+
+  if (!name || !email || !password) {
+    return res.json('Все поля обязательны к заполнению');
   }
-  const filteredUser = {
+  if (!checkedEmail(email)) {
+    return res.json('Недопустимый формат email');
+  }
+
+  try {
+    const candidate = await User.findOne({ email });
+    if (candidate) {
+      return res.json('Пользователь с таким email уже существует');
+    }
+
+    const user = new User({
+      name,
+      email,
+      password: await bcrypt.hash(password, 10),
+    });
+    await user.save();
+     const filteredUser = {
     id: user._id, name: user.name, email: user.email, favourites: user.favourites,
   };
   req.session.user = filteredUser;
   return res.json(filteredUser);
+  } catch (error) {
+    return res.status(401).end();
+  }
+
 });
 
 export default router;
