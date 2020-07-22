@@ -3,6 +3,7 @@ export const LOADING_SUCCESSFUL = 'LOADING_SUCCESSFUL';
 export const LOADING_FAILED = 'LOADING_FAILED';
 
 export const AUTH_USER = 'AUTH_USER';
+export const ADD_FAVOURITES = 'ADD_FAVOURITES';
 export const LOGOUT_USER = 'LOGOUT_USER';
 
 export const EVACUATOR_REQ = 'EVACUATOR_REQ';

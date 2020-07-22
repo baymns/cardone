@@ -19,14 +19,14 @@ function ServicesList({ category }) {
   return (
     <div className="page_container">
       <div className="sort">
-        
+
       </div>
       <div className={styles.list_container}>
         {loading && <Loading />}
         {error && error.message}
         {data &&
           data.map((service) => (
-            <Service key={service.id} service={service} />
+            <Service key={service.id} categ={category} service={service} />
           ))}
       </div>
     </div>

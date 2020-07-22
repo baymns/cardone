@@ -6,12 +6,16 @@ import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import addToFavourites from '../../redux/actions/userActionCreator';
 
-function Service({ service }) {
+function Service({ categ, service }) {
   const user = useSelector(state => state.user)
   const dispatch = useDispatch();
   const { id, name, address, workingTime, phone, url, category, coordinates, distance, rating, reviews } = service;
+
+  //Hooks
   const [visibility, setVisibility] = useState(false);
+
   return (
     <div className={styles.service_block}>
       <p>
@@ -49,15 +53,23 @@ function Service({ service }) {
         className={styles.show_map_btn}
         onClick={() => setVisibility(!visibility)}
       >
-        <i class="fas fa-location-arrow"></i> Показать на карте
+        <i class="fas fa-location-arrow"></i> Маршрут
       </button>
-      <button
-        type="button"
-        className={styles.show_map_btn}
-      // onClick={() => setVisibility(!visibility)}
-      >
-        <i class="fas fa-heart"></i> Добавить в Избранное
-      </button>
+      {
+
+        user.favourites && user.favourites.find((serv) => serv.id === id)
+          ? (<button
+            type="button"
+            className={styles.show_map_btn}
+            // onClick={() => addToFavourites(id, categ)}
+          ><i class="fas fa-heart-broken"></i> Убрать из Избранного</button>)
+          : (<button
+            type="button"
+            className={styles.show_map_btn}
+            onClick={() => dispatch(addToFavourites(id, categ, service))}
+          ><i class="fas fa-heart"></i> Добавить в Избранное</button>)
+      }
+
       {visibility && <Map description={address} boundedBy={coordinates} id={id} />}
     </div >
   );
