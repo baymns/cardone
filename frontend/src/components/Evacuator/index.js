@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './evacuator.module.scss';
+import geoFindMe from './addressFinder.js';
 
 import { addEvacuatorReq } from '../../redux/actions/actionCreators';
 
@@ -13,11 +14,12 @@ function Evacuator() {
     address: '',
   });
 
+  console.log(geoFindMe());
+
   const dispatch = useDispatch();
 
   async function sendReq(event) {
     event.preventDefault();
-    console.log(reqData);
 
     const response = await fetch('/api/requests', {
       method: 'POST',
@@ -35,7 +37,6 @@ function Evacuator() {
   }
   function changed({ target: { value, name } }) {
     setReqData({ ...reqData, [name]: value });
-    console.log(reqData);
   }
   return (
     <form className={styles.evaForm} onSubmit={sendReq}>
