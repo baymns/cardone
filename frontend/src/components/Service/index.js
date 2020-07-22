@@ -25,8 +25,8 @@ function Service({ categ, service }) {
     url,
     category,
     coordinates,
+    totalRating,
     distance,
-    rating,
     reviews,
   } = service;
 
@@ -46,7 +46,7 @@ function Service({ categ, service }) {
         Рейтинг:
           <Rating
           name="customized-empty"
-          value={Number(stars)}
+          value={Number(totalRating)}
           onChange={(e) => setStars(e.target.value)}
           disabled
           precision={1}
@@ -121,13 +121,14 @@ function Service({ categ, service }) {
             type="button"
             className={styles.favor_btn}
             onClick={() => dispatch(deleteFromFavourites(id))}
-          ><i className="fas fa-heart-broken"></i> Убрать из Избранного</button>)
-          : (<button
-            key="addFavorites"
-            type="button"
-            className={styles.favor_btn}
-            onClick={() => dispatch(addToFavourites(id, categ, service))}
-          ><i className="fas fa-heart"></i> Добавить в Избранное</button>)
+          ><i className="fas fa-heart-broken"></i> Убрать из Избранного</button>) :
+          user.id ?
+            (<button
+              key="addFavorites"
+              type="button"
+              className={styles.favor_btn}
+              onClick={() => dispatch(addToFavourites(id, categ, service))}
+            ><i className="fas fa-heart"></i> Добавить в Избранное</button>) : <></>
       }
 
 

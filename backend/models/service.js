@@ -24,9 +24,9 @@ const serviceSchema = new Schema({
     type: String,
     required: true,
   },
-  rating: {
-    type: Schema.Types.ObjectId,
-    ref: 'Rating',
+  totalRating: {
+    type: Number,
+    default: 0,
   },
   reviews: [{
     type: Schema.Types.ObjectId,

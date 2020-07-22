@@ -25,11 +25,21 @@ router.post('/', async (req, res) => {
     return deg * (Math.PI / 180);
   }
 
+  function totalRating(services) {
+    return services.map((service) => {
+      const rating = service.reviews.reduce((acc, review) => acc + review.rating, 0);
+      service.totalRating = (rating / service.reviews.length).toFixed(1);
+      return service;
+    });
+  }
+
   let services;
   try {
+
     services = await Service.find({ category })
       .populate('prefer')
       .populate('reviews');
+
   } catch (error) {
     return error;
   }
@@ -43,8 +53,8 @@ router.post('/', async (req, res) => {
     return service;
   });
   const sorted = updated.sort((a, b) => a.distance - b.distance);
-  const result =
-    sorted.length > 10 ? sorted.slice(0, 10) : sorted(0, sorted.length - 1);
+  const ratingAndDistance = totalRating(sorted);
+  const result = ratingAndDistance.length > 10 ? ratingAndDistance.slice(0, 10) : sorted(0, ratingAndDistance.length - 1);
 
   return res.json(result);
 });
