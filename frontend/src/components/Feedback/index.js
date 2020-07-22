@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './feedback.module.scss';
 
-function Feedback() {
+function Feedback({ name }) {
   return (
     <>
       <form>
-        <p>Здесь должно быть название сервиса</p>
+        <p>{name}</p>
         <div>Оцените это место</div>
         <div>⭐⭐⭐⭐⭐</div>
         <div>Комментарии</div>

@@ -21,10 +21,10 @@ const componentsForModal = {
 };
 
 function App() {
-  const modalState = useSelector((state) => state.modal.show);
+  const modalState = useSelector((state) => state.modal);
   console.log(modalState);
 
-  const CurrentModal = componentsForModal[modalState];
+  const CurrentModal = componentsForModal[modalState.show];
   console.log(CurrentModal);
   function handleLoad() {
     window.ymaps.ready(() => {
@@ -45,7 +45,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        {<Modal>{modalState && <CurrentModal />}</Modal>}
+        {<Modal>{modalState.show && <CurrentModal {...modalState.props} />}</Modal>}
         <Switch>
           <Route path="/profile">
             <Profile />
