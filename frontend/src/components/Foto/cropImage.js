@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import AvatarEditor from '../../src/components/Avatar'
+import React from 'react';
+import AvatarEditor from '../Avatar'
 
 const CropImage = ({
   imageSrc,
@@ -13,9 +13,9 @@ const CropImage = ({
       <AvatarEditor
         ref={setEditorRef}
         image={imageSrc}
-        width={250}
-        height={250}
-        border={50}
+        width={150}
+        height={150}
+        border={25}
         scale={scaleValue}
       />
       <input
