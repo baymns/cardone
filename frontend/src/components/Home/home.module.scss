@@ -46,13 +46,13 @@
       }
     }
     .evacuator {
-      width: 100vw;
-      height: 29.4vh;
+      // height: 29vh;
       line-height: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       color: #fff;
+      padding-bottom: 10px;
 
       &:hover {
         background-color: #fff;
@@ -60,9 +60,12 @@
         cursor: pointer;
       }
       svg {
-        width: 30px;
-        height: 30px;
-        margin-bottom: 1em;
+        width: 35px;
+        height: 35px;
+        // position: absolute;
+        // top: 78%;
+        // right: 21%;
+        margin-bottom: 0.5em;
       }
     }
   }

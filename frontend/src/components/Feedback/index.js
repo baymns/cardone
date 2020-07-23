@@ -35,8 +35,8 @@ function Feedback({ name, id }) {
   return (
     <>
       <form onSubmit={sendFeedback} className={styles.container}>
-        <p>{name}</p>
-        <div>Оцените это место</div>
+        <p className={styles.name}>{name}</p>
+        <p>Оцените это место</p>
         <span>
           <Rating
             onChange={(e) =>
@@ -48,9 +48,9 @@ function Feedback({ name, id }) {
             emptyIcon={<StarBorderIcon fontSize="inherit" />}
           />
         </span>
-        <div>Комментарии</div>
-        <div class="form-group">
-          <label for="commentArea"></label>
+        <p className={styles.comment_label}>Комментарий</p>
+        <div className="form-group">
+          <label htmlFor="commentArea"></label>
           <textarea
             onChange={(e) =>
               setFeedback({ ...feedback, comment: e.target.value })
@@ -62,20 +62,24 @@ function Feedback({ name, id }) {
             rows="3"
           ></textarea>
         </div>
-        <div class="form-group">
-          <input
-            type="file"
-            class="form-control-file"
-            aria-describedby="fileHelp"
-          />
-          <small id="fileHelp" class="form-text text-muted">
-            Ты можешь загрузить сюда чо по кайфу
-          </small>
+        <div className={styles.upload_block}>
+          <label htmlFor="file-upload">
+            <i className="fas fa-upload"></i>
+            <span className={styles.title}>Загрузить файл</span>
+            <input
+              type="file"
+              // className={styles.loadfile_btn}
+              aria-describedby="fileHelp"
+              id="file-upload"
+            />
+          </label>
         </div>
-        <button class="btn btn-primary" type="submit">
-          Отправить
+        <div>
+          <button className={styles.send_btn} type="submit">
+            Отправить
         </button>
-        <button class="btn btn-outline-primary">Отменить</button>
+          <button className={styles.cancel_btn}>Отменить</button>
+        </div>
       </form>
     </>
   );
