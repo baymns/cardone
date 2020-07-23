@@ -17,7 +17,7 @@ function Feedback({ name, id }) {
 
   const dispatch = useDispatch();
 
-  async function sendFeedback(event, id) {
+  async function sendFeedback(event) {
     event.preventDefault();
 
     const response = await fetch('/api/feedback', {
@@ -25,7 +25,10 @@ function Feedback({ name, id }) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(feedback),
     });
-    dispatch(addFeedback(feedback));
+    const result = await response.json();
+    console.log(result);
+
+    dispatch(addFeedback(result, feedback.id));
     setFeedback({
       rating: 0,
       comment: '',

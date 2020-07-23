@@ -10,11 +10,12 @@ import {
 
 dotenv.config();
 
-export function addFeedback(feedback) {
+export function addFeedback(feedback, id) {
+  console.log(feedback);
   return {
     type: ADD_FEEDBACK,
-    rating: feedback.rating,
-    comment: feedback.comment,
+    feedback,
+    id,
   };
 }
 
