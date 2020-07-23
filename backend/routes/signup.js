@@ -28,7 +28,11 @@ router.post('/', async (req, res) => {
     });
     await user.save();
     const filteredUser = {
-      id: user._id, name: user.name, email: user.email, favourites: user.favourites,
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      favourites: user.favourites,
+      avatar: user.avatar,
     };
     req.session.user = filteredUser;
     return res.json(filteredUser);

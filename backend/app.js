@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
@@ -14,6 +15,7 @@ import evacuatorOrder from './routes/evacuatorOrder.js';
 import servicesRouter from './routes/services.js';
 import favouritesRouter from './routes/favourites.js';
 import feedback from './routes/feedback.js';
+import uploadAvatarRouter from './routes/uploadUserAvatar.js';
 
 dotenv.config();
 
@@ -64,7 +66,8 @@ app.use((req, res, next) => {
 app.use('/api/feedback', feedback);
 app.use('/api/favourites', favouritesRouter);
 app.use('/api/logout', logoutRouter);
+app.use('/api/uploadAvatar', uploadAvatarRouter);
 
 const PORT = process.env.PORT ?? 3001;
 
-app.listen(PORT, () => console.log('Server is running'));
+app.listen(PORT);

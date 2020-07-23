@@ -13,10 +13,16 @@ const userSchema = new Schema({
     required: true,
   },
   password: String,
-  favourites: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Service',
-  }],
+  favourites: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Service',
+    },
+  ],
+  avatar: {
+    type: Schema.Types.String,
+    default: '',
+  },
 });
 
 export default model('User', userSchema);

@@ -5,10 +5,21 @@ import {
   SORT_BY_DISTANCE,
   SORT_BY_RATING,
   SORT_BY_REVIEW,
+  ADD_FEEDBACK,
 } from '../actions/actionTypes';
 const initialState = { loading: false, data: null, error: false, sort: null };
 export default (state = initialState, action) => {
   switch (action.type) {
+    case ADD_FEEDBACK:
+      return {
+        ...state,
+        data: state.data.map((el) => {
+          if (el.id === action.id) {
+            el.reviews = [...el.reviews, action.feedback];
+          }
+          return el;
+        }),
+      };
     case LOADING_STARTED:
       return {
         ...state,

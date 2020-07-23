@@ -20,9 +20,13 @@ function Profile() {
       <div className="main-user-info">
         <p>{user.name}</p>
         <p>{user.email}</p>
+        
       </div>
       <div className="options"></div>
-      {uploadFoto && <FotoEditor user={user.id} />}
+
+      {uploadFoto && (
+        <FotoEditor userId={user.id} setUploadFoto={setUploadFoto} />
+      )}
     </div>
   );
 }
