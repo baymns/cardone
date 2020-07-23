@@ -12,16 +12,17 @@ function Profile() {
   return (
     <div className={styles.profile_container}>
       <div className={styles.avatar}>
-        <img src={loadedFile || defaultAvatar} alt="avatar" />
-        <div onClick={() => setUploadFoto(!uploadFoto)}>
-          <i className="fas fa-user-plus"></i>
+        <img
+          src={loadedFile || defaultAvatar}
+          alt="avatar"
+          onClick={() => setUploadFoto(!uploadFoto)}
+        />
+        <div>
+          <p>{user.name}</p>
+          <p>{user.email}</p>
         </div>
       </div>
-      <div className="main-user-info">
-        <p>{user.name}</p>
-        <p>{user.email}</p>
-        
-      </div>
+      
       <div className="options"></div>
 
       {uploadFoto && (
