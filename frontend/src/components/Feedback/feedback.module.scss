@@ -1,10 +1,67 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-start;
-  margin: 10px;
-  margin-top: 80px;
-}
-.comments {
+  padding: 20px;
+  margin-top: 8em;
+  p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+  }
+  > span {
+    span {
+      font-size: 1.5em;
+    }
+  }
+  .name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.8em;
+  }
+  .comment_label {
+    margin-top: 0.8em;
+  }
+  .comments {
+    max-width: 23em;
+    min-width: 20em;
+    margin-top: 0.8em;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  .upload_block {
+    label {
+      width:12em;
+      height: 2.5em;
+      border:1px solid #ccc;
+      border-radius:5px;
+      display:block;
+      padding:0.5em 0;
+      transition: border 300ms ease;
+      cursor:pointer;
+      text-align:center;
+      margin-bottom: 2em;
+      svg {
+        margin-right: 0.5em;
+        color: #000;
+      }
+    }
+    .title {
+      margin-top: 0.2em;
+      color: #000;
+    }
+    input[type=file] {
+      outline:0;
+      opacity:0;
+      pointer-events:none;
+      user-select:none;
+    }
+  }
+
+  .send_btn, .cancel_btn {
+    border: none;
+    border-radius: 0.5em;
+    margin-right: 1em;
+    padding: 0.4em 0.6em;
+  }
 }

@@ -1,17 +1,15 @@
 .service_block {
   margin: 10px;
   padding: 10px;
-  // box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.15);
   box-shadow: 0 0 8px rgba(0,0,0,0.25);
   .name {
     font-size: 1.4em;
   }
   p {
     font-size: 1.2em;
+    margin-bottom: 0.3em;
     svg {
-      // font-size : 24px;
-      font-size: 1.2em !important;
-      // height: 24px;
+      font-size: 1.2em;
     }
     :nth-child(2) {
       color: 'green'
@@ -19,6 +17,9 @@
     span {
       vertical-align: middle;
     }
+  }
+  .service_btns {
+    margin: 1em 0 0.6em;
   }
   .review_button {
     border: none;
@@ -33,7 +34,6 @@
     padding: 4px 8px;
     transition: 0.2s;
     outline: none;
-    // margin-right: 5px;
     &:hover {
       background-color: #3895c2;
       color: #fff;

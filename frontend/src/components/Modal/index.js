@@ -34,7 +34,7 @@ export const Modal = (props) => {
                   className={styles.closeButton}
                   onClick={() => dispatch(showModal())}
                   type="button"
-                  // class="close"
+                  // className="close"
                   aria-label="Close"
                 >
                   <span className={styles.buttonX} aria-hidden="true">&times;</span>

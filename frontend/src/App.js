@@ -63,6 +63,9 @@ function App() {
           <Route path="/carwash">
             <ServicesList category={'автомойка'} />
           </Route>
+          <Route path="/autorefuelling">
+            <ServicesList category={'автозаправка'} />
+          </Route>
           <Route path="/signin">
             <Signin />
           </Route>
