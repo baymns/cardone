@@ -1,15 +1,19 @@
 import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { load, sortDistance, sortRating, sortReview } from '../../redux/actions/actionCreators';
+import {
+  load,
+  sortDistance,
+  sortRating,
+  sortReview,
+} from '../../redux/actions/actionCreators';
 import Service from '../Service';
 import Loading from '../Loading';
 import styles from './serviceslist.module.scss';
 
 function ServicesList({ category }) {
-
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.services.loading);
-  const sort = useSelector(state => state.services.sort);
+  const sort = useSelector((state) => state.services.sort);
   const data = useSelector((state) => state.services.data);
   useEffect(() => {
     dispatch(load(category));
@@ -27,9 +31,7 @@ function ServicesList({ category }) {
  
   return (
     <div className="page_container">
-      <div className="sort">
-
-      </div>
+      <div className="sort"></div>
       <div className={styles.list_container}>
         <div className={styles.sort_block}>
           <p>Сортировать по:</p>
