@@ -3,19 +3,22 @@ import styles from './showFeedback.module.scss';
 import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
-function ShowFeedback(id) {
+function ShowFeedback(review) {
   return (
     <>
-      <div>{comment}</div>
-      <Rating
-        name="customized-empty"
-        value={Number(rating)}
-        disabled
-        precision={0.1}
-        emptyIcon={<StarBorderIcon fontSize="inherit" />}
-      />
-      <div>{username}</div>
-      <div>{createdAt}</div>
+      <div className={styles.container}>
+        <strong>{review.review.userId.name}</strong>
+        <div>{review.review.comment}</div>
+        <Rating
+          name="customized-empty"
+          value={Number(review.review.rating)}
+          disabled
+          precision={0.1}
+          emptyIcon={<StarBorderIcon fontSize="inherit" />}
+        />
+        <div>{eview.review.createdAt}</div>
+      </div>
     </>
   );
 }
+export default ShowFeedback;

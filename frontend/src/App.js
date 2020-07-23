@@ -12,12 +12,14 @@ import Logout from './components/Auth/Logout/index';
 import Evacuator from './components/Evacuator';
 import Profile from './components/Profile/index';
 import Feedback from './components/Feedback';
+import ShowFeedbackList from './components/ShowFeedbackList';
 
 const componentsForModal = {
   signin: Signin,
   signup: Signup,
   evacuator: Evacuator,
   feedback: Feedback,
+  showfeedbacklist: ShowFeedbackList,
 };
 
 function App() {
@@ -43,7 +45,11 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        {<Modal>{modalState.show && <CurrentModal {...modalState.props} />}</Modal>}
+        {
+          <Modal>
+            {modalState.show && <CurrentModal {...modalState.props} />}
+          </Modal>
+        }
         <Switch>
           <Route path="/profile">
             <Profile />
