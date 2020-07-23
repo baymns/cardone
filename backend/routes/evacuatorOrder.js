@@ -1,12 +1,17 @@
+/* eslint-disable import/extensions */
 import express from 'express';
-import EvacuatorOrder from '../models/evacuatorOrder.js';
 import fetch from 'node-fetch';
+import EvacuatorOrder from '../models/evacuatorOrder.js';
 
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  const { username, phone, brand, model, address } = req.body;
-  const order = new EvacuatorOrder({ username, phone, brand, model, address });
+  const {
+    username, phone, brand, model, address,
+  } = req.body;
+  const order = new EvacuatorOrder({
+    username, phone, brand, model, address,
+  });
   try {
     await order.save();
   } catch (error) {

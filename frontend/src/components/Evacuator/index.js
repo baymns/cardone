@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './evacuator.module.scss';
 import geoFindMe from './addressFinder.js';
@@ -7,22 +7,23 @@ import Tick from '../Tick';
 import { addEvacuatorReq } from '../../redux/actions/actionCreators';
 
 function Evacuator() {
-  const address = async () => {
-    const result = await geoFindMe();
-    const res = await result;
-    return res;
-  };
-
-  const [reqData, setReqData] = useState({
-    username: '',
-    phone: '',
-    brand: '',
-    model: '',
-    address: '',
-  });
-
-  const dispatch = useDispatch();
-
+  
+    //const res = await geoFindMe();
+  
+    console.log('dddddddddddd');
+    const [reqData, setReqData] = useState({
+      username: '',
+      phone: '',
+      brand: '',
+      model: '',
+      address: '',
+    });
+    const dispatch = useDispatch();
+    
+  useEffect(() => {
+    geoFindMe().then(data=>setReqData({...reqData,address:data}))
+  },[])
+  
   async function sendReq(event) {
     event.preventDefault();
 

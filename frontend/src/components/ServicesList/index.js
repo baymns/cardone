@@ -13,11 +13,11 @@ function ServicesList({ category }) {
   const data = useSelector((state) => state.services.data);
   const sortedData = useMemo(() => {
     if (sort === 'rating') {
-      return data.slice().sort((a, b) => b.totalRating - a.totalRating)
+      return data && data.slice().sort((a, b) => b.totalRating - a.totalRating)
     } else if (sort === 'review') {
-      return data.slice().sort((a, b) => b.reviews.length - a.reviews.length)
+      return data && data.slice().sort((a, b) => b.reviews.length - a.reviews.length)
     } else {
-      return data.slice().sort((a, b) => a.distance - b.distance)
+      return data && data.slice().sort((a, b) => a.distance - b.distance)
     };
   }, [data, sort])
   const error = useSelector((state) => state.services.error);
