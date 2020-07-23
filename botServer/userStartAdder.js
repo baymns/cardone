@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import mongoose from 'mongoose';
 import EvacuatorBotUser from './models/evacuatorBotUser.js';
 
