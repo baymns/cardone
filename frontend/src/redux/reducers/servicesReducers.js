@@ -10,16 +10,6 @@ import {
 const initialState = { loading: false, data: null, error: false, sort: null };
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ADD_FEEDBACK:
-      return {
-        ...state,
-        data: state.data.map((el) => {
-          if (el.id === action.id) {
-            el.reviews = [...el.reviews, action.feedback];
-          }
-          return el;
-        }),
-      };
     case LOADING_STARTED:
       return {
         ...state,
@@ -53,6 +43,26 @@ export default (state = initialState, action) => {
         ...state,
         sort: 'review'
       }
+    case ADD_FEEDBACK:
+      return {
+        ...state,
+        data: state.data.map((el) => {
+          if (el.id === action.id) {
+            el.reviews = [...el.reviews, action.feedback];
+          }
+          return el;
+        }),
+      };
+    // case RECALCULATE_RATING:
+    //   return {
+    //     ...state,
+    //     data: state.data.map((el) => {
+    //       if (el.id === action.id) {
+    //         el.reviews = [...el.reviews, action.feedback];
+    //       }
+    //       return el;
+    //     }),
+    //   };
     default:
       return state;
   }

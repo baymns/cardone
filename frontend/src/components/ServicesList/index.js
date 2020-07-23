@@ -15,22 +15,20 @@ function ServicesList({ category }) {
   const loading = useSelector((state) => state.services.loading);
   const sort = useSelector((state) => state.services.sort);
   const data = useSelector((state) => state.services.data);
-  const sortedData = useMemo(() => {
-    if (sort === 'rating') {
-      return data && data.slice().sort((a, b) => b.totalRating - a.totalRating);
-    } else if (sort === 'review') {
-      return (
-        data && data.slice().sort((a, b) => b.reviews.length - a.reviews.length)
-      );
-    } else {
-      return data && data.slice().sort((a, b) => a.distance - b.distance);
-    }
-  }, [data, sort]);
-  const error = useSelector((state) => state.services.error);
-
   useEffect(() => {
     dispatch(load(category));
   }, [dispatch]);
+  const sortedData = useMemo(() => {
+    if (sort === 'rating') {
+      return data && data.slice().sort((a, b) => b.totalRating - a.totalRating)
+    } else if (sort === 'review') {
+      return data && data.slice().sort((a, b) => b.reviews.length - a.reviews.length)
+    } else {
+      return data && data.slice().sort((a, b) => a.distance - b.distance)
+    };
+  }, [data, sort])
+  const error = useSelector((state) => state.services.error);
+ 
   return (
     <div className="page_container">
       <div className="sort"></div>
@@ -38,15 +36,12 @@ function ServicesList({ category }) {
         <div className={styles.sort_block}>
           <p>Сортировать по:</p>
           <div className={styles.sort_btns}>
-            <button type="button" onClick={() => dispatch(sortDistance())}>
-              расстоянию
-            </button>
-            <button type="button" onClick={() => dispatch(sortRating())}>
-              рейтингу
-            </button>
-            <button type="button" onClick={() => dispatch(sortReview())}>
-              отзывам
-            </button>
+            <button type="button" className={(!sort || sort === 'distance') && styles.active} onClick={(e) => {
+              dispatch(sortDistance());
+              e.target.classList.toggle('active')
+            }}>расстоянию</button>
+            <button type="button" className={(sort === 'rating') && styles.active} onClick={() => dispatch(sortRating())}>рейтингу</button>
+            <button type="button" className={(sort === 'review') && styles.active} onClick={() => dispatch(sortReview())}>отзывам</button>
           </div>
         </div>
         {loading && <Loading />}
