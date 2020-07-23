@@ -11,6 +11,7 @@ import {
   EVACUATOR_REQ,
   SHOW_MODAL,
   ADD_FEEDBACK,
+  RECALCULATE_RATING
 } from './actionTypes';
 
 dotenv.config();
@@ -22,7 +23,12 @@ export function addFeedback(feedback, id) {
     id,
   };
 }
-
+export function recalculateRating(id) {
+  return {
+    type: RECALCULATE_RATING,
+    id,
+  };
+}
 export function showModal(show, props) {
   return {
     type: SHOW_MODAL,
@@ -90,7 +96,6 @@ export function load(category) {
           body: JSON.stringify({ latitude, longitude, category }),
         });
         const json = await response.json();
-        // const result = json.features.map((item) => item.properties);
         dispatch(loadingSuccessful(json));
       }
 

@@ -28,6 +28,9 @@
     border-radius: 0.5em;
     border: 1px solid #ccc;
     padding: 10px;
+    &:focus {
+      outline: none;
+    }
   }
   .upload_block {
     label {
@@ -60,6 +63,7 @@
 
   .send_btn, .cancel_btn {
     border: none;
+    outline: none;
     border-radius: 0.5em;
     margin-right: 1em;
     padding: 0.4em 0.6em;

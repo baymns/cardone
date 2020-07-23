@@ -36,12 +36,12 @@ function ServicesList({ category }) {
         <div className={styles.sort_block}>
           <p>Сортировать по:</p>
           <div className={styles.sort_btns}>
-            <button type="button" className={(!sort || sort === 'distance') && styles.active} onClick={(e) => {
+            <button type="button" className={(!sort || sort === 'distance') ? styles.active : undefined} onClick={(e) => {
               dispatch(sortDistance());
               e.target.classList.toggle('active')
             }}>расстоянию</button>
-            <button type="button" className={(sort === 'rating') && styles.active} onClick={() => dispatch(sortRating())}>рейтингу</button>
-            <button type="button" className={(sort === 'review') && styles.active} onClick={() => dispatch(sortReview())}>отзывам</button>
+            <button type="button" className={(sort === 'rating') ? styles.active : undefined} onClick={() => dispatch(sortRating())}>рейтингу</button>
+            <button type="button" className={(sort === 'review') ? styles.active : undefined} onClick={() => dispatch(sortReview())}>отзывам</button>
           </div>
         </div>
         {loading && <Loading />}

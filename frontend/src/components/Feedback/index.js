@@ -4,7 +4,7 @@ import styles from './feedback.module.scss';
 import { useState } from 'react';
 import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import { addFeedback } from '../../redux/actions/actionCreators';
+import { addFeedback, recalculateRating } from '../../redux/actions/actionCreators';
 
 function Feedback({ name, id }) {
   const user = useSelector((state) => state.user);
@@ -26,8 +26,9 @@ function Feedback({ name, id }) {
       body: JSON.stringify(feedback),
     });
     const result = await response.json();
-
+    console.log(result);
     dispatch(addFeedback(result, feedback.id));
+    dispatch(recalculateRating(feedback.id))
     setFeedback({
       rating: 0,
       comment: '',

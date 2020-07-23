@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
     rating, comment, id, userId,
   } = req.body;
   const feedback = new Review({ rating, comment, userId });
-  const service = await Service.findOneAndUpdate(
+  await Service.findOneAndUpdate(
     { id },
     { $push: { reviews: feedback._id } },
     { new: true },

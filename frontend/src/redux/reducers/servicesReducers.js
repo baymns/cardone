@@ -6,6 +6,7 @@ import {
   SORT_BY_RATING,
   SORT_BY_REVIEW,
   ADD_FEEDBACK,
+  RECALCULATE_RATING
 } from '../actions/actionTypes';
 const initialState = { loading: false, data: null, error: false, sort: null };
 export default (state = initialState, action) => {
@@ -53,16 +54,17 @@ export default (state = initialState, action) => {
           return el;
         }),
       };
-    // case RECALCULATE_RATING:
-    //   return {
-    //     ...state,
-    //     data: state.data.map((el) => {
-    //       if (el.id === action.id) {
-    //         el.reviews = [...el.reviews, action.feedback];
-    //       }
-    //       return el;
-    //     }),
-    //   };
+    case RECALCULATE_RATING:
+      const service = state.data.find((el) => el.id === action.id)
+      const rating = service.reviews.reduce((acc, review) => acc + review.rating, 0)
+      service.totalRating = (rating / service.reviews.length).toFixed(1);
+      return {
+        ...state,
+        data: [
+          ...state.data,
+          service
+        ]
+      };
     default:
       return state;
   }
