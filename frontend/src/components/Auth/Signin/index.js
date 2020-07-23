@@ -24,7 +24,7 @@ function Signin() {
     if (user.id) {
       dispatch(regUser(user))
       setInputs(initialState);
-      return history.push('/');
+      return history.goBack();
     } else {
       setError(user)
     }

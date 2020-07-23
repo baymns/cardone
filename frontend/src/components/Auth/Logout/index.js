@@ -10,7 +10,7 @@ function Logout() {
     (async () => {
       const res = await fetch('/api/logout');
       dispatch(logoutUser());
-      history.push('/');
+      return history.goBack();
     })();
   }, []);
   return (
