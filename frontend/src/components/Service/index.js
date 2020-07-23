@@ -32,8 +32,9 @@ function Service({ categ, service }) {
 
   //Hooks
   const [visibility, setVisibility] = useState(false);
-  const [stars, setStars] = useState(3);
+
   return (
+
     <div className={styles.service_block}>
       <p className={styles.name}>
         <strong>{name}</strong>
@@ -47,7 +48,6 @@ function Service({ categ, service }) {
           <Rating
           name="customized-empty"
           value={Number(totalRating)}
-          onChange={(e) => setStars(e.target.value)}
           disabled
           precision={0.1}
           emptyIcon={<StarBorderIcon fontSize="inherit" />}

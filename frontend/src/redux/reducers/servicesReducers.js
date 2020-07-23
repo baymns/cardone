@@ -2,9 +2,12 @@ import {
   LOADING_FAILED,
   LOADING_STARTED,
   LOADING_SUCCESSFUL,
+  SORT_BY_DISTANCE,
+  SORT_BY_RATING,
+  SORT_BY_REVIEW,
   ADD_FEEDBACK,
 } from '../actions/actionTypes';
-const initialState = { loading: false, data: null, error: false };
+const initialState = { loading: false, data: null, error: false, sort: null };
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_FEEDBACK:
@@ -21,14 +24,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        error: false,
-        data: null,
       };
     case LOADING_SUCCESSFUL:
       return {
         ...state,
         loading: false,
-        error: false,
         data: action.payload,
       };
     case LOADING_FAILED:
@@ -38,6 +38,21 @@ export default (state = initialState, action) => {
         error: action.payload,
         data: null,
       };
+    case SORT_BY_DISTANCE:
+      return {
+        ...state,
+        sort: 'distance'
+      };
+    case SORT_BY_RATING:
+      return {
+        ...state,
+        sort: 'rating'
+      }
+    case SORT_BY_REVIEW:
+      return {
+        ...state,
+        sort: 'review'
+      }
     default:
       return state;
   }

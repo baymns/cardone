@@ -3,6 +3,11 @@ import {
   LOADING_FAILED,
   LOADING_STARTED,
   LOADING_SUCCESSFUL,
+
+  SORT_BY_DISTANCE,
+  SORT_BY_RATING,
+  SORT_BY_REVIEW,
+
   EVACUATOR_REQ,
   SHOW_MODAL,
   ADD_FEEDBACK,
@@ -51,6 +56,22 @@ export function loadingFailed(err) {
     type: LOADING_FAILED,
     payload: err,
     error: true,
+  };
+}
+
+export function sortDistance() {
+  return {
+    type: SORT_BY_DISTANCE,
+  };
+}
+export function sortRating() {
+  return {
+    type: SORT_BY_RATING,
+  };
+}
+export function sortReview() {
+  return {
+    type: SORT_BY_REVIEW,
   };
 }
 

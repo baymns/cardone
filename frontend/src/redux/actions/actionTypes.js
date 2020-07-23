@@ -8,6 +8,11 @@ export const DELETE_FAVOURITES = 'DELETE_FAVOURITES';
 export const LOGOUT_USER = 'LOGOUT_USER'
 export const UPLOAD_USER_AVATAR = 'UPLOAD_USER_AVATAR';
 
+export const SORT_BY_DISTANCE = 'SORT_BY_DISTANCE';
+export const SORT_BY_RATING = 'SORT_BY_RATING'; 
+export const SORT_BY_REVIEW = 'SORT_BY_REVIEW'; 
+
+
 export const EVACUATOR_REQ = 'EVACUATOR_REQ';
 export const SHOW_MODAL = 'SHOW_MODAL';
 
