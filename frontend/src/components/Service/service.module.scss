@@ -43,4 +43,16 @@
   .favor_btn {
     margin-left: 1.2em;
   }
+  .review_rating{
+    border:1px solid #3895c2;
+    background-color: transparent;
+    color:#3895c2;
+    border-radius: 50%;
+    padding: 0 .44444em ;
+    margin-right: .666em;
+    &:hover{
+      background-color: #3895c2;
+      color:white;
+    }
+  }
 }
