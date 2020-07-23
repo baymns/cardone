@@ -2,6 +2,7 @@ import React, { useState ,useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUserAvatar } from '../../redux/actions/userActionCreator';
 import CropImage from './cropImage';
+import styles from './foto.module.scss';
 
 function FotoEditor({ userId, setUploadFoto }) {
   const dispatch = useDispatch();
@@ -39,12 +40,16 @@ function FotoEditor({ userId, setUploadFoto }) {
   }
 
   return (
-    <>
-      <input
-        type="file"
-        accept="image/png, image/jpeg"
-        onChange={profileImageChange}
-      />
+    <div className={styles.main}>
+      <label>
+        <i className="fas fa-upload"></i>
+        <span className={styles.title}>Загрузить фото</span>
+        <input
+          type="file"
+          accept="image/png, image/jpeg"
+          onChange={profileImageChange}
+        />
+      </label>
 
       <CropImage
         imageSrc={state.selectedImage}
@@ -53,7 +58,7 @@ function FotoEditor({ userId, setUploadFoto }) {
         scaleValue={state.scaleValue}
         onScaleChange={onScaleChange}
       />
-    </>
+    </div>
   );
 }
 
