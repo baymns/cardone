@@ -13,7 +13,7 @@
     flex: 1 2 50%;
     transition: all 0.2s;
     background-color: #86cbec;
-    &:hover {
+    &:active {
       background-color: #fff;
     }
     > a {
@@ -22,7 +22,7 @@
       height: 30vh;
       color: #fff;
 
-      &:hover {
+      &:active {
         color: #86cbec;
         text-decoration: none;
       }
@@ -53,7 +53,7 @@
       color: #fff;
       padding-bottom: 10px;
 
-      &:hover {
+      &:active {
         background-color: #fff;
         color: #86cbec;
         cursor: pointer;
