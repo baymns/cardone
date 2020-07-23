@@ -27,7 +27,10 @@ router.post('/', async (req, res) => {
 
   function totalRating(services) {
     return services.map((service) => {
-      const rating = service.reviews.reduce((acc, review) => acc + review.rating, 0);
+      const rating = service.reviews.reduce(
+        (acc, review) => acc + review.rating,
+        0,
+      );
       service.totalRating = (rating / service.reviews.length).toFixed(1);
       return service;
     });
@@ -35,11 +38,13 @@ router.post('/', async (req, res) => {
 
   let services;
   try {
-
     services = await Service.find({ category })
       .populate('prefer')
-      .populate('reviews');
-
+      .populate('reviews')
+      .populate({
+        path: 'reviews',
+        populate: { path: 'userId' },
+      });
   } catch (error) {
     return error;
   }
@@ -54,7 +59,10 @@ router.post('/', async (req, res) => {
   });
   const sorted = updated.sort((a, b) => a.distance - b.distance);
   const ratingAndDistance = totalRating(sorted);
-  const result = ratingAndDistance.length > 10 ? ratingAndDistance.slice(0, 10) : sorted(0, ratingAndDistance.length - 1);
+  const result =
+    ratingAndDistance.length > 10
+      ? ratingAndDistance.slice(0, 10)
+      : sorted(0, ratingAndDistance.length - 1);
 
   return res.json(result);
 });
