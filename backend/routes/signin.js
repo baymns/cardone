@@ -19,6 +19,7 @@ router.post('/', async (req, res) => {
           name: candidate.name,
           email: candidate.email,
           favourites: candidate.favourites,
+          avatar: candidate.avatar,
         };
         req.session.user = filteredUser;
         return res.json(filteredUser);
