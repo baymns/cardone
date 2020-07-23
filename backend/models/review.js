@@ -10,7 +10,7 @@ const reviewSchema = new Schema({
   },
   comment: {
     type: String,
-    required: true,
+    default: '',
   },
   userId: {
     type: Schema.Types.ObjectId,
