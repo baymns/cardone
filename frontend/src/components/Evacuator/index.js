@@ -13,8 +13,6 @@ function Evacuator() {
     return res;
   };
 
-  console.log(address);
-
   const [reqData, setReqData] = useState({
     username: '',
     phone: '',

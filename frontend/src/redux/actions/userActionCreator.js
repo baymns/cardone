@@ -41,7 +41,6 @@ export function uploadUserAvatar(avatar) {
 export const addUserAvatar = (userId, avatar) => {
   return async (dispatch) => {
     try {
-      console.log('>>>>>addUseAvatar',avatar);
       const response = await fetch('/api/uploadAvatar', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },

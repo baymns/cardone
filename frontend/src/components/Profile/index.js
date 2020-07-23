@@ -9,7 +9,6 @@ function Profile() {
   const [uploadFoto, setUploadFoto] = useState(false);
   const user = useSelector((state) => state.user);
   let loadedFile = user.avatar;
-  console.log(user.avatar);
   return (
     <div className={styles.profile_container}>
       <div className={styles.avatar}>
@@ -21,11 +20,13 @@ function Profile() {
       <div className="main-user-info">
         <p>{user.name}</p>
         <p>{user.email}</p>
+        
       </div>
       <div className="options"></div>
 
-      {uploadFoto && <FotoEditor userId={user.id} />}
-
+      {uploadFoto && (
+        <FotoEditor userId={user.id} setUploadFoto={setUploadFoto} />
+      )}
     </div>
   );
 }
