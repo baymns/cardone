@@ -111,7 +111,6 @@ function MyMap({ description, boundedBy ,id}) {
           //   // на всякий если своего не получиться 110-122
           // window.ymaps.findOrganization(id).then(
           //   function (orgGeoObject) {
-          //     console.log(orgGeoObject);
           //     myMap.geoObjects.add(orgGeoObject);
           //     orgGeoObject.balloon.open();
           //   },

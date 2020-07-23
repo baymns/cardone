@@ -33,7 +33,7 @@ export default function userReducer(state = {}, action) {
     case UPLOAD_USER_AVATAR:
       return {
         ...state,
-        avatar:action.payload.avatar
+        avatar:action.payload
       }
     default:
       return state;

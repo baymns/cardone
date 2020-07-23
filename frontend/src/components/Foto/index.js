@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUserAvatar } from '../../redux/actions/userActionCreator';
 import CropImage from './cropImage';
 
-function FotoEditor({ userId }) {
+function FotoEditor({ userId, setUploadFoto }) {
   const dispatch = useDispatch();
   const [state, setState] = useState({
     userProfilePic: '',
@@ -21,7 +21,6 @@ function FotoEditor({ userId }) {
     const { type } = file;
     if (type.endsWith('jpeg') || type.endsWith('png') || type.endsWith('jpg')) {
       setState({ ...state, selectedImage: file });
-      console.log(userId);
     }
   }
 
@@ -30,6 +29,7 @@ function FotoEditor({ userId }) {
       const url = editor.getImageScaledToCanvas().toDataURL();
       dispatch(addUserAvatar(userId, String(url)));
       setState({ ...state, userProfilePic: url });
+      setUploadFoto(false)
     }
   }
 
@@ -53,7 +53,6 @@ function FotoEditor({ userId }) {
         scaleValue={state.scaleValue}
         onScaleChange={onScaleChange}
       />
-      <img src={state.userProfilePic} />
     </>
   );
 }

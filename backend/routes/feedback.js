@@ -17,8 +17,6 @@ router.post('/', async (req, res) => {
   } catch (error) {
     return res.status(401).end();
   }
-  console.log(feedback);
-
   return res.json(feedback);
 });
 

@@ -26,7 +26,6 @@ function Feedback({ name, id }) {
       body: JSON.stringify(feedback),
     });
     const result = await response.json();
-    console.log(result);
 
     dispatch(addFeedback(result, feedback.id));
     setFeedback({
