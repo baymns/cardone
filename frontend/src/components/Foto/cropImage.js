@@ -8,6 +8,7 @@ const CropImage = ({
   setEditorRef,
   scaleValue,
   onScaleChange,
+  setUploadFoto,
 }) => {
   return (
     <div className={styles.cropImage}>
@@ -29,6 +30,7 @@ const CropImage = ({
         onChange={onScaleChange}
       />
       <button onClick={onCrop}>Сохранить фото</button>
+      <button onClick={() => setUploadFoto(false)}>Отменить</button>
     </div>
   );
 };

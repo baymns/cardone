@@ -57,6 +57,7 @@ function FotoEditor({ userId, setUploadFoto }) {
         onCrop={onCrop}
         scaleValue={state.scaleValue}
         onScaleChange={onScaleChange}
+        setUploadFoto={setUploadFoto}
       />
     </div>
   );
