@@ -28,13 +28,11 @@ export const Modal = (props) => {
                 className={styles.modalBackground}
                 onClick={() => dispatch(showModal())}
               ></div>
-              {/* <button onClick={() => dispatch(showModal())}>Закрыть</button> */}
               <div className={styles.modal}>
                 <button
                   className={styles.closeButton}
                   onClick={() => dispatch(showModal())}
                   type="button"
-                  // className="close"
                   aria-label="Close"
                 >
                   <span className={styles.buttonX} aria-hidden="true">&times;</span>
