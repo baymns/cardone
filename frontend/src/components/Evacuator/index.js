@@ -42,7 +42,7 @@ function Evacuator() {
   return (
     <form className={styles.evaForm} onSubmit={sendReq}>
       <Tick />
-      <div class="form-group">
+      <div className="form-group">
         <input
           name="username"
           className="evaInput"

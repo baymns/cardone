@@ -44,6 +44,14 @@ function Home() {
             </div>
           </Link>
         </div>
+        <div id="carwash" className={styles.container}>
+          <Link to="/autorefuelling">
+            <div className="autorefuelling">
+            <i className="fas fa-gas-pump"></i>
+              <div>Автозаправка</div>
+            </div>
+          </Link>
+        </div>
         <div id="evacuator" className={styles.container} onClick={() => dispatch(showModal('evacuator'))}>
           <div className={styles.evacuator}>
             <div>

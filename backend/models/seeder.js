@@ -18,7 +18,7 @@ mongoose.connect(
 (async () => {
   const latitude = 55.750625;
   const longitude = 37.626;
-  const category = 'шиномонтаж';
+  const category = 'автозаправка';
   try {
     const response = await fetch(
       encodeURI(

@@ -14,7 +14,7 @@ function Profile() {
       <div className={styles.avatar}>
         <img src={loadedFile || defaultAvatar} alt="avatar" />
         <div onClick={() => setUploadFoto(!uploadFoto)}>
-          <i class="fas fa-user-plus"></i>
+          <i className="fas fa-user-plus"></i>
         </div>
       </div>
       <div className="main-user-info">
@@ -22,7 +22,7 @@ function Profile() {
         <p>{user.email}</p>
       </div>
       <div className="options"></div>
-      {uploadFoto && <FotoEditor user={user.id}/>}
+      {uploadFoto && <FotoEditor user={user.id} />}
     </div>
   );
 }
