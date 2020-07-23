@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   const { rating, comment, id, userId } = req.body;
   const feedback = new Review({ rating, comment, userId });
-  const service = await Service.findOneAndUpdate(
+  await Service.findOneAndUpdate(
     { id },
     { $push: { reviews: feedback._id } },
     { new: true },
@@ -17,7 +17,9 @@ router.post('/', async (req, res) => {
   } catch (error) {
     return res.status(401).end();
   }
-  return res.end();
+  console.log(feedback);
+
+  return res.json(feedback);
 });
 
 export default router;

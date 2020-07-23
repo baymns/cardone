@@ -7,6 +7,14 @@ import Tick from '../Tick';
 import { addEvacuatorReq } from '../../redux/actions/actionCreators';
 
 function Evacuator() {
+  const address = async () => {
+    const result = await geoFindMe();
+    const res = await result;
+    return res;
+  };
+
+  console.log(address);
+
   const [reqData, setReqData] = useState({
     username: '',
     phone: '',
@@ -14,8 +22,6 @@ function Evacuator() {
     model: '',
     address: '',
   });
-
-  console.log(geoFindMe());
 
   const dispatch = useDispatch();
 
