@@ -15,7 +15,6 @@ function geoFindMe() {
         (adress) => adress.GeoObject.name,
       );
       // В результате лежат все данные, необходимые для инпута
-      console.log(result);
       return result[0];
     };
     start();

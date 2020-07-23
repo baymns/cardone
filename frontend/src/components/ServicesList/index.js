@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { load } from '../../redux/actions/actionCreators';
+import { load, sortDistance, sortRating, sortReview } from '../../redux/actions/actionCreators';
 import Service from '../Service';
 import Loading from '../Loading';
 import styles from './serviceslist.module.scss';
@@ -9,7 +9,17 @@ function ServicesList({ category }) {
 
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.services.loading);
+  const sort = useSelector(state => state.services.sort);
   const data = useSelector((state) => state.services.data);
+  const sortedData = useMemo(() => {
+    if (sort === 'rating') {
+      return data.slice().sort((a, b) => b.totalRating - a.totalRating)
+    } else if (sort === 'review') {
+      return data.slice().sort((a, b) => b.reviews.length - a.reviews.length)
+    } else {
+      return data.slice().sort((a, b) => a.distance - b.distance)
+    };
+  }, [data, sort])
   const error = useSelector((state) => state.services.error);
 
   useEffect(() => {
@@ -21,10 +31,18 @@ function ServicesList({ category }) {
 
       </div>
       <div className={styles.list_container}>
+        <div className={styles.sort_block}>
+          <p>Сортировать по:</p>
+          <div className={styles.sort_btns}>
+            <button type="button" onClick={() => dispatch(sortDistance())}>расстоянию</button>
+            <button type="button" onClick={() => dispatch(sortRating())}>рейтингу</button>
+            <button type="button" onClick={() => dispatch(sortReview())}>отзывам</button>
+          </div>
+        </div>
         {loading && <Loading />}
         {error && error.message}
-        {data &&
-          data.map((service) => (
+        {sortedData &&
+          sortedData.map((service) => (
             <Service key={service.id} categ={category} service={service} />
           ))}
       </div>

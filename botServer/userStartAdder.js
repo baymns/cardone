@@ -9,7 +9,6 @@ mongoose.connect('mongodb://localhost:27017/cardone', {
 });
 
 const userStartAdder = async (msg) => {
-  console.log(msg);
   if (msg.text === '/start') {
     const user = new EvacuatorBotUser({
       telegram_id: msg.from.id,

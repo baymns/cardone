@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   const { id } = req.body;
-  console.log(req.body);
   let service;
   try {
     service = await Service.findOneAndUpdate({ id }, { $push: { prefer: req.session.user.id } }, { new: true });

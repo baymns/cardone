@@ -5,7 +5,6 @@ import fetch from 'node-fetch';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  console.log(req.body);
   const { username, phone, brand, model, address } = req.body;
   const order = new EvacuatorOrder({ username, phone, brand, model, address });
   try {
