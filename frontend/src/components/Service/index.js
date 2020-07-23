@@ -14,7 +14,7 @@ import {
 
 function Service({ categ, service }) {
   const user = useSelector((state) => state.user);
-  const feedback = useSelector((state) => state.feedback)
+  const feedback = useSelector((state) => state.feedback);
   const dispatch = useDispatch();
   const {
     id,
@@ -34,7 +34,6 @@ function Service({ categ, service }) {
   const [visibility, setVisibility] = useState(false);
 
   return (
-
     <div className={styles.service_block}>
       <p className={styles.name}>
         <strong>{name}</strong>
@@ -45,7 +44,7 @@ function Service({ categ, service }) {
       <p>Расстояние: {distance}км</p>
       <p>
         Рейтинг:
-          <Rating
+        <Rating
           name="customized-empty"
           value={Number(totalRating)}
           disabled
@@ -56,10 +55,21 @@ function Service({ categ, service }) {
       </p>
       <p>
         {reviews.length > 0 ? (
-          <span>Отзывы: {reviews.length}</span>
+          <span>
+            Отзывы:{' '}
+            <button
+              type="button"
+              onClick={() =>
+                dispatch(showModal('showfeedbacklist', { name, id }))
+              }
+              className={styles.review_rating}
+            >
+              {reviews.length}
+            </button>
+          </span>
         ) : (
-            <span>Отзывов пока нет.</span>
-          )}
+          <span>Отзывов пока нет.</span>
+        )}
         {user.id ? (
           <button
             className={styles.review_button}
@@ -76,12 +86,12 @@ function Service({ categ, service }) {
             Написать отзыв
           </button>
         ) : (
-            <Link to="/signin">
-              <button className={styles.review_button} type="button">
-                Написать отзыв
+          <Link to="/signin">
+            <button className={styles.review_button} type="button">
+              Написать отзыв
             </button>
-            </Link>
-          )}
+          </Link>
+        )}
       </p>
       <p>
         <i className="far fa-clock"></i> {workingTime}
@@ -97,41 +107,44 @@ function Service({ categ, service }) {
         )}
       </p>
       <div className={styles.service_btns}>
-        {visibility ?
-
+        {visibility ? (
           <button
             type="button"
             className={styles.show_map_btn}
             onClick={() => setVisibility(!visibility)}
           >
             <i className="fas fa-location-arrow"></i> Скрыть
-      </button> :
+          </button>
+        ) : (
           <button
             type="button"
             className={styles.show_map_btn}
             onClick={() => setVisibility(!visibility)}
           >
             <i className="fas fa-location-arrow"></i> Маршрут
-      </button>
-
-        }
-        {
-
-          user.favourites && user.favourites.find((serv) => serv.id === id)
-            ? (<button
-              key="removeFavorites"
-              type="button"
-              className={styles.favor_btn}
-              onClick={() => dispatch(deleteFromFavourites(id))}
-            ><i className="fas fa-heart-broken"></i> Убрать из Избранного</button>) :
-            user.id ?
-              (<button
-                key="addFavorites"
-                type="button"
-                className={styles.favor_btn}
-                onClick={() => dispatch(addToFavourites(id, categ, service))}
-              ><i className="fas fa-heart"></i> Добавить в Избранное</button>) : <></>
-        }
+          </button>
+        )}
+        {user.favourites && user.favourites.find((serv) => serv.id === id) ? (
+          <button
+            key="removeFavorites"
+            type="button"
+            className={styles.favor_btn}
+            onClick={() => dispatch(deleteFromFavourites(id))}
+          >
+            <i className="fas fa-heart-broken"></i> Убрать из Избранного
+          </button>
+        ) : user.id ? (
+          <button
+            key="addFavorites"
+            type="button"
+            className={styles.favor_btn}
+            onClick={() => dispatch(addToFavourites(id, categ, service))}
+          >
+            <i className="fas fa-heart"></i> Добавить в Избранное
+          </button>
+        ) : (
+          <></>
+        )}
       </div>
 
       {visibility && (

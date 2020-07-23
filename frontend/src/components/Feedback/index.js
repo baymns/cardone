@@ -4,7 +4,11 @@ import styles from './feedback.module.scss';
 import { useState } from 'react';
 import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import { addFeedback, recalculateRating } from '../../redux/actions/actionCreators';
+import {
+  addFeedback,
+  recalculateRating,
+} from '../../redux/actions/actionCreators';
+import { showModal } from '../../redux/actions/actionCreators';
 
 function Feedback({ name, id }) {
   const user = useSelector((state) => state.user);
@@ -28,7 +32,7 @@ function Feedback({ name, id }) {
     const result = await response.json();
     console.log(result);
     dispatch(addFeedback(result, feedback.id));
-    dispatch(recalculateRating(feedback.id))
+    dispatch(recalculateRating(feedback.id));
     setFeedback({
       rating: 0,
       comment: '',
@@ -37,7 +41,13 @@ function Feedback({ name, id }) {
 
   return (
     <>
-      <form onSubmit={sendFeedback} className={styles.container}>
+      <form
+        onSubmit={(e) => {
+          dispatch(showModal());
+          sendFeedback(e);
+        }}
+        className={styles.container}
+      >
         <p className={styles.name}>{name}</p>
         <p>Оцените это место</p>
         <span>
@@ -80,7 +90,7 @@ function Feedback({ name, id }) {
         <div>
           <button className={styles.send_btn} type="submit">
             Отправить
-        </button>
+          </button>
           <button className={styles.cancel_btn}>Отменить</button>
         </div>
       </form>

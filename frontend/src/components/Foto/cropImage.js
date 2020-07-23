@@ -1,5 +1,6 @@
 import React from 'react';
 import AvatarEditor from '../Avatar'
+import styles from './foto.module.scss';
 
 const CropImage = ({
   imageSrc,
@@ -7,9 +8,10 @@ const CropImage = ({
   setEditorRef,
   scaleValue,
   onScaleChange,
+  setUploadFoto,
 }) => {
   return (
-    <>
+    <div className={styles.cropImage}>
       <AvatarEditor
         ref={setEditorRef}
         image={imageSrc}
@@ -17,6 +19,7 @@ const CropImage = ({
         height={150}
         border={25}
         scale={scaleValue}
+        borderRadius={50}
       />
       <input
         style={{ width: '50%' }}
@@ -26,8 +29,9 @@ const CropImage = ({
         max="10"
         onChange={onScaleChange}
       />
-      <button onClick={onCrop}>Crop it</button>
-    </>
+      <button onClick={onCrop}>Сохранить фото</button>
+      <button onClick={() => setUploadFoto(false)}>Отменить</button>
+    </div>
   );
 };
 
