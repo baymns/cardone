@@ -1,0 +1,14 @@
+.favourites {
+  // height: 100vh;
+  border-bottom: 1px solid #ccc;
+  p {
+    font-size: 1.3em;
+    margin-bottom: 0;
+    small {
+      
+    }
+  }
+  p:last-child {
+    margin-bottom: 0.3em;
+  }
+}

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './navbar.module.scss';
 import { useSelector } from 'react-redux';
-import Footer from '../Footer';
-import Newfooter from '../F/index';
+import Footer from '../Footer/index';
 import { Modal } from '../Modal';
 
 function Navbar() {
@@ -35,11 +34,11 @@ function Navbar() {
                 <div>
                   <Link to="/signup"><i className="fas fa-door-open"></i> Зарегистрироваться</Link>
                 </div>
-                <div style={{marginBottom: 25}}>
+                <div style={{marginBottom: 45}}>
                   <Link to="/cooperation"><i className="fas fa-warehouse"></i> Вы автосервис?</Link>
                 </div>
                 {/* <div className={styles.footer_wrapper}> */}
-                  <Newfooter />
+                  <Footer />
                 {/* </div> */}
               </>
             ) : (
@@ -47,12 +46,10 @@ function Navbar() {
                   <div>
                     <Link to="/profile"><i className="fas fa-user-circle"></i> Профиль</Link>
                   </div>
-                  <div style={{marginBottom: 35}}>
+                  <div style={{marginBottom: 65}}>
                     <Link to="/logout"><i className="fas fa-sign-out-alt"></i> Выйти</Link>
                   </div>
-                  {/* <div className={styles.footer_wrapper}> */}
-                  <Newfooter />
-                {/* </div> */}
+                  <Footer />
                 </>
               )}
             <span className={styles.footer_line}></span>

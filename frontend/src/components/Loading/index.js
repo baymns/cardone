@@ -3,11 +3,11 @@ import './index.css';
 
 export default function () {
   return (
-    <div class="preloader">
-      <div class="bar-container">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+    <div className="preloader">
+      <div className="bar-container">
+        <div className="bar"></div>
+        <div className="bar"></div>
+        <div className="bar"></div>
       </div>
     </div>
   );

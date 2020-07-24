@@ -1,49 +1,59 @@
 import React from 'react';
-import logo from '../../images/logo2.png';
-import styles from './footer.module.scss';
-
+import './style.css'
 function Footer() {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.info}>
-        <div className={styles.contact}>
-          <h6>
-             CARDONE
-          </h6>
-          <a>
-            <i className="fas fa-phone-square"></i> +7(800)555-00-00
-          </a>
-          <a>
-            <i className="fas fa-at"></i> cardone@mail.ru
-          </a>
+    <footer className="site-footer">
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-12 col-md-6">
+            <h6>Cardone</h6>
+            {/* <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p> */}
+          </div>
+
+          {/* <div class="col-xs-6 col-md-3">
+            <h6>Категории</h6>
+            <ul class="footer-links">
+              <li><a href="http://scanfcode.com/category/c-language/">Автосервис</a></li>
+              <li><a href="http://scanfcode.com/category/front-end-development/">Автозапчасти</a></li>
+              <li><a href="http://scanfcode.com/category/back-end-development/">Шиномонтаж</a></li>
+              <li><a href="http://scanfcode.com/category/java-programming-language/">Автозаправка</a></li>
+              <li><a href="http://scanfcode.com/category/android/">Автомойка</a></li>
+              <li><a href="http://scanfcode.com/category/templates/">Эвакуатор</a></li>
+            </ul>
+          </div> */}
+
+          <div className="col-xs-6 col-md-3">
+            <h6>Полезные ссылки</h6>
+            <ul className="footer-links">
+              <li><a href="http://scanfcode.com/about/">О приложении</a></li>
+              <li><a href="http://scanfcode.com/contact/">Контакты</a></li>
+              {/* <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li> */}
+              <li><a href="http://scanfcode.com/privacy-policy/">Политика конфиденциальности</a></li>
+              {/* <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li> */}
+            </ul>
+          </div>
         </div>
+        <hr></hr>
+      </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 col-sm-6 col-xs-12">
+              <p className="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
+         <a href="#"> Cardone</a>.
+            </p>
+            </div>
 
-
-
-        <div className={styles.social}>
-          <h6>Мы в социальных сетях</h6>
-          <ul>
-            <li>
-              <i className="fab fa-facebook-square fa-2x"></i>
-            </li>
-            <li>
-              <i className="fab fa-telegram-plane fa-2x"></i>
-            </li>
-            <li>
-              <i className="fab fa-vk fa-2x"></i>
-            </li>
-            <li>
-              <i className="fab fa-whatsapp-square fa-2x"></i>
-            </li>
-          </ul>
+            <div className="col-md-4 col-sm-6 col-xs-12">
+              <ul className="social-icons">
+                <li><a className="facebook" href="#"><i className="fab fa-facebook"></i></a></li>
+                <li><a className="twitter" href="#"><i className="fab fa-twitter"></i></a></li>
+                {/* <li><a className="dribbble" href="#"><i className="fa fa-dribbble"></i></a></li> */}
+                <li><a className="linkedin" href="#"><i className="fab fa-linkedin-in"></i></a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className={styles.copyright}>
-        © 2020 Copyright:
-        <a href="#"> CARDONE</a>
-      </div>
-    </footer>
+</footer>
   );
 }
 

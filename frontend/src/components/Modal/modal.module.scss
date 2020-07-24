@@ -19,23 +19,16 @@
   position: absolute;
   justify-content: center;
   align-items: center;
-
   .closeButton {
     font-size: 200%;
     position: absolute;
-    top: -0.2em;
+    top: 2em !important;
     right: 0.2em;
     outline: none;
     border: none;
     background-color: transparent;
     color: #b6b6b6;
   }
-
-  // .buttonX {
-  //   position: absolute;
-  //   top: 2px;
-  //   right: 2px;
-  // }
 }
 
 .modalBackground {

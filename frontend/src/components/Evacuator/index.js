@@ -8,9 +8,7 @@ import { showModal } from '../../redux/actions/actionCreators';
 import { addEvacuatorReq } from '../../redux/actions/actionCreators';
 
 function Evacuator() {
-  //const res = await geoFindMe();
 
-  console.log('dddddddddddd');
   const [reqData, setReqData] = useState({
     username: '',
     phone: '',
@@ -56,12 +54,14 @@ function Evacuator() {
     <>
       <form className={styles.evaForm} onSubmit={sendReq}>
         {tickShow && <Tick />}
-        <strong>Эвакуатор</strong>
+        <h3>Заполните заявку</h3>
         <div className="form-group">
+        <label htmlFor="username">Как к вам обращаться</label>
+
           <input
             name="username"
             className="evaInput"
-            placeholder="Как к вам обращаться?"
+            // placeholder="Как к вам обращаться?"
             onChange={changed}
             value={reqData.username}
             type="text"
@@ -71,10 +71,11 @@ function Evacuator() {
           ></input>
         </div>
         <div className="form-group">
+        <label htmlFor="phone">Телефон для связи</label>
+
           <input
             name="phone"
             className="evaInput"
-            placeholder="Телефон для связи"
             onChange={changed}
             value={reqData.phone}
             type="phone"
@@ -83,10 +84,11 @@ function Evacuator() {
           ></input>
         </div>
         <div className="form-group">
+          <label htmlFor="brand">Марка автомобиля</label>
+
           <input
             name="brand"
             className="evaInput"
-            placeholder="Марка автомобиля"
             onChange={changed}
             value={reqData.brand}
             type="text"
@@ -95,10 +97,11 @@ function Evacuator() {
           ></input>
         </div>
         <div className="form-group">
+          <label htmlFor="model">Модель автомобиля</label>
+
           <input
             name="model"
             className="evaInput"
-            placeholder="Модель автомобиля"
             onChange={changed}
             value={reqData.model}
             type="text"
@@ -107,10 +110,10 @@ function Evacuator() {
           ></input>
         </div>
         <div className="form-group">
+          <label htmlFor="address">Адрес</label>
           <input
             name="address"
-            className="evaInput"
-            placeholder="Адрес"
+            // className="evaInput"
             onChange={changed}
             value={reqData.address}
             type="text"
