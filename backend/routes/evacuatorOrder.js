@@ -6,11 +6,15 @@ import EvacuatorOrder from '../models/evacuatorOrder.js';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  const {
-    username, phone, brand, model, address,
-  } = req.body;
+  const numberOfOrder = Math.floor(Math.random() * 672349);
+  const { username, phone, brand, model, address } = req.body;
   const order = new EvacuatorOrder({
-    username, phone, brand, model, address,
+    username,
+    phone,
+    brand,
+    model,
+    address,
+    numberOfOrder,
   });
   try {
     await order.save();
