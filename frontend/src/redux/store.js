@@ -4,6 +4,7 @@ import reduxThunk from 'redux-thunk';
 import servicesReducers from './reducers/servicesReducers';
 import userReducer from './reducers/userReducer';
 import modalReducers from './reducers/modalReducers';
+import tickReducer from './reducers/tickReducer';
 
 const storageState = window.localStorage.getItem('state');
 
@@ -14,6 +15,7 @@ const store = createStore(
     user: userReducer,
     services: servicesReducers,
     modal: modalReducers,
+    tick: tickReducer,
   }),
   initialState,
   composeWithDevTools(applyMiddleware(reduxThunk)),
