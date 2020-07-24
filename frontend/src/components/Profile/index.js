@@ -11,7 +11,6 @@ function Profile() {
   const user = useSelector((state) => state.user);
   let loadedFile = user.avatar;
   const { favourites } = user;
-  console.log(favourites);
   return (
     <div className={styles.profile_container}>
       <div className={styles.avatar}>
@@ -20,21 +19,32 @@ function Profile() {
           alt="avatar"
           onClick={() => setUploadFoto(!uploadFoto)}
         />
-        <div>
+        <div className={styles.user_info}>
           <p>{user.name}</p>
           <p>{user.email}</p>
-          <button onClick={() => setShowChosen(!showChosen)}>Избранное</button>
+        </div>
+
+      </div>
+      <div className={styles.gray_bg}></div>
+      <div className={styles.favour_block} onClick={() => setShowChosen(!showChosen)}>
+        <div className={styles.favour_btn}>
+          <i className="fas fa-bookmark" /> <button>Избранное</button>
+        </div>
+        <div className={styles.favour_list}>
+          {
+            showChosen &&
+            favourites.map((service) => <Favourites key={service.id} service={service} userId={user.id} />)
+          }
         </div>
       </div>
 
-      <div className="options"></div>
+      {
+        uploadFoto && (
+          <FotoEditor userId={user.id} setUploadFoto={setUploadFoto} />
+        )
+      }
 
-      {uploadFoto && (
-        <FotoEditor userId={user.id} setUploadFoto={setUploadFoto} />
-      )}
-      {showChosen &&
-        favourites.map((service) => <Favourites key={service.id} service={service} userId={user.id} />)}
-    </div>
+    </div >
   );
 }
 

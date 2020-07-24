@@ -1,6 +1,13 @@
 .list_container {
     font-family: Helvetica, sans-serif;
     margin-top: 1.2em;
+    position: relative;
+    .preloader_block {
+      position: absolute;
+      top: 0;
+      margin: 0;
+      padding: 0;
+    }
     .sort_block {
       // margin: 10px;  
       padding: 1em;

@@ -9,16 +9,11 @@
 
     overflow: hidden;
     display: block;
-    position: fixed;
-    bottom: 0;
-    width: 0;
-    transition: width 4s;
   .info {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin: 1.25rem;
-
     .contact {
       display: flex;
       flex-direction: column;
@@ -29,7 +24,6 @@
    
     .social ul {
       display: flex;
-      flex-direction: row;
       padding-left: 0;
       li {
         list-style-type: none;

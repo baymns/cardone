@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './navbar.module.scss';
 import { useSelector } from 'react-redux';
-import Footer from '../Footer'
+import Footer from '../Footer';
+import Newfooter from '../F/index';
 import { Modal } from '../Modal';
 
 function Navbar() {
@@ -29,28 +30,29 @@ function Navbar() {
             {!user.id ? (
               <>
                 <div>
-                  <Link to="/signin">Войти</Link>
+                  <Link to="/signin"><i className="fas fa-sign-in-alt"></i> Войти</Link>
                 </div>
                 <div>
-                  <Link to="/signup">Зарегистрироваться</Link>
+                  <Link to="/signup"><i className="fas fa-door-open"></i> Зарегистрироваться</Link>
                 </div>
-                <div>
-                  <Link to="/cooperation">Вы автосервис?</Link>
+                <div style={{marginBottom: 25}}>
+                  <Link to="/cooperation"><i className="fas fa-warehouse"></i> Вы автосервис?</Link>
                 </div>
-                <Footer />
+                {/* <div className={styles.footer_wrapper}> */}
+                  <Newfooter />
+                {/* </div> */}
               </>
             ) : (
                 <>
                   <div>
-                    <Link to="/profile">Профиль</Link>
+                    <Link to="/profile"><i className="fas fa-user-circle"></i> Профиль</Link>
                   </div>
-                  <div>
-                    <Link to="/recommendations">Рекомендации</Link>
+                  <div style={{marginBottom: 35}}>
+                    <Link to="/logout"><i className="fas fa-sign-out-alt"></i> Выйти</Link>
                   </div>
-                  <div>
-                    <Link to="/logout">Выйти</Link>
-                  </div>
-                  <Footer />
+                  {/* <div className={styles.footer_wrapper}> */}
+                  <Newfooter />
+                {/* </div> */}
                 </>
               )}
             <span className={styles.footer_line}></span>

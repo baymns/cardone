@@ -28,9 +28,10 @@ function ServicesList({ category }) {
     };
   }, [data, sort])
   const error = useSelector((state) => state.services.error);
- 
+
   return (
     <div className="page_container">
+      <div className={styles.preloader_block}>{loading && <Loading />}</div>
       <div className="sort"></div>
       <div className={styles.list_container}>
         <div className={styles.sort_block}>
@@ -44,7 +45,6 @@ function ServicesList({ category }) {
             <button type="button" className={(sort === 'review') ? styles.active : undefined} onClick={() => dispatch(sortReview())}>отзывам</button>
           </div>
         </div>
-        {loading && <Loading />}
         {error && error.message}
         {sortedData &&
           sortedData.map((service) => (
