@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../../images/logo2.png';
 import styles from './footer.module.scss';
 
 function Footer() {
@@ -7,7 +8,6 @@ function Footer() {
       <div className={styles.info}>
         <div className={styles.contact}>
           <h6>
-            <i className="fas fa-tag"></i>
              CARDONE
           </h6>
           <a>
