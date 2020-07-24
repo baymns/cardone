@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../profile.module.scss'
+import styles from './favour.module.scss'
 
 function Favourites({ service, userId }) {
   
@@ -7,9 +7,9 @@ function Favourites({ service, userId }) {
   console.log(service);
   return (
     <div className={styles.favourites}>
+      <p><strong>{name}</strong></p>
       <small>{category}</small>
-      <strong>{name}</strong>
-      <p>{phone}</p>
+      <p><i className="fas fa-phone-square"></i> {phone}</p>
     </div>
   );
 }

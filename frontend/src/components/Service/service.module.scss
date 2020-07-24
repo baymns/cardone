@@ -24,19 +24,19 @@
   .review_button {
     border: none;
     outline: none;
-    color: #3895c2;
+    color: #20c0f1;
     background-color: transparent;
   }
   .show_map_btn, .favor_btn {
-    border: 1px solid #3895c2;
+    border: 1px solid #20c0f1;
     border-radius: 0.5em;
     background-color: transparent;
-    color: #3895c2;
+    color: #20c0f1;
     padding: 4px 8px;
     transition: 0.2s;
     outline: none;
     &:hover {
-      background-color: #3895c2;
+      background-color: #20c0f1;
       color: #fff;
     }
   }
@@ -44,14 +44,14 @@
     margin-left: 1.2em;
   }
   .review_rating{
-    border:1px solid #3895c2;
+    border:1px solid #20c0f1;
     background-color: transparent;
-    color:#3895c2;
+    color:#20c0f1;
     border-radius: 50%;
     padding: 0 .44444em ;
     margin-right: .666em;
     &:hover{
-      background-color: #3895c2;
+      background-color: #20c0f1;
       color:white;
     }
   }

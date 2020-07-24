@@ -7,7 +7,6 @@ import Favourites from './Favourites';
 
 function Profile() {
   const [uploadFoto, setUploadFoto] = useState(false);
-  const [showChosen, setShowChosen] = useState(false);
   const user = useSelector((state) => state.user);
   let loadedFile = user.avatar;
   const { favourites } = user;
@@ -25,24 +24,27 @@ function Profile() {
         </div>
 
       </div>
-      <div className={styles.gray_bg}></div>
-      <div className={styles.favour_block} onClick={() => setShowChosen(!showChosen)}>
-        <div className={styles.favour_btn}>
-          <i className="fas fa-bookmark" /> <button>Избранное</button>
-        </div>
-        <div className={styles.favour_list}>
-          {
-            showChosen &&
-            favourites.map((service) => <Favourites key={service.id} service={service} userId={user.id} />)
-          }
-        </div>
-      </div>
-
+      <div className={styles.edit_foto}>
       {
         uploadFoto && (
           <FotoEditor userId={user.id} setUploadFoto={setUploadFoto} />
         )
       }
+      </div>
+      <div className={styles.gray_bg}></div>
+      <div className={styles.favour_block}>
+        <div className={styles.favour_btn}>
+          <i className="fas fa-bookmark" /> <button>Избранное</button>
+        </div>
+        <div className={styles.favour_list}>
+          {
+            favourites &&
+            favourites.map((service) => <Favourites key={service.id} service={service} userId={user.id} />)
+          }
+        </div>
+      </div>
+
+      
 
     </div >
   );

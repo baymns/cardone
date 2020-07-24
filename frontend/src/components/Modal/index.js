@@ -34,8 +34,8 @@ export const Modal = (props) => {
                   onClick={() => dispatch(showModal())}
                   type="button"
                   aria-label="Close"
-                >
-                  <span className={styles.buttonX} aria-hidden="true">&times;</span>
+                >&times;
+                  {/* <span className={styles.buttonX} aria-hidden="true"></span> */}
                 </button>
                 {props.children}
               </div>
