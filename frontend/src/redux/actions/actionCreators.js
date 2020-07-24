@@ -3,15 +3,14 @@ import {
   LOADING_FAILED,
   LOADING_STARTED,
   LOADING_SUCCESSFUL,
-
   SORT_BY_DISTANCE,
   SORT_BY_RATING,
   SORT_BY_REVIEW,
-
   EVACUATOR_REQ,
   SHOW_MODAL,
+  SHOW_TICK,
   ADD_FEEDBACK,
-  RECALCULATE_RATING
+  RECALCULATE_RATING,
 } from './actionTypes';
 
 dotenv.config();
@@ -34,6 +33,12 @@ export function showModal(show, props) {
     type: SHOW_MODAL,
     show,
     props,
+  };
+}
+
+export function showTick() {
+  return {
+    type: SHOW_TICK,
   };
 }
 

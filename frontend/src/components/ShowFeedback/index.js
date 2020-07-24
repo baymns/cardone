@@ -16,7 +16,7 @@ function ShowFeedback(review) {
           precision={0.1}
           emptyIcon={<StarBorderIcon fontSize="inherit" />}
         />
-        <div>{eview.review.createdAt}</div>
+        <div>{review.review.createdAt}</div>
       </div>
     </>
   );
