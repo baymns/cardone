@@ -62,6 +62,7 @@ function Service({ categ, service }) {
               onClick={() =>
                 dispatch(showModal('showfeedbacklist', { name, id }))
               }
+              className={styles.review_rating}
             >
               {reviews.length}
             </button>

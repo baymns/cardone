@@ -4,11 +4,13 @@ import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 function ShowFeedback(review) {
+  const time = new Date(review.review.createdAt).toLocaleString().slice(0, 17);
   return (
     <>
       <div className={styles.container}>
-        <strong>{review.review.userId.name}</strong>
-        <div>{review.review.comment}</div>
+        <p>
+          <strong>{review.review.userId.name}</strong>
+        </p>
         <Rating
           name="customized-empty"
           value={Number(review.review.rating)}
@@ -16,7 +18,8 @@ function ShowFeedback(review) {
           precision={0.1}
           emptyIcon={<StarBorderIcon fontSize="inherit" />}
         />
-        <div>{review.review.createdAt}</div>
+        <div>{review.review.comment}</div>
+        <div className={styles.time_block}>{time}</div>
       </div>
     </>
   );
