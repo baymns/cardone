@@ -27,10 +27,7 @@ const orderSchema = new Schema({
   address: String,
   createAt: { type: Date, default: Date.now() },
   inProgress: { type: Boolean, default: false },
-  numberOfOrder: {
-    type: String,
-    default: Math.floor(Math.random() * 672349),
-  },
+  numberOfOrder: String,
 });
 
 export default model('EvacuatorOrder', orderSchema);
