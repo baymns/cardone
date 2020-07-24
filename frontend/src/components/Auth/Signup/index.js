@@ -12,7 +12,7 @@ function Signup() {
   const history = useHistory();
   const signUp = async (event) => {
     event.preventDefault();
-    
+
     const req = await fetch('/api/signup', {
       method: 'POST',
       headers: {
@@ -28,7 +28,7 @@ function Signup() {
     } else {
       setError(user)
     }
-    
+
   };
 
   const changed = ({ target: { value, name } }) => {
@@ -55,8 +55,8 @@ function Signup() {
           </div>
           <button type="submit" className="btn btn-primary">Зарегистрироваться</button>
         </form>
+        <Link to="/signin">Уже есть аккаунт?</Link>
 
-        {/* <button className={styles.link_btn} onClick={onClick}>Создать аккаунт</button> */}
         <div>{error}</div>
       </div>
     </div>

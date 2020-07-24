@@ -55,15 +55,16 @@ export default (state = initialState, action) => {
         }),
       };
     case RECALCULATE_RATING:
-      const service = state.data.find((el) => el.id === action.id)
-      const rating = service.reviews.reduce((acc, review) => acc + review.rating, 0)
-      service.totalRating = (rating / service.reviews.length).toFixed(1);
+      const newData = state.data.map((service) => {
+        if (service.id === action.id) {
+          const rating = service.reviews.reduce((acc, review) => acc + review.rating, 0);
+          service.totalRating = (rating / service.reviews.length).toFixed(1);
+        }
+        return service;
+      });
       return {
         ...state,
-        data: [
-          ...state.data,
-          service
-        ]
+        data: newData,
       };
     default:
       return state;

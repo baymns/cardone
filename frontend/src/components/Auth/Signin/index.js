@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styles from './signin.module.scss';
 import { useDispatch } from 'react-redux';
 import { regUser } from '../../../redux/actions/userActionCreator';
@@ -50,6 +50,7 @@ function Signin() {
           </div>
           <button type="submit" className="btn btn-primary">Войти</button>
         </form>
+        <Link to="/signup">Зарегистрироваться</Link>
         <div className={styles.error}>{error}</div>
       </div>
     </div>

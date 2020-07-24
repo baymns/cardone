@@ -7,9 +7,9 @@ function Favourites({ service, userId }) {
   console.log(service);
   return (
     <div className={styles.favourites}>
+      <small>{category}</small>
       <strong>{name}</strong>
       <p>{phone}</p>
-      <small>{category}</small>
     </div>
   );
 }
