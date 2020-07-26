@@ -9,8 +9,9 @@
     width: 100%;
     padding: 1rem;
     font-size: 1.1em;
-    border-bottom: 1px solid #ccc;
-
+    // border-bottom: 1px solid #ccc;
+    height: 10em;
+    margin-top: 3em;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -39,6 +40,7 @@
     flex-direction: column;
     .favour_btn {
       border-top: 1px solid #ccc;
+      height: 5em;
       border-bottom: 1px solid #ccc;
       padding: 0.5em 0.7em;
       outline: none;
@@ -52,7 +54,7 @@
         background-color: transparent;
         outline: none;
         font-size: 1.1em;
-        height: 1em;
+        height: 2em;
       }
     }
     .favour_list {
