@@ -1,6 +1,8 @@
 import React from 'react';
-import AvatarEditor from '../Avatar'
+import { useDispatch } from 'react-redux';
+import AvatarEditor from '../Avatar';
 import styles from './foto.module.scss';
+import { showModal } from '../../redux/actions/actionCreators';
 
 const CropImage = ({
   imageSrc,
@@ -10,6 +12,7 @@ const CropImage = ({
   onScaleChange,
   setUploadFoto,
 }) => {
+  const dispatch = useDispatch();
   return (
     <div className={styles.cropImage}>
       <AvatarEditor
@@ -29,8 +32,22 @@ const CropImage = ({
         max="10"
         onChange={onScaleChange}
       />
-      <button onClick={onCrop}>Сохранить фото</button>
-      <button onClick={() => setUploadFoto(false)}>Отменить</button>
+      <button
+        onClick={() => {
+          dispatch(showModal());
+          onCrop();
+        }}
+      >
+        Сохранить фото
+      </button>
+      <button
+        onClick={() => {
+          dispatch(showModal());
+          setUploadFoto(false);
+        }}
+      >
+        Отменить
+      </button>
     </div>
   );
 };
