@@ -27,12 +27,14 @@ function Profile() {
         </div>
       </div>
 
+
       {/* <div style={{marginTop: 25}}> */}
       {/* {uploadFoto && (
         <FotoEditor userId={user.id} setUploadFoto={setUploadFoto} />
       )} */}
       {/* </div> */}
       <br></br>
+
       <div className={styles.gray_bg}></div>
       <div className={styles.favour_block}>
         <div className={styles.favour_btn}>
