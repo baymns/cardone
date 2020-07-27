@@ -13,6 +13,7 @@ import Evacuator from './components/Evacuator';
 import Profile from './components/Profile/index';
 import Feedback from './components/Feedback';
 import ShowFeedbackList from './components/ShowFeedbackList';
+import FotoEditor from './components/Foto';
 
 const componentsForModal = {
   signin: Signin,
@@ -20,6 +21,7 @@ const componentsForModal = {
   evacuator: Evacuator,
   feedback: Feedback,
   showfeedbacklist: ShowFeedbackList,
+  foto: FotoEditor,
 };
 
 function App() {

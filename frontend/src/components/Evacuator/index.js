@@ -8,7 +8,6 @@ import { showModal } from '../../redux/actions/actionCreators';
 import { addEvacuatorReq } from '../../redux/actions/actionCreators';
 
 function Evacuator() {
-
   const [reqData, setReqData] = useState({
     username: '',
     phone: '',
@@ -26,12 +25,13 @@ function Evacuator() {
 
   async function sendReq(event) {
     event.preventDefault();
+    dispatch(showModal());
 
-    dispatch(showTick());
-    setTimeout(() => {
-      dispatch(showTick());
-      dispatch(showModal());
-    }, 1200);
+    // dispatch(showTick());
+    // setTimeout(() => {
+    //   dispatch(showTick());
+    //   dispatch(showModal());
+    // }, 1200);
 
     const response = await fetch('/api/requests', {
       method: 'POST',
@@ -53,10 +53,10 @@ function Evacuator() {
   return (
     <>
       <form className={styles.evaForm} onSubmit={sendReq}>
-        {tickShow && <Tick />}
+        {/* {tickShow && <Tick />} */}
         <h3>Заполните заявку</h3>
         <div className="form-group">
-        <label htmlFor="username">Как к вам обращаться</label>
+          <label htmlFor="username">Как к вам обращаться</label>
 
           <input
             name="username"
@@ -71,7 +71,7 @@ function Evacuator() {
           ></input>
         </div>
         <div className="form-group">
-        <label htmlFor="phone">Телефон для связи</label>
+          <label htmlFor="phone">Телефон для связи</label>
 
           <input
             name="phone"

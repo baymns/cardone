@@ -16,7 +16,7 @@ function Home() {
           <Link to="/services">
             <div className="services">
               <i className="fas fa-wrench" ></i>
-              <div> Автосервис</div>
+              <div>Сервисы</div>
             </div>
           </Link>
         </div>
@@ -32,7 +32,7 @@ function Home() {
           <Link to="/autoparts">
             <div className="autoparts">
               <i className="fas fa-car-side"></i>
-              <div> Автозапчасти</div>
+              <div>Запчасти</div>
             </div>
           </Link>
         </div>
@@ -40,7 +40,7 @@ function Home() {
           <Link to="/carwash">
             <div className="car-wash">
               <i className="fas fa-tint"></i>
-              <div>Автомойка</div>
+              <div>Мойки</div>
             </div>
           </Link>
         </div>
@@ -48,7 +48,7 @@ function Home() {
           <Link to="/autorefuelling">
             <div className="autorefuelling">
             <i className="fas fa-gas-pump"></i>
-              <div>Автозаправка</div>
+              <div>Заправки</div>
             </div>
           </Link>
         </div>
