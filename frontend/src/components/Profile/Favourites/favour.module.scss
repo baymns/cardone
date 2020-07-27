@@ -1,14 +1,52 @@
 .favourites {
-  // height: 100vh;
+  display: flex;
   border-bottom: 1px solid #ccc;
-  p {
-    font-size: 1.3em;
-    margin-bottom: 0;
-    small {
-      
+  justify-content: space-between;
+  // margin: 0 10px;
+  .favour_content {
+    p {
+      font-size: 1.3em;
+      margin-bottom: 0;
+    }
+    p:last-child {
+      margin-bottom: 0.3em;
     }
   }
-  p:last-child {
-    margin-bottom: 0.3em;
+  .show_more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    :first-child {
+      margin-right: 0.6em;
+    }
+    div {
+      margin-right: 0;
+      width: 1.5em;
+      &:hover {
+        cursor: pointer;
+      }
+      svg {
+        font-size: 1.4em !important;
+        :hover {
+          color: #549af8;
+        }
+        :active {
+          color: #549af8;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 414px) {
+  .show_more {
+    div {
+      svg {
+        font-size: 1.4em !important;
+        :active {
+          color: #549af8;
+        }
+      }
+    }
   }
 }

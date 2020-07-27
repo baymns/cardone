@@ -24,13 +24,11 @@ function Profile() {
         </div>
 
       </div>
-      <div className={styles.edit_foto}>
       {
         uploadFoto && (
           <FotoEditor userId={user.id} setUploadFoto={setUploadFoto} />
         )
       }
-      </div>
       <div className={styles.gray_bg}></div>
       <div className={styles.favour_block}>
         <div className={styles.favour_btn}>
