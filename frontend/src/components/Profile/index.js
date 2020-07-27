@@ -25,14 +25,9 @@ function Profile() {
           <p>{user.name}</p>
           <p>{user.email}</p>
         </div>
+
       </div>
 
-
-      {/* <div style={{marginTop: 25}}> */}
-      {/* {uploadFoto && (
-        <FotoEditor userId={user.id} setUploadFoto={setUploadFoto} />
-      )} */}
-      {/* </div> */}
       <br></br>
 
       <div className={styles.gray_bg}></div>
