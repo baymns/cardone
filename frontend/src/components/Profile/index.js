@@ -22,31 +22,25 @@ function Profile() {
           <p>{user.name}</p>
           <p>{user.email}</p>
         </div>
-
       </div>
-      <div className={styles.edit_foto}>
-      {
-        uploadFoto && (
-          <FotoEditor userId={user.id} setUploadFoto={setUploadFoto} />
-        )
-      }
-      </div>
+      {/* <div className={styles.edit_foto}> */}
+      {uploadFoto && (
+        <FotoEditor userId={user.id} setUploadFoto={setUploadFoto} />
+      )}
+      {/* </div> */}
       <div className={styles.gray_bg}></div>
       <div className={styles.favour_block}>
         <div className={styles.favour_btn}>
           <i className="fas fa-bookmark" /> <button>Избранное</button>
         </div>
         <div className={styles.favour_list}>
-          {
-            favourites &&
-            favourites.map((service) => <Favourites key={service.id} service={service} userId={user.id} />)
-          }
+          {favourites &&
+            favourites.map((service) => (
+              <Favourites key={service.id} service={service} userId={user.id} />
+            ))}
         </div>
       </div>
-
-      
-
-    </div >
+    </div>
   );
 }
 
