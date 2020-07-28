@@ -14,6 +14,8 @@ import Profile from './components/Profile/index';
 import Feedback from './components/Feedback';
 import ShowFeedbackList from './components/ShowFeedbackList';
 import FotoEditor from './components/Foto';
+import CreateService from './components/CreateService';
+import FormCreateService from './components/CreateService/FormCreateService'
 
 const componentsForModal = {
   signin: Signin,
@@ -22,6 +24,7 @@ const componentsForModal = {
   feedback: Feedback,
   showfeedbacklist: ShowFeedbackList,
   foto: FotoEditor,
+  formCreateService:FormCreateService,
 };
 
 function App() {
@@ -55,6 +58,9 @@ function App() {
         <Switch>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/cooperation">
+            <CreateService />
           </Route>
           <Route path="/evacuator">
             <Evaquator />
