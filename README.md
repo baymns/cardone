@@ -1,7 +1,7 @@
 # cardone
 
 Service for searching for car services
-![foto]('./ReadMe-asset/test.png')
+![foto]('ReadMe-asset/test.png')
 
 ![foto2]('./ReadMe-asset/cardone/20200729_154700.jpg')
 
