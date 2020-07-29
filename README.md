@@ -1,9 +1,7 @@
 # cardone
 
 Service for searching for car services
-![foto]('./ReadMe-asset/cardone/20200729_154528.png')
-
-![foto1]('./ReadMe-asset/cardone/20200729_154944.jpg')
+![foto]('./ReadMe-asset/20200729_154944.png')
 
 ![foto2]('./ReadMe-asset/cardone/20200729_154700.jpg')
 
