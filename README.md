@@ -7,6 +7,6 @@ Service for searching for car services
 
 ## Авторы
 
-![Мансур Байсаров](https://github.com/baymns)
-![Вадим Федоров](https://github.com/vadyton)
-![Сергей Стрелков](https://github.com/Sertata)
+-[Мансур Байсаров](https://github.com/baymns)
+-[Вадим Федоров](https://github.com/vadyton)
+-[Сергей Стрелков](https://github.com/Sertata)
