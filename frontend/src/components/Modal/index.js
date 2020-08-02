@@ -3,7 +3,6 @@ import styles from './modal.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTransition, animated, config } from 'react-spring';
 import { showModal } from '../../redux/actions/actionCreators';
-import Evacuator from '../Evacuator';
 
 export const Modal = (props) => {
   const show = useSelector((state) => state.modal.modal);

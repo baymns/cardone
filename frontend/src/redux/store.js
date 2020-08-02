@@ -8,7 +8,7 @@ import tickReducer from './reducers/tickReducer';
 
 const storageState = window.localStorage.getItem('state');
 
-const initialState = storageState ? JSON.parse(storageState) : undefined;
+// const initialState = storageState ? JSON.parse(storageState) : undefined;
 
 const store = createStore(
   combineReducers({
@@ -17,13 +17,13 @@ const store = createStore(
     modal: modalReducers,
     tick: tickReducer,
   }),
-  initialState,
+  // initialState,
   composeWithDevTools(applyMiddleware(reduxThunk)),
 );
 
-store.subscribe(() => {
-  const state = store.getState();
-  window.localStorage.setItem('state', JSON.stringify(state));
-});
+// store.subscribe(() => {
+//   const state = store.getState();
+//   window.localStorage.setItem('state', JSON.stringify(state));
+// });
 
 export default store;

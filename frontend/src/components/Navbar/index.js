@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import styles from './navbar.module.scss';
 import { useSelector } from 'react-redux';
 import Footer from '../Footer/index';
-import { Modal } from '../Modal';
 
 function Navbar() {
   const user = useSelector((state) => state.user);

@@ -7,6 +7,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import {
   addFeedback,
   recalculateRating,
+  sendFeedback
 } from '../../redux/actions/actionCreators';
 import { showModal } from '../../redux/actions/actionCreators';
 
@@ -21,7 +22,7 @@ function Feedback({ name, id }) {
 
   const dispatch = useDispatch();
 
-  async function sendFeedback(event) {
+  async function sendFeedback(event, feedback) {
     event.preventDefault();
 
     const response = await fetch('/api/feedback', {
@@ -30,7 +31,6 @@ function Feedback({ name, id }) {
       body: JSON.stringify(feedback),
     });
     const result = await response.json();
-    console.log(result);
     dispatch(addFeedback(result, feedback.id));
     dispatch(recalculateRating(feedback.id));
     setFeedback({
@@ -44,7 +44,11 @@ function Feedback({ name, id }) {
       <form
         onSubmit={(e) => {
           dispatch(showModal());
-          sendFeedback(e);
+          sendFeedback(e, feedback);
+          setFeedback({
+            rating: 0,
+            comment: '',
+          });
         }}
         className={styles.container}
       >
@@ -81,7 +85,6 @@ function Feedback({ name, id }) {
             <span className={styles.title}>Загрузить файл</span>
             <input
               type="file"
-              // className={styles.loadfile_btn}
               aria-describedby="fileHelp"
               id="file-upload"
             />

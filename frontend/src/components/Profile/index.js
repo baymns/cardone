@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import defaultAvatar from '../../images/default-avatar.png';
 import styles from './profile.module.scss';
-import FotoEditor from '../Foto';
 import Favourites from './Favourites';
 import { showModal } from '../../redux/actions/actionCreators';
+import { useHistory } from 'react-router-dom';
 
 function Profile() {
+  const user = useSelector((state) => state.user);
+  const history = useHistory();
+  !user.id && history.push('/'); 
   const dispatch = useDispatch();
   const [uploadFoto, setUploadFoto] = useState(false);
-  const user = useSelector((state) => state.user);
   let loadedFile = user.avatar;
   const { favourites } = user;
   const userId = user.id;
@@ -24,11 +26,10 @@ function Profile() {
         <div className={styles.user_info}>
           <p>{user.name}</p>
           <p>{user.email}</p>
+          {/* <button type="button" className={styles.edit_info_btn}>Редактировать</button> */}
         </div>
 
       </div>
-
-      <br></br>
 
       <div className={styles.gray_bg}></div>
       <div className={styles.favour_block}>

@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    :first-child {
+    :first-child, :nth-child(2) {
       margin-right: 0.6em;
     }
     div {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styles from './showFeedbackList.module.scss';
 import ShowFeedback from '../ShowFeedback';
 
@@ -14,7 +14,7 @@ function ShowFeedbackList({ name, id }) {
         <div>{service.category}</div>
         {service &&
           service.reviews.map((review) => (
-            <ShowFeedback key={service.id} review={review} />
+            <ShowFeedback key={review._id} review={review} />
           ))}
       </div>
     </>
