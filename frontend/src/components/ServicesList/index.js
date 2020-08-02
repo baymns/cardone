@@ -17,7 +17,7 @@ function ServicesList({ category }) {
   const data = useSelector((state) => state.services.data);
   useEffect(() => {
     dispatch(load(category));
-  }, [dispatch]);
+  }, [dispatch, category]);
   const sortedData = useMemo(() => {
     if (sort === 'rating') {
       return data && data.slice().sort((a, b) => b.totalRating - a.totalRating)

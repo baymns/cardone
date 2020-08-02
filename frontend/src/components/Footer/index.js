@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css'
+import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <footer className="site-footer">
@@ -25,35 +26,36 @@ function Footer() {
           <div className="col-xs-6 col-md-3">
             <h6>Полезные ссылки</h6>
             <ul className="footer-links">
-              <li><a href="http://scanfcode.com/about/">О приложении</a></li>
-              <li><a href="http://scanfcode.com/contact/">Контакты</a></li>
+
+              <li><Link to="http://scanfcode.com/about/">О приложении</Link></li>
+              <li><Link to="http://scanfcode.com/contact/">Контакты</Link></li>
               {/* <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li> */}
-              <li><a href="http://scanfcode.com/privacy-policy/">Политика конфиденциальности</a></li>
+              <li><Link to="http://scanfcode.com/privacy-policy/">Политика конфиденциальности</Link></li>
               {/* <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li> */}
             </ul>
           </div>
         </div>
         <hr></hr>
       </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 col-sm-6 col-xs-12">
-              <p className="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
-         <a href="#"> Cardone</a>.
+      <div className="container">
+        <div className="row">
+          <div className="col-md-8 col-sm-6 col-xs-12">
+            <p className="copyright-text">Copyright &copy; 2020 All Rights Reserved by
+         <Link to="#"> Cardone</Link>.
             </p>
-            </div>
+          </div>
 
-            <div className="col-md-4 col-sm-6 col-xs-12">
-              <ul className="social-icons">
-                <li><a className="facebook" href="#"><i className="fab fa-facebook"></i></a></li>
-                <li><a className="twitter" href="#"><i className="fab fa-twitter"></i></a></li>
-                {/* <li><a className="dribbble" href="#"><i className="fa fa-dribbble"></i></a></li> */}
-                <li><a className="linkedin" href="#"><i className="fab fa-linkedin-in"></i></a></li>
-              </ul>
-            </div>
+          <div className="col-md-4 col-sm-6 col-xs-12">
+            <ul className="social-icons">
+              <li><Link className="facebook" to="#"><i className="fab fa-facebook"></i></Link></li>
+              <li><Link className="twitter" to="#"><i className="fab fa-twitter"></i></Link></li>
+              {/* <li><Link className="dribbble" to="#"><i className="fa fa-dribbble"></i></Link></li> */}
+              <li><Link className="linkedin" to="#"><i className="fab fa-linkedin-in"></i></Link></li>
+            </ul>
           </div>
         </div>
-</footer>
+      </div>
+    </footer>
   );
 }
 

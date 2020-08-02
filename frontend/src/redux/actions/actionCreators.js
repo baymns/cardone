@@ -118,3 +118,18 @@ export function load(category) {
     }
   };
 }
+
+export function sendFeedback(event, feedback) {
+  event.preventDefault();
+  return async (dispatch) => {
+    const response = await fetch('/api/feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(feedback),
+    });
+    const result = await response.json();
+    dispatch(addFeedback(result, feedback.id));
+    dispatch(recalculateRating(feedback.id));
+    
+  }
+}

@@ -2,10 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
 import styles from './home.module.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { Modal } from '../Modal';
+import { useDispatch } from 'react-redux';
 import { showModal } from '../../redux/actions/actionCreators';
-import Evacuator from '../Evacuator';
 
 function Home() {
   const dispatch = useDispatch();

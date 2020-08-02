@@ -7,23 +7,22 @@ import Service from '../models/service.js';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  console.log(req.body);
   const {
     rating, comment, id, userId,
   } = req.body;
-  const feedback = new Review({ rating, comment, userId });
-  const service = await Service.findOneAndUpdate(
+  const feedback = await new Review({ rating, comment, userId });
+  await Service.findOneAndUpdate(
     { id },
     { $push: { reviews: feedback._id } },
     { new: true },
-    );
-    console.log(service);
+  );
   try {
     await feedback.save();
   } catch (error) {
-    return res.status(401).end();
+    return res.status(406).end();
   }
-  return res.json(feedback);
+  const fullFeedback = await Review.findOne({ _id: feedback._id }).populate('userId');
+  return res.json(fullFeedback);
 });
 
 export default router;

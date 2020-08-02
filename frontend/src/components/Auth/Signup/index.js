@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import styles from './signup.module.scss';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { regUser } from '../../../redux/actions/userActionCreator';
 
-function Signup() {
+function Signup({ location: { state: path } }) {
   const dispatch = useDispatch()
   const initialState = { name: '', email: '', password: '' };
   const [inputs, setInputs] = useState(initialState);
@@ -23,8 +23,7 @@ function Signup() {
     const user = await req.json();
     if (user.id) {
       dispatch(regUser(user))
-      setInputs(initialState);
-      return history.goBack();
+      return path ? history.goBack() : history.push('/');
     } else {
       setError(user)
     }
@@ -55,8 +54,11 @@ function Signup() {
           </div>
           <button type="submit" className="btn btn-primary">Зарегистрироваться</button>
         </form>
-        <Link to="/signin">Уже есть аккаунт?</Link>
-
+        {path ?
+          <Link to={{ pathname: "/signin", state: path } } >Уже есть аккаунт?</Link>
+          :
+          <Link to="/signin">Уже есть аккаунт?</Link>
+        }
         <div>{error}</div>
       </div>
     </div>
