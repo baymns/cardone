@@ -1,0 +1,29 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  align-items: center;
+  > label {
+    margin: 0;
+    color: rgb(90, 79, 79);
+  }
+  > input {
+    margin: 0;
+  }
+  > button {
+    margin-top: 1rem;
+    background-color: #358bee;
+    border: 1px solid #0f6ed9;
+    border-radius: 10%;
+    width: 5.75rem;
+    height: 2.85rem;
+  }
+  > button:hover {
+    margin-top: 1rem;
+    background-color: #1763b9;
+    border: 1px solid #0f6ed9;
+    border-radius: 10%;
+    width: 6rem;
+    height: 3rem;
+  }
+}

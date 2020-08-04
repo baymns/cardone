@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { showModal } from '../../redux/actions/actionCreators';
 import {
   addToFavourites,
@@ -13,6 +13,7 @@ import {
 } from '../../redux/actions/userActionCreator';
 
 function Service({ categ, service }) {
+  const { path } = useRouteMatch()
   const user = useSelector((state) => state.user);
   const feedback = useSelector((state) => state.feedback);
   const dispatch = useDispatch();
@@ -23,7 +24,6 @@ function Service({ categ, service }) {
     workingTime,
     phone,
     url,
-    category,
     coordinates,
     totalRating,
     distance,
@@ -68,8 +68,8 @@ function Service({ categ, service }) {
             </button>
           </span>
         ) : (
-          <span>Отзывов пока нет.</span>
-        )}
+            <span>Отзывов пока нет.</span>
+          )}
         {user.id ? (
           <button
             className={styles.review_button}
@@ -86,12 +86,12 @@ function Service({ categ, service }) {
             Написать отзыв
           </button>
         ) : (
-          <Link to="/signin">
-            <button className={styles.review_button} type="button">
-              Написать отзыв
+            <Link to={{ pathname: "/signup", state: path } } >
+              <button className={styles.review_button} type="button">
+                Написать отзыв
             </button>
-          </Link>
-        )}
+            </Link>
+          )}
       </p>
       <p>
         <i className="far fa-clock"></i> {workingTime}
@@ -116,14 +116,14 @@ function Service({ categ, service }) {
             <i className="fas fa-location-arrow"></i> Скрыть
           </button>
         ) : (
-          <button
-            type="button"
-            className={styles.show_map_btn}
-            onClick={() => setVisibility(!visibility)}
-          >
-            <i className="fas fa-location-arrow"></i> Маршрут
-          </button>
-        )}
+            <button
+              type="button"
+              className={styles.show_map_btn}
+              onClick={() => setVisibility(!visibility)}
+            >
+              <i className="fas fa-location-arrow"></i> Маршрут
+            </button>
+          )}
         {user.favourites && user.favourites.find((serv) => serv.id === id) ? (
           <button
             key="removeFavorites"
@@ -143,14 +143,16 @@ function Service({ categ, service }) {
             <i className="fas fa-heart"></i> Добавить в Избранное
           </button>
         ) : (
-          <></>
-        )}
+              <></>
+            )}
       </div>
 
-      {visibility && (
-        <Map description={address} boundedBy={coordinates} id={id} />
-      )}
-    </div>
+      {
+        visibility && (
+          <Map description={address} boundedBy={coordinates} id={id} />
+        )
+      }
+    </div >
   );
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Modal } from './components/Modal';
 import Navbar from './components/Navbar';
@@ -14,6 +14,8 @@ import Profile from './components/Profile/index';
 import Feedback from './components/Feedback';
 import ShowFeedbackList from './components/ShowFeedbackList';
 import FotoEditor from './components/Foto';
+import CreateService from './components/CreateService';
+import FormCreateService from './components/CreateService/FormCreateService'
 
 const componentsForModal = {
   signin: Signin,
@@ -22,11 +24,11 @@ const componentsForModal = {
   feedback: Feedback,
   showfeedbacklist: ShowFeedbackList,
   foto: FotoEditor,
+  formCreateService:FormCreateService,
 };
 
 function App() {
   const modalState = useSelector((state) => state.modal);
-
   const CurrentModal = componentsForModal[modalState.show];
   function handleLoad() {
     window.ymaps.ready(() => {
@@ -42,6 +44,10 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('load', handleLoad());
+    return () => {
+      console.log('Component unmount');
+      window.removeEventListener('load')
+    };
   }, []);
   return (
     <div className="App">
@@ -55,6 +61,9 @@ function App() {
         <Switch>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/cooperation">
+            <CreateService />
           </Route>
           <Route path="/evacuator">
             <Evaquator />
@@ -74,11 +83,13 @@ function App() {
           <Route path="/autorefuelling">
             <ServicesList category={'автозаправка'} />
           </Route>
-          <Route path="/signin">
-            <Signin />
+          <Route path="/signin" render={props => (
+            <Signin {...props} />
+          )}>
           </Route>
-          <Route path="/signup">
-            <Signup />
+          <Route path="/signup" render={props => (
+            <Signup {...props} />
+          )}>
           </Route>
           <Route path="/logout">
             <Logout />

@@ -4,7 +4,7 @@ import styles from './signin.module.scss';
 import { useDispatch } from 'react-redux';
 import { regUser } from '../../../redux/actions/userActionCreator';
 
-function Signin() {
+function Signin({ location: { state: path } }) {
   const dispatch = useDispatch();
   const initialState = { email: '', password: '' };
   const [inputs, setInputs] = useState(initialState);
@@ -23,8 +23,7 @@ function Signin() {
     const user = await res.json()
     if (user.id) {
       dispatch(regUser(user))
-      setInputs(initialState);
-      return history.goBack();
+      return path ? history.go(-2) : history.push('/');
     } else {
       setError(user)
     }
