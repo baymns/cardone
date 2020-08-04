@@ -15,7 +15,6 @@ CarDone - это агрегатор провайдеров автомобиль�
 ![Image alt](https://github.com/baymns/cardone/raw/dev/readme-images/evacuator.jpg)
 ![Image alt](https://github.com/baymns/cardone/raw/dev/readme-images/bot.jpg)
 
-
 ## Используемые технологии:
 JavaScript, React, Redux, Node.js, Express, MognoDB, Mongoose, Bootstrap, React-Spring, Yandex.Maps
 
