@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUserAvatar } from '../../redux/actions/userActionCreator';
 import CropImage from './cropImage';
@@ -30,7 +30,7 @@ function FotoEditor({ userId, setUploadFoto }) {
       const url = editor.getImageScaledToCanvas().toDataURL();
       dispatch(addUserAvatar(userId, String(url)));
       setState({ ...state, userProfilePic: url });
-      setUploadFoto(false)
+      setUploadFoto(false);
     }
   }
 
@@ -41,6 +41,7 @@ function FotoEditor({ userId, setUploadFoto }) {
 
   return (
     <div className={styles.main}>
+      <h3>Фото профиля</h3>
       <label>
         <i className="fas fa-upload"></i>
         <span className={styles.title}>Загрузить фото</span>
