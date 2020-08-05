@@ -1,0 +1,58 @@
+.service_block {
+  margin: 10px 10px 18px;
+  padding: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.25);
+  .name {
+    font-size: 1.4em;
+  }
+  p {
+    font-size: 1.2em;
+    margin-bottom: 0.3em;
+    svg {
+      font-size: 1.2em;
+    }
+    :nth-child(2) {
+      color: 'green'
+    }
+    span {
+      vertical-align: middle;
+    }
+  }
+  .service_btns {
+    margin: 1em 0 0.6em;
+  }
+  .review_button {
+    border: none;
+    outline: none;
+    color: #20c0f1;
+    background-color: transparent;
+  }
+  .show_map_btn, .favor_btn {
+    border: 1px solid #20c0f1;
+    border-radius: 0.5em;
+    background-color: transparent;
+    color: #20c0f1;
+    padding: 4px 8px;
+    transition: 0.2s;
+    outline: none;
+    &:hover {
+      background-color: #20c0f1;
+      color: #fff;
+    }
+  }
+  .favor_btn {
+    margin-left: 1.2em;
+  }
+  .review_rating{
+    border:1px solid #20c0f1;
+    background-color: transparent;
+    color:#20c0f1;
+    border-radius: 50%;
+    padding: 0 .44444em ;
+    margin-right: .666em;
+    &:hover{
+      background-color: #20c0f1;
+      color:white;
+    }
+  }
+}

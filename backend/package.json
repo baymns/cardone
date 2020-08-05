@@ -4,17 +4,22 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "seeder": "node models/seeder.js"
   },
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "express": "^4.16.4",
     "express-session": "^1.17.1",
     "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
     "mongoose": "^5.9.22",
     "morgan": "~1.9.1",
+    "node-fetch": "^2.6.0",
+    "node-telegram-bot-api": "^0.50.0",
     "session-file-store": "^1.4.0"
   }
 }
