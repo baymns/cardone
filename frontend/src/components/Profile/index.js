@@ -21,7 +21,7 @@ function Profile() {
         <img
           src={loadedFile || defaultAvatar}
           alt="avatar"
-          onClick={() => dispatch(showModal('foto', { userId, setUploadFoto }))}
+          onClick={() => dispatch(showModal('photo', { userId, setUploadFoto }))}
         />
         <div className={styles.user_info}>
           <p>{user.name}</p>

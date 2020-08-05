@@ -13,7 +13,7 @@ import Evacuator from './components/Evacuator';
 import Profile from './components/Profile/index';
 import Feedback from './components/Feedback';
 import ShowFeedbackList from './components/ShowFeedbackList';
-import FotoEditor from './components/Foto';
+import PhotoEditor from './components/Photo';
 import CreateService from './components/CreateService';
 import FormCreateService from './components/CreateService/FormCreateService'
 
@@ -23,7 +23,7 @@ const componentsForModal = {
   evacuator: Evacuator,
   feedback: Feedback,
   showfeedbacklist: ShowFeedbackList,
-  foto: FotoEditor,
+  photo: PhotoEditor,
   formCreateService:FormCreateService,
 };
 
